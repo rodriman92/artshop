@@ -8,68 +8,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- BS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Style-->
     <link rel="stylesheet" href="./css/styles.css">
-    <!-- BS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <title>Bienvenidos a OpenWorld</title>
 </head>
 <body class="body">
     <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navCustom">
+        <nav class="navbar navCustom navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <a class=" navbar-brand navbar-title" id="navbar-title" href="#"> 
-                    <img src="./media/logo.jpg" alt="MDB Logo" class="imgLogo" loading="lazy"/></a>
-                    <a href="#" class="nabvar-title navbar-brand ">Open World</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <a class="navbar-brand" href="#"><img src="./media/logo.svg" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse " id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Artist</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown link
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                  <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                  <a class="nav-link" href="#">Colecciones</a>
+                  <a class="nav-link" href="#">Recursos</a>
+                  <a class="nav-link" href="#">Contacto</a>
+                </div>
               </div>
             </div>
           </nav>
     </header>
     <main class="mainIndex">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <h1 class="titleIndex">
-                        Welcome to the new era!
-                    </h1>
-
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <div class="card">
-                        <div class="card2">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                  <h1 class="h1Custom" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
+                  <p class="h1Custom__text">Open World es la primera tienda de compra y venta de NFTs en español</p>
+                  <a href="#" type="button" class="btn btn-light btn-default btnExplore">Explora</a>
+                  <a href="#" type="button" class="btn btn-default btnCreate">Crea</a>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://lh3.googleusercontent.com/DMECLVNnZV6cG6Rj_-gxxutAvF-hXI18TwSnkGX1uNDSpOjB52iN62ozxG1r1nTEdQUodW9GdwwIsOq2vXn8_jie-Uo-_fw1EYsO4g=s550" class="d-block w-100 card-img-top" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://lh3.googleusercontent.com/9-ZPpNlPgP8xJoNsS7JxrKYvi5p-sNwLy3U7RQFWGIHM1Fn53oLepPLBkrTrhm_Xqq3g-PPcU9JzYtJO9X8Hv4BlQsQlaRAAtuW4Ww=w600" class="d-block w-100 card-img-top" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://lh3.googleusercontent.com/ggLJlY1-17uNTZzA3xLbM8e4vxKmpH6Sc-QLedBdmuj5E54SdT1gXUIC0BPkUfhVDyUSOdT49PM1Ew8FDaoiIj7C48XHv5o4NkU4PQ=w600" class="d-block w-100 card-img-top" alt="...">
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <p class="card-body__info">Creado por Rodriman</p>
                 </div>
-            </div>
-        </div>
+
+              </div>
+          </div>
+      </div>
     </main>
     <script src="./js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

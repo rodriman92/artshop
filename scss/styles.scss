@@ -1,8 +1,106 @@
+@import "navbar";
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
 html {
 	font-size: 62, 5%;
+}
+
+.mainIndex{
+	height: auto;
+	background-image: url("/media/fondo_main.svg");
+	width: 100vw;
+	background-repeat: no-repeat;
+	background-position-x: 20rem;
+	background-size: cover;
+	padding-bottom: 10rem;
+	.row{
+		.h1Custom{
+			color: #0F225E;
+			margin-top: 6rem;
+			font-size: 4rem;
+			font-weight: 600;
+			margin-right: 10rem;
+			margin-left: 5rem;
+			
+		}
+		.h1Custom__text{
+			font-size: 1.2rem;
+			margin-left: 5rem;
+		}
+		.btnExplore{
+			margin-left: 5rem;
+			width: 8vw;
+			height: 5vh;
+			color: #090909;
+			padding: 0.7em 1.7em;
+			font-size: 1rem;
+			font-weight: 600;
+			border-radius: 0.5em;
+			background: #e8e8e8;
+			border: 1px solid #e8e8e8;
+			transition: all .3s;
+			box-shadow: 6px 6px 12px #c5c5c5,
+						-6px -6px 12px #ffffff;
+			&:hover{
+				border: 1px solid white;
+				
+			}
+			&:active{
+				box-shadow: 4px 4px 12px #c5c5c5,
+             -4px -4px 12px #ffffff;
+			}
+		}
+		.btnCreate{
+			margin-left: 5rem;
+			width: 8vw;
+			height: 5vh;
+			color: #ffffff;
+			padding: 0.7em 1.7em;
+			font-size: 1rem;
+			font-weight: 600;
+			border-radius: 0.5em;
+			background: #335788;
+			border: 1px solid #335788;
+			transition: all .3s;
+			box-shadow: 6px 6px 12px #335788,
+						-6px -6px 12px #ffffff;
+			&:hover{
+				border: 1px solid white;
+				
+			}
+			&:active{
+				box-shadow: 4px 4px 12px #c5c5c5,
+             -4px -4px 12px #ffffff;
+			}
+		}
+		.card {
+			margin-top: 3rem;
+			height: auto;
+			width: 40rem;
+			background: rgb(236, 236, 236);
+ 			box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+			  rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+			   rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+			.card-body{
+				.card-img-top{
+					max-width:100%;
+					width: 100%;
+					height: auto;
+					object-fit:cover;
+				}
+			}
+			.card-body__info{
+				text-align: left;
+				margin-right: auto;
+				padding-left: 2rem;
+				justify-content: left;
+				font-weight: 600;
+			}
+
+		}
+	}
 }
