@@ -20,21 +20,21 @@ html {
 	.row{
 		.h1Custom{
 			color: #0F225E;
-			margin-top: 6rem;
-			font-size: 4rem;
+			margin-top: 3rem;
+			font-size: 2rem;
 			font-weight: 600;
 			margin-right: 10rem;
-			margin-left: 5rem;
+			margin-left: 1rem;
 			
 		}
 		.h1Custom__text{
 			font-size: 1.2rem;
-			margin-left: 5rem;
+			margin-left: 1rem;
 		}
 		.btnExplore{
-			margin-left: 5rem;
-			width: 8vw;
-			height: 5vh;
+			margin-left: 1rem;
+			width: 30vw;
+			height: 7vh;
 			color: #090909;
 			padding: 0.7em 1.7em;
 			font-size: 1rem;
@@ -55,9 +55,9 @@ html {
 			}
 		}
 		.btnCreate{
-			margin-left: 5rem;
-			width: 8vw;
-			height: 5vh;
+			margin-left: 2rem;
+			width: 30vw;
+			height: 7vh;
 			color: #ffffff;
 			padding: 0.7em 1.7em;
 			font-size: 1rem;
@@ -80,7 +80,7 @@ html {
 		.card {
 			margin-top: 3rem;
 			height: auto;
-			width: 40rem;
+			width: 100%;
 			background: rgb(236, 236, 236);
  			box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
 			  rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,

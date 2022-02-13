@@ -20,18 +20,18 @@ html {
   padding-bottom: 10rem; }
   .mainIndex .row .h1Custom {
     color: #0F225E;
-    margin-top: 6rem;
-    font-size: 4rem;
+    margin-top: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-right: 10rem;
-    margin-left: 5rem; }
+    margin-left: 1rem; }
   .mainIndex .row .h1Custom__text {
     font-size: 1.2rem;
-    margin-left: 5rem; }
+    margin-left: 1rem; }
   .mainIndex .row .btnExplore {
-    margin-left: 5rem;
-    width: 8vw;
-    height: 5vh;
+    margin-left: 1rem;
+    width: 30vw;
+    height: 7vh;
     color: #090909;
     padding: 0.7em 1.7em;
     font-size: 1rem;
@@ -46,9 +46,9 @@ html {
     .mainIndex .row .btnExplore:active {
       box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
   .mainIndex .row .btnCreate {
-    margin-left: 5rem;
-    width: 8vw;
-    height: 5vh;
+    margin-left: 2rem;
+    width: 30vw;
+    height: 7vh;
     color: #ffffff;
     padding: 0.7em 1.7em;
     font-size: 1rem;
@@ -65,7 +65,7 @@ html {
   .mainIndex .row .card {
     margin-top: 3rem;
     height: auto;
-    width: 40rem;
+    width: 100%;
     background: #ececec;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; }
     .mainIndex .row .card .card-body .card-img-top {
