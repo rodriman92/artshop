@@ -11,12 +11,10 @@ html {
 
 .mainIndex{
 	height: auto;
+	width: auto;
 	background-image: url("/media/fondo_main.svg");
-	width: 100vw;
-	background-repeat: no-repeat;
-	background-position-x: 20rem;
-	background-size: cover;
-	padding-bottom: 10rem;
+	background-position-x: -120;
+	padding-bottom: 10vh;
 	.row{
 		.h1Custom{
 			color: #0F225E;
@@ -28,13 +26,13 @@ html {
 			
 		}
 		.h1Custom__text{
-			font-size: 1.2rem;
+			font-size: 1rem;
 			margin-left: 1rem;
 		}
 		.btnExplore{
 			margin-left: 1rem;
 			width: 30vw;
-			height: 7vh;
+			height: auto;
 			color: #090909;
 			padding: 0.7em 1.7em;
 			font-size: 1rem;
@@ -57,7 +55,7 @@ html {
 		.btnCreate{
 			margin-left: 2rem;
 			width: 30vw;
-			height: 7vh;
+			height: auto;
 			color: #ffffff;
 			padding: 0.7em 1.7em;
 			font-size: 1rem;
