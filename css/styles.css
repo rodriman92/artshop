@@ -1,6 +1,11 @@
 .body .navCustom {
   border-bottom: 10px;
   box-shadow: 10px 10px 10px #000; }
+  .body .navCustom .navbar-toggler {
+    background-color: #0F225E; }
+    .body .navCustom .navbar-toggler .navbar-toggler-icon {
+      background-color: #e8e8e8;
+      color: #0F225E; }
   .body .navCustom .navbar-nav .nav-link {
     font-size: 1.3rem;
     color: #0F225E;
@@ -169,13 +174,15 @@ html {
   .mainIndex .row .h1Custom {
     color: #0F225E;
     margin-top: 3rem;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 800;
     margin-right: 10rem;
     margin-left: 1rem; }
   .mainIndex .row .h1Custom__text {
     font-size: 1rem;
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    font-weight: 400;
+    color: #0F225E; }
   .mainIndex .row .btnExplore {
     font-family: "Poppins", sans-serif;
     margin-left: 1rem;

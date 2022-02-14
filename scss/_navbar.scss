@@ -4,6 +4,13 @@
     .navCustom{
         border-bottom: 10px;
         box-shadow: 10px 10px 10px #000;
+        .navbar-toggler{
+            background-color: $color-primario;
+            .navbar-toggler-icon{
+                background-color: $color-btn-primario;
+                color: $color-primario;
+            }
+        }
         .navbar-nav{
             .nav-link{
                 font-size: 1.3rem;
