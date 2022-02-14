@@ -34,32 +34,57 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs24161" />
+     id="defs24161">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter40614"
+       x="-0.021810453"
+       y="-0.13654575"
+       width="1.0436209"
+       height="1.2730915">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.2257095"
+         id="feGaussianBlur40616" />
+    </filter>
+  </defs>
   <g
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:11.1972px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';stroke-width:0.299924;fill:#27457a;fill-opacity:1"
+       style="font-weight:bold;font-size:11.1972px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';fill:#27457a;fill-opacity:1;stroke-width:0.299924"
        x="0.32393172"
-       y="14.599389"
+       y="10.895226"
        id="text28011"><tspan
          sodipodi:role="line"
          id="tspan28009"
-         style="stroke-width:0.299924;fill:#27457a;fill-opacity:1"
+         style="fill:#27457a;fill-opacity:1;stroke-width:0.299924"
          x="0.32393172"
-         y="14.599389">openWorld</tspan></text>
+         y="10.895226">openWorld</tspan></text>
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:11.1972px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';mix-blend-mode:color-dodge;fill:#27457a;fill-opacity:1;stroke-width:0.299924"
-       x="0.95431542"
-       y="15.0137"
+       x="0.95431548"
+       y="11.309536"
        id="text28011-9"><tspan
          sodipodi:role="line"
          id="tspan28009-9"
          style="fill:#27457a;fill-opacity:1;stroke-width:0.299924"
-         x="0.95431542"
-         y="15.0137">openWorld</tspan></text>
+         x="0.95431548"
+         y="11.309536">openWorld</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:5.58759px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';mix-blend-mode:normal;fill:#1b346c;fill-opacity:1;stroke-width:0.232816;filter:url(#filter40614)"
+       x="37.98996"
+       y="15.794374"
+       id="text31758"><tspan
+         sodipodi:role="line"
+         id="tspan31756"
+         style="font-size:5.58759px;fill:#1b346c;fill-opacity:1;stroke-width:0.232816"
+         x="37.98996"
+         y="15.794374">NFTstore</tspan></text>
   </g>
 </svg>

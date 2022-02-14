@@ -1,9 +1,12 @@
-.body .navCustom .navbar-nav .nav-link {
-  font-size: 1.3rem;
-  color: #0F225E;
-  font-family: "Poppins", sans-serif; }
-  .body .navCustom .navbar-nav .nav-link:hover {
-    font-weight: 600; }
+.body .navCustom {
+  border-bottom: 10px;
+  box-shadow: 10px 10px 10px #000; }
+  .body .navCustom .navbar-nav .nav-link {
+    font-size: 1.3rem;
+    color: #0F225E;
+    font-family: "Poppins", sans-serif; }
+    .body .navCustom .navbar-nav .nav-link:hover {
+      font-weight: 600; }
 
 .cards {
   display: grid;
