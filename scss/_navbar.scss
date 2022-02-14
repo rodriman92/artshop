@@ -1,9 +1,15 @@
+@import "variables";
+
 .body{
     .navCustom{
         .navbar-nav{
             .nav-link{
                 font-size: 1.3rem;
-                
+                color: $color-primario;
+                font-family: $fuente;
+                &:hover{
+                    font-weight: 600;
+                }
             }
         }
     }

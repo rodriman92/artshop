@@ -1,9 +1,13 @@
 @import "navbar";
+@import "variables";
+@import "cards";
+@import "colecciones";
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+	font-family: $fuente;
 }
 html {
 	font-size: 62, 5%;
@@ -17,7 +21,7 @@ html {
 	padding-bottom: 10vh;
 	.row{
 		.h1Custom{
-			color: #0F225E;
+			color: $color-primario;
 			margin-top: 3rem;
 			font-size: 2rem;
 			font-weight: 600;
@@ -30,6 +34,7 @@ html {
 			margin-left: 1rem;
 		}
 		.btnExplore{
+			font-family: $fuente;
 			margin-left: 1rem;
 			width: 30vw;
 			height: auto;
@@ -38,8 +43,8 @@ html {
 			font-size: 1rem;
 			font-weight: 600;
 			border-radius: 0.5em;
-			background: #e8e8e8;
-			border: 1px solid #e8e8e8;
+			background: $color-btn-primario;
+			border: 1px solid $color-btn-primario;
 			transition: all .3s;
 			box-shadow: 6px 6px 12px #c5c5c5,
 						-6px -6px 12px #ffffff;
@@ -53,6 +58,7 @@ html {
 			}
 		}
 		.btnCreate{
+			font-family: $fuente;
 			margin-left: 2rem;
 			width: 30vw;
 			height: auto;
@@ -61,10 +67,10 @@ html {
 			font-size: 1rem;
 			font-weight: 600;
 			border-radius: 0.5em;
-			background: #335788;
-			border: 1px solid #335788;
+			background: $color-primario;
+			border: 1px solid $color-primario;
 			transition: all .3s;
-			box-shadow: 6px 6px 12px #335788,
+			box-shadow: 6px 6px 12px $color-primario,
 						-6px -6px 12px #ffffff;
 			&:hover{
 				border: 1px solid white;
@@ -102,3 +108,5 @@ html {
 		}
 	}
 }
+
+
