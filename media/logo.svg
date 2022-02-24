@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="240"
-   height="65"
-   viewBox="0 0 63.5 17.197917"
+   width="222"
+   height="45.000011"
+   viewBox="0 0 58.73743 11.906268"
    version="1.1"
    id="svg24164"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
@@ -25,14 +25,16 @@
      showgrid="false"
      units="px"
      inkscape:zoom="2.932688"
-     inkscape:cx="84.393567"
+     inkscape:cx="65.980425"
      inkscape:cy="-4.7737775"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     height="44.00001px"
+     width="129px" />
   <defs
      id="defs24161" />
   <g
@@ -41,25 +43,42 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:11.1972px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';stroke-width:0.299924;fill:#27457a;fill-opacity:1"
-       x="0.32393172"
-       y="14.599389"
-       id="text28011"><tspan
+       style="font-style:normal;font-weight:normal;font-size:9.87779px;line-height:1.25;font-family:sans-serif;fill:#152c70;fill-opacity:1;stroke:none;stroke-width:0.28768"
+       x="2.890353"
+       y="9.1796217"
+       id="text4340"><tspan
          sodipodi:role="line"
-         id="tspan28009"
-         style="stroke-width:0.299924;fill:#27457a;fill-opacity:1"
-         x="0.32393172"
-         y="14.599389">openWorld</tspan></text>
+         id="tspan4338"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87779px;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';fill:#152c70;fill-opacity:1;stroke-width:0.28768"
+         x="2.890353"
+         y="9.1796217">Art</tspan></text>
+    <g
+       style="fill:none"
+       id="g28703"
+       transform="matrix(0.48561979,0,0,0.48561979,42.484672,0.67282885)">
+      <path
+         d="M 7,3 C 4.23858,3 2,5.23858 2,8 v 8 c 0,2.7614 2.23858,5 5,5 h 10 c 2.7614,0 5,-2.2386 5,-5 V 8 C 22,5.23858 19.7614,3 17,3 Z"
+         fill="#4296ff"
+         id="path28688" />
+      <path
+         d="m 19.8918,16.8014 -1.9973,-2.5205 c -0.9488,-1.1974 -2.6458,-1.4905 -3.9413,-0.6808 l -0.8364,0.5227 c -0.4587,0.2867 -1.0621,0.1567 -1.3621,-0.2933 l -1.437,-2.1554 C 9.20539,10.0056 6.80071,9.8771 5.51693,11.4176 L 4,13.238 V 16 c 0,1.6569 1.34315,3 3,3 h 10 c 1.3793,0 2.5412,-0.9309 2.8918,-2.1986 z"
+         fill="#152c70"
+         id="path28690" />
+      <path
+         d="m 16,11 c 1.1046,0 2,-0.8954 2,-2 0,-1.10457 -0.8954,-2 -2,-2 -1.1046,0 -2,0.89543 -2,2 0,1.1046 0.8954,2 2,2 z"
+         fill="#152c70"
+         id="path28692" />
+    </g>
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:11.1972px;line-height:1.25;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';mix-blend-mode:color-dodge;fill:#27457a;fill-opacity:1;stroke-width:0.299924"
-       x="0.95431542"
-       y="15.0137"
-       id="text28011-9"><tspan
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#4296ff;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="18.31435"
+       y="9.2925386"
+       id="text52434"><tspan
          sodipodi:role="line"
-         id="tspan28009-9"
-         style="fill:#27457a;fill-opacity:1;stroke-width:0.299924"
-         x="0.95431542"
-         y="15.0137">openWorld</tspan></text>
+         id="tspan52432"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';stroke-width:0.264584;fill:#4296ff;fill-opacity:1"
+         x="18.31435"
+         y="9.2925386">shop</tspan></text>
   </g>
 </svg>

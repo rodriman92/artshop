@@ -16,98 +16,96 @@ html {
 .mainIndex{
 	height: auto;
 	width: auto;
-	background-image: url("/media/fondo_main.svg");
-	background-position-x: -120;
+
 	padding-bottom: 10vh;
-	.row{
-		.h1Custom{
-			color: $color-primario;
-			margin-top: 3rem;
-			font-size: 2.5rem;
-			font-weight: 800;
-			margin-right: 10rem;
-			margin-left: 1rem;
-			
-		}
-		.h1Custom__text{
-			font-size: 1rem;
-			margin-left: 1rem;
-			font-weight: 400;
-			color: $color-primario;
-		}
-		.btnExplore{
-			font-family: $fuente;
-			margin-left: 1rem;
-			width: 30vw;
-			height: auto;
-			color: #090909;
-			padding: 0.7em 1.7em;
-			font-size: 1rem;
-			font-weight: 600;
-			border-radius: 0.5em;
-			background: $color-btn-primario;
-			border: 1px solid $color-btn-primario;
-			transition: all .3s;
-			box-shadow: 6px 6px 12px #c5c5c5,
-						-6px -6px 12px #ffffff;
-			&:hover{
-				border: 1px solid white;
+	.containerIndex{
+		margin-top: 5rem;
+		backdrop-filter: blur(5px); 
+		background-color: rgba(255, 255, 255, 1); 
+		border-radius: 35px; 
+		box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+		width: 80%;
+		height: 40vh;
+		.row{
+			margin-left: 6rem;
+			margin-top: 2rem;
+			.h1Custom{
+				color: $color-primario;
+				margin-top: 5rem;
+				font-size: 2.5rem;
+				font-weight: 800;
+				margin-right: 10rem;
+				margin-left: 1rem;
 				
 			}
-			&:active{
-				box-shadow: 4px 4px 12px #c5c5c5,
-             -4px -4px 12px #ffffff;
+			.h1Custom__text{
+				font-size: 1rem;
+				margin-left: 1rem;
+				font-weight: 400;
+				color: $color-primario;
 			}
-		}
-		.btnCreate{
-			font-family: $fuente;
-			margin-left: 2rem;
-			width: 30vw;
-			height: auto;
-			color: #ffffff;
-			padding: 0.7em 1.7em;
-			font-size: 1rem;
-			font-weight: 600;
-			border-radius: 0.5em;
-			background: $color-primario;
-			border: 1px solid $color-primario;
-			transition: all .3s;
-			box-shadow: 6px 6px 12px $color-primario,
-						-6px -6px 12px #ffffff;
-			&:hover{
-				border: 1px solid white;
-				
-			}
-			&:active{
-				box-shadow: 4px 4px 12px #c5c5c5,
-             -4px -4px 12px #ffffff;
-			}
-		}
-		.card {
-			margin-top: 3rem;
-			height: auto;
-			width: 100%;
-			background: rgb(236, 236, 236);
- 			box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-			  rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-			   rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-			.card-body{
-				.card-img-top{
-					max-width:100%;
-					width: 100%;
-					height: auto;
-					object-fit:cover;
+			.btnExplore{
+				display: inline-block;
+				font-family: $fuente;
+				margin-left: 1rem;
+				width: 10vw;
+				height: auto;
+				color: white;
+				padding: 0.7em 1.7em;
+				font-size: 1rem;
+				font-weight: 600;
+				border-radius: 0.5em;
+				background: $color-btn-primario;
+				border: 1px solid $color-btn-primario;
+				transition: all .3s;
+				box-shadow: 6px 6px 12px #c5c5c5,
+							-6px -6px 12px #ffffff;
+				&:hover{
+					border: 1px solid white;
+					
+				}
+				&:active{
+					box-shadow: 4px 4px 12px #c5c5c5,
+				 -4px -4px 12px #ffffff;
 				}
 			}
-			.card-body__info{
-				text-align: left;
-				margin-right: auto;
-				padding-left: 2rem;
-				justify-content: left;
+			.btnCreate{
+				display: inline-block;
+				font-family: $fuente;
+				margin-left: 2rem;
+				width: 10vw;
+				height: auto;
+				color: #ffffff;
+				padding: 0.7em 1.7em;
+				font-size: 1rem;
 				font-weight: 600;
+				border-radius: 0.3em;
+				background: $color-primario;
+				border: 1px solid $color-primario;
+				transition: all .3s;
+				box-shadow: 6px 6px 12px $color-primario,
+							-6px -6px 12px #ffffff;
+				&:hover{
+					border: 1px solid white;
+					
+				}
+				&:active{
+					box-shadow: 4px 4px 12px #c5c5c5,
+				 -4px -4px 12px #ffffff;
+				}
 			}
-
+			
 		}
+	}
+	
+}
+.sectionColecciones{
+	.h2Custom{
+		text-align: center;
+		justify-content: center;
+		margin: auto;
+		font-size: 3rem;
+		color: $color-primario;
 	}
 }
 
