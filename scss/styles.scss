@@ -25,7 +25,7 @@ html {
 		border-radius: 35px; 
 		box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
 		width: 80%;
-		height: 40vh;
+		height: 50vh;
 		.row{
 			margin-left: 6rem;
 			margin-top: 2rem;
@@ -96,6 +96,13 @@ html {
 			}
 			
 		}
+		.card-container{
+			.cardIndex{
+				.cardIndex__body{
+					padding-top: 3rem;
+				}
+			}
+		}
 	}
 	
 }
@@ -106,6 +113,7 @@ html {
 		margin: auto;
 		font-size: 3rem;
 		color: $color-primario;
+		font-weight: 600;
 	}
 }
 

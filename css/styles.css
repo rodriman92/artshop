@@ -13,10 +13,18 @@
     .body .navCustom .navbar-nav .nav-link:hover {
       font-weight: 600; }
 
-.card {
+.card-container .card {
+  box-sizing: border-box;
   margin-right: 2rem;
-  margin-bottom: 2rem; }
-  .card .card-body .card-title {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  background: white;
+  border-radius: 0.4em;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: #fafafa 0.2em solid; }
+  .card-container .card .card-body .card-title {
     color: red; }
 
 .section_collections .h2Custom {
@@ -47,7 +55,7 @@ html {
     border-radius: 35px;
     box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px white;
     width: 80%;
-    height: 40vh; }
+    height: 50vh; }
     .mainIndex .containerIndex .row {
       margin-left: 6rem;
       margin-top: 2rem; }
@@ -101,10 +109,13 @@ html {
           border: 1px solid white; }
         .mainIndex .containerIndex .row .btnCreate:active {
           box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
+    .mainIndex .containerIndex .card-container .cardIndex .cardIndex__body {
+      padding-top: 3rem; }
 
 .sectionColecciones .h2Custom {
   text-align: center;
   justify-content: center;
   margin: auto;
   font-size: 3rem;
-  color: #0F225E; }
+  color: #0F225E;
+  font-weight: 600; }
