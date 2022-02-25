@@ -17,11 +17,14 @@ let botonColecciones = document.getElementById("botonColecciones");
 
 let colecciones = [];
 
+localStorage.setItem('colecciones', JSON.stringify(colecciones));
+
 //evento para agregar coleccion al array
 
 formColecciones.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    let imagenColeccion = document.getElementById('imagenColeccion').value;
     let autorImagen = document.getElementById('autor').value;
     let descripcionImagen = document.getElementById('descripcion').value;
     let categoriaImagen = document.getElementById('categoria').value;
@@ -29,12 +32,11 @@ formColecciones.addEventListener('submit', (e) => {
     let tipoBlockchain = document.getElementById('tipoBlockchain').value;
     let precio = document.getElementById('precio').value;
     let cantidadDisponible = document.getElementById('disponibilidad').value;
-
     const coleccion = new Coleccion(autorImagen, descripcionImagen, categoriaImagen, fechaPublicacion, tipoBlockchain, precio, cantidadDisponible);
 
     colecciones.push(coleccion);
 
-    console.log(colecciones);
+    localStorage.setItem('colecciones', JSON.stringify(colecciones));
 
     formColecciones.reset();
 });
@@ -42,13 +44,12 @@ formColecciones.addEventListener('submit', (e) => {
 //evento para mostrar las colecciones agregadas en la card de colecciones
 
 botonColecciones.addEventListener('click', () =>{
-    if(colecciones.length !== 0){
-        divColecciones.innerHTML = "";
-
-        colecciones.forEach((coleccion, indice) =>{
+    divColecciones.innerHTML = "";
+        let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
+        coleccionesStorage.forEach((coleccion, indice) =>{
             divColecciones.innerHTML += `
             <div class="card" id="coleccion${indice}" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="./media/fondo_card_index.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Autor: ${coleccion.autorImagen}</h5>
                 <p class="card-text">Descripcion: ${coleccion.descripcionImagen}</p>
@@ -58,11 +59,8 @@ botonColecciones.addEventListener('click', () =>{
                 <p class="card-text">Precio: ${coleccion.precio}</p>
                 <p class="card-text">Disponibilidad: ${coleccion.cantidadDisponible}</p>
 
-
-                <a href="#" class="btn btn-primary">Ver coleccion</a>
             </div>
             </div>
             `
         })
-    }
 });

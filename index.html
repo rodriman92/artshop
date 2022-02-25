@@ -45,8 +45,8 @@
               <div class="col-sm-12 col-md-6 col-lg-6">
                   <h1 class="h1Custom" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
                   <p class="h1Custom__text">Art Shop es la primera tienda de compra y venta de NFTs en español</p>
-                  <a href="#" type="button" class="btn btn-light btn-default btnExplore" id="botonColecciones">Explora</a>
-                  <a href="#" type="button" class="btn btn-default btnCreate" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea</a>
+                  <a href="#" type="button" class="btn btn-light  btnExplore mb-3 flex-fill" id="botonColecciones">Explora</a>
+                  <a href="#" type="button" class="btn btn-default btnCreate mb-3 flex-fill" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea</a>
               </div>
               <div class="col-sm-12 col-md-6 col-lg-6">
                 <div id="card-container">
@@ -63,7 +63,7 @@
       </div>
 
       <!-- Modal -->
-      <div class="modal fade" id="modalCrea" tabindex="-1" aria-labelledby="modalCreaLabel" aria-hidden="true">
+      <div class="modal fade modalCrea" id="modalCrea" tabindex="-1" aria-labelledby="modalCreaLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -74,7 +74,7 @@
               <form action="" id="formColecciones" class="formColecciones">
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Selecciona la imagen</label>
-                  <input class="form-control" type="file" id="formFile">
+                  <input class="form-control" type="file" id="imagenColeccion">
                 </div>
                     
                 <div class="mb-3">
@@ -96,9 +96,9 @@
                 <div class="mb-3">
                   <label for="tipoBlockchain" class="form-label">Tipo de blockchain</label>
                   <select name="select" type="form-control" id="tipoBlockchain" >
-                    <option value="ethereum" >ETHEREUM</option>
-                    <option value="bitcoin" selected>BITCOIN</option>
-                    <option value="dogecoin">DOGECOIN</option>
+                    <option class="opcionesSelect" value="ethereum" selected >ETHEREUM</option>
+                    <option class="opcionesSelect" value="bitcoin" >BITCOIN</option>
+                    <option class="opcionesSelect" value="dogecoin">DOGECOIN</option>
                   </select>
                 </div>
               

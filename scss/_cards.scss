@@ -11,8 +11,16 @@
 		transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		border: rgb(250, 250, 250) 0.2em solid;
 		.card-body{
+			.card-img-top{
+				height: auto;
+			}
 			.card-title{
 				color: red;
+			}
+		}
+		.card-footer{
+			i{
+				display: inline;
 			}
 		}
 	}

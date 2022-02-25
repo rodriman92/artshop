@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .body .navCustom {
   border-bottom: 10px;
   box-shadow: 2px 2px 10px #000; }
@@ -24,8 +25,12 @@
   box-shadow: 0.3em 0.3em 0.7em #00000015;
   transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: #fafafa 0.2em solid; }
+  .card-container .card .card-body .card-img-top {
+    height: auto; }
   .card-container .card .card-body .card-title {
     color: red; }
+  .card-container .card .card-footer i {
+    display: inline; }
 
 .section_collections .h2Custom {
   font-size: 2rem;
@@ -34,6 +39,50 @@
   margin-bottom: 2rem;
   font-weight: 800;
   text-align: justify; }
+
+/*----MEDIA QUERY INDEX DISPOSITIVOS PEQUEÑOS----*/
+@media only screen and (max-width: 600px) {
+  .body .header .navCustom .navbar-nav .nav-link {
+    font-size: 1rem; }
+  .mainIndex .containerIndex {
+    margin-top: 0; }
+    .mainIndex .containerIndex .row {
+      height: auto; }
+      .mainIndex .containerIndex .row #h1 {
+        margin-left: 0;
+        font-size: 1.5rem;
+        text-align: left;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 2rem;
+        margin-top: 2rem; }
+      .mainIndex .containerIndex .row #botonColecciones {
+        font-size: 0.7rem; }
+      .mainIndex .containerIndex .row #botonCrea {
+        font-size: 0.7rem; }
+      .mainIndex .containerIndex .row .cardIndex {
+        display: none; }
+  .mainIndex .modalCrea .modal-header {
+    background-color: #0F225E;
+    color: white; }
+    .mainIndex .modalCrea .modal-header .modal-title {
+      font-size: 0.8rem; }
+    .mainIndex .modalCrea .modal-header .btn-close {
+      background-color: white; }
+  .mainIndex .modalCrea .modal-body .formColecciones .mb-3 .form-label {
+    font-size: 0.9rem; }
+  .mainIndex .modalCrea .modal-body .formColecciones .mb-3 .form-control {
+    font-size: 0.8rem; }
+  .mainIndex .modalCrea .modal-footer .btn {
+    font-size: 0.7rem; }
+  .sectionColecciones #tituloColecciones {
+    font-size: 2rem; }
+  .sectionColecciones .card-container .card {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 1rem; }
+    .sectionColecciones .card-container .card .card-body .card-title {
+      color: red; } }
 
 * {
   margin: 0;
@@ -50,65 +99,62 @@ html {
   padding-bottom: 10vh; }
   .mainIndex .containerIndex {
     margin-top: 5rem;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(1px);
     background-color: white;
     border-radius: 35px;
     box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px white;
     width: 80%;
-    height: 50vh; }
-    .mainIndex .containerIndex .row {
-      margin-left: 6rem;
-      margin-top: 2rem; }
-      .mainIndex .containerIndex .row .h1Custom {
-        color: #0F225E;
-        margin-top: 5rem;
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-right: 10rem;
-        margin-left: 1rem; }
-      .mainIndex .containerIndex .row .h1Custom__text {
-        font-size: 1rem;
-        margin-left: 1rem;
-        font-weight: 400;
-        color: #0F225E; }
-      .mainIndex .containerIndex .row .btnExplore {
-        display: inline-block;
-        font-family: "Poppins", sans-serif;
-        margin-left: 1rem;
-        width: 10vw;
-        height: auto;
-        color: white;
-        padding: 0.7em 1.7em;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 0.5em;
-        background: #006eff;
-        border: 1px solid #006eff;
-        transition: all .3s;
-        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; }
-        .mainIndex .containerIndex .row .btnExplore:hover {
-          border: 1px solid white; }
-        .mainIndex .containerIndex .row .btnExplore:active {
-          box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
-      .mainIndex .containerIndex .row .btnCreate {
-        display: inline-block;
-        font-family: "Poppins", sans-serif;
-        margin-left: 2rem;
-        width: 10vw;
-        height: auto;
-        color: #ffffff;
-        padding: 0.7em 1.7em;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 0.3em;
-        background: #0F225E;
-        border: 1px solid #0F225E;
-        transition: all .3s;
-        box-shadow: 6px 6px 12px #0F225E, -6px -6px 12px #ffffff; }
-        .mainIndex .containerIndex .row .btnCreate:hover {
-          border: 1px solid white; }
-        .mainIndex .containerIndex .row .btnCreate:active {
-          box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
+    height: auto; }
+    .mainIndex .containerIndex .row .h1Custom {
+      color: #0F225E;
+      margin-top: 5rem;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-right: 10rem;
+      margin-left: 1rem; }
+    .mainIndex .containerIndex .row .h1Custom__text {
+      font-size: 1rem;
+      margin-left: 1rem;
+      font-weight: 400;
+      color: #0F225E; }
+    .mainIndex .containerIndex .row .btnExplore {
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      margin-left: 1rem;
+      width: auto;
+      height: auto;
+      color: white;
+      padding: 0.7em 1.7em;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5em;
+      background: #006eff;
+      border: 1px solid #006eff;
+      transition: all .3s;
+      box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff; }
+      .mainIndex .containerIndex .row .btnExplore:hover {
+        border: 1px solid white; }
+      .mainIndex .containerIndex .row .btnExplore:active {
+        box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
+    .mainIndex .containerIndex .row .btnCreate {
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      margin-left: 2rem;
+      width: auto;
+      height: auto;
+      color: #ffffff;
+      padding: 0.7em 1.7em;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.3em;
+      background: #0F225E;
+      border: 1px solid #0F225E;
+      transition: all .3s;
+      box-shadow: 6px 6px 12px #0F225E, -6px -6px 12px #ffffff; }
+      .mainIndex .containerIndex .row .btnCreate:hover {
+        border: 1px solid white; }
+      .mainIndex .containerIndex .row .btnCreate:active {
+        box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
     .mainIndex .containerIndex .card-container .cardIndex .cardIndex__body {
       padding-top: 3rem; }
 

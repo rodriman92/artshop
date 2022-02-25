@@ -1,0 +1,96 @@
+/*----MEDIA QUERY INDEX DISPOSITIVOS PEQUEÑOS----*/
+@media only screen and (max-width: 600px) {
+    .body{
+        .header{
+            .navCustom{
+                .navbar-nav{
+                    .nav-link{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+    .mainIndex{
+        .containerIndex{
+            margin-top: 0;
+            
+            .row{
+                height: auto;
+                #h1{
+                    margin-left: 0;
+                    font-size: 1.5rem;
+                    text-align: left;
+                    text-align: center;
+                    margin: auto;
+                    margin-bottom: 2rem;
+                    margin-top: 2rem;
+                    
+                }
+                #botonColecciones{
+                    font-size: 0.7rem;
+                    
+                }
+                #botonCrea{
+                    font-size: 0.7rem;
+                }
+
+                .cardIndex{
+                    display: none;
+                
+                }
+            }
+        }
+        .modalCrea{
+            .modal-header{
+                background-color: $color-primario;
+                color: white;
+                .modal-title{
+                    font-size: 0.8rem;
+                }
+                .btn-close{
+                    background-color: white;
+                }
+            }
+            .modal-body{
+                .formColecciones{
+                    .mb-3{
+                        .form-label{
+                            font-size: 0.9rem;
+                        }
+                        .form-control{
+                            font-size: 0.8rem;
+                            
+                        }
+                    }
+                }
+            }
+            .modal-footer{
+                .btn{
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    .sectionColecciones{
+        #tituloColecciones{
+            font-size: 2rem;
+        }
+        .card-container{
+            .card{
+                box-sizing: border-box;
+                width: 100%;
+                margin: 1rem;
+                .card-body{
+                    .card-title{
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px){
+
+}

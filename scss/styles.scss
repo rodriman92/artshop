@@ -2,6 +2,7 @@
 @import "variables";
 @import "cards";
 @import "colecciones";
+@import "mediaqueries";
 
 * {
 	margin: 0;
@@ -13,6 +14,7 @@ html {
 	font-size: 62, 5%;
 }
 
+
 .mainIndex{
 	height: auto;
 	width: auto;
@@ -20,15 +22,14 @@ html {
 	padding-bottom: 10vh;
 	.containerIndex{
 		margin-top: 5rem;
-		backdrop-filter: blur(5px); 
+		backdrop-filter: blur(1px); 
 		background-color: rgba(255, 255, 255, 1); 
 		border-radius: 35px; 
 		box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
 		width: 80%;
-		height: 50vh;
+		height: auto;
 		.row{
-			margin-left: 6rem;
-			margin-top: 2rem;
+			
 			.h1Custom{
 				color: $color-primario;
 				margin-top: 5rem;
@@ -48,7 +49,7 @@ html {
 				display: inline-block;
 				font-family: $fuente;
 				margin-left: 1rem;
-				width: 10vw;
+				width: auto;
 				height: auto;
 				color: white;
 				padding: 0.7em 1.7em;
@@ -73,7 +74,7 @@ html {
 				display: inline-block;
 				font-family: $fuente;
 				margin-left: 2rem;
-				width: 10vw;
+				width: auto;
 				height: auto;
 				color: #ffffff;
 				padding: 0.7em 1.7em;
