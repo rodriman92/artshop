@@ -104,7 +104,7 @@ html {
     border-radius: 35px;
     box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px white;
     width: 80%;
-    height: auto; }
+    height: 40vh; }
     .mainIndex .containerIndex .row .h1Custom {
       color: #0F225E;
       margin-top: 5rem;
@@ -155,8 +155,8 @@ html {
         border: 1px solid white; }
       .mainIndex .containerIndex .row .btnCreate:active {
         box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
-    .mainIndex .containerIndex .card-container .cardIndex .cardIndex__body {
-      padding-top: 3rem; }
+    .mainIndex .containerIndex .colIndexCard {
+      padding-top: 4rem; }
 
 .sectionColecciones .h2Custom {
   text-align: center;
