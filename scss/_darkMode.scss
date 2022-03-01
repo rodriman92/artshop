@@ -1,0 +1,14 @@
+//---------------dark mode--------------
+.dark-mode {
+	background-color: rgb(3, 16, 44);
+	color: white;
+	transition: all 2s;
+	&::after{
+		transition: all 2s;
+	}
+
+  }
+  .containerIndex{
+	background-color: black;
+	color: white;
+}
