@@ -17,9 +17,16 @@ let botonColecciones = document.getElementById("botonColecciones");
 
 let colecciones = [];
 
-localStorage.setItem('colecciones', JSON.stringify(colecciones));
 
-//evento para agregar coleccion al array
+//---------consulto si localstorage existe. Si existe traigo el array de colecciones. Si no existe, lo creo
+if(localStorage.getItem('colecciones')){
+    colecciones = JSON.parse(localStorage.getItem('colecciones'))
+}
+else{
+    localStorage.setItem('colecciones', JSON.stringify(colecciones))
+}
+
+//---------evento para agregar coleccion al array
 
 formColecciones.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -32,13 +39,29 @@ formColecciones.addEventListener('submit', (e) => {
     let tipoBlockchain = document.getElementById('tipoBlockchain').value;
     let precio = document.getElementById('precio').value;
     let cantidadDisponible = document.getElementById('disponibilidad').value;
-    const coleccion = new Coleccion(autorImagen, descripcionImagen, categoriaImagen, fechaPublicacion, tipoBlockchain, precio, cantidadDisponible);
+    
+    let datForm = new FormData(e.target);
 
-    colecciones.push(coleccion);
+    console.log(datForm.get('autor'));
+    console.log(datForm.get('descripcion'));
+    console.log(datForm.get('categoria'));
+    console.log(datForm.get('fecha'));
+    console.log(datForm.get('tipoBlockchain'));
+    console.log(datForm.get('precio'));
+    console.log(datForm.get('disponibilidad'));
 
-    localStorage.setItem('colecciones', JSON.stringify(colecciones));
 
-    formColecciones.reset();
+    if (!colecciones.some(coleccionArray => coleccionArray.autorImagen == autorImagen && coleccionArray.descripcionImagen == descripcionImagen)) {
+        const coleccion = new Coleccion(autorImagen, descripcionImagen, categoriaImagen, fechaPublicacion, tipoBlockchain, precio, cantidadDisponible);
+
+        colecciones.push(coleccion);
+
+        localStorage.setItem('colecciones', JSON.stringify(colecciones));
+
+        formColecciones.reset();
+
+        document.getElementById('autor').focus();
+    }
 });
 
 //evento para mostrar las colecciones agregadas en la card de colecciones
