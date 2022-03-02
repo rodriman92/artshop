@@ -14,6 +14,7 @@ let formColecciones = document.getElementById("formColecciones");
 let botonColeccion = document.getElementById("botonColeccion");
 let divColecciones = document.getElementById("divColecciones");
 let botonColecciones = document.getElementById("botonColecciones");
+let mensajeExiste = document.getElementById("mensajeExiste");
 
 let colecciones = [];
 
@@ -60,7 +61,15 @@ formColecciones.addEventListener('submit', (e) => {
 
         formColecciones.reset();
 
+        mensajeExiste.innerHTML = "";
+
         document.getElementById('autor').focus();
+    }
+    else{
+        mensajeExiste.innerHTML += `
+        <div class="alert alert-warning" role="alert">
+            La colección ya existe. Reintente
+        </div>`;
     }
 });
 
@@ -86,6 +95,7 @@ botonColecciones.addEventListener('click', () =>{
             </div>
             `
         })
+        
 });
 
 //-----------dark mode
