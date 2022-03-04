@@ -118,12 +118,13 @@
         margin: auto;
         margin-bottom: 2rem;
         margin-top: 2rem; }
-      .mainIndex .containerIndex .row #botonColecciones {
-        font-size: 0.7rem; }
+      .mainIndex .containerIndex .row .h1Custom__text {
+        font-size: 1.2rem; }
       .mainIndex .containerIndex .row #botonCrea {
-        font-size: 0.7rem; }
-      .mainIndex .containerIndex .row .cardIndex {
-        display: none; }
+        font-size: 1rem; }
+  .mainIndex .colIndexCarousel {
+    margin: auto;
+    margin-left: 1rem; }
   .mainIndex .modalCrea .modal-header {
     background-color: #0F225E;
     color: white; }
@@ -142,6 +143,7 @@
   section .card-container .card {
     box-sizing: border-box;
     width: 90vw;
+    height: auto;
     margin: 1rem; }
     section .card-container .card .card-body .card-title {
       color: red; } }
@@ -251,12 +253,22 @@ html {
         font-weight: 600;
         opacity: 0.8; }
 
-section .h2Custom {
-  margin-top: 3rem;
-  padding-bottom: 5rem;
+.sectionTopColecciones .h2Custom {
+  font-size: 2rem;
   text-align: center;
-  justify-content: center;
-  margin: auto;
-  font-size: 3rem;
   color: #0F225E;
-  font-weight: 600; }
+  font-weight: 600;
+  margin-bottom: 2rem; }
+
+.sectionTopColecciones .tableTopColecciones .thead .tr .th {
+  font-size: 1.2rem; }
+
+.sectionTopColecciones .tableTopColecciones .tbody .tr .td {
+  font-size: 0.8rem; }
+
+.sectionColecciones .h2Custom {
+  font-size: 2rem;
+  text-align: center;
+  color: #0F225E;
+  font-weight: 600;
+  margin-bottom: 2rem; }

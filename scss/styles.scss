@@ -116,16 +116,38 @@ html {
 	}
 	
 }
-section{
+.sectionTopColecciones{
 	.h2Custom{
-		margin-top: 3rem;
-		padding-bottom: 5rem;
+		font-size: 2rem;
 		text-align: center;
-		justify-content: center;
-		margin: auto;
-		font-size: 3rem;
 		color: $color-primario;
 		font-weight: 600;
+		margin-bottom: 2rem;
+	}
+	.tableTopColecciones{
+		.thead{
+			.tr{
+				.th{
+					font-size: 1.2rem;
+				}
+			}
+		}
+		.tbody{
+			.tr{
+				.td{
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}
+.sectionColecciones{
+	.h2Custom{
+		font-size: 2rem;
+		text-align: center;
+		color: $color-primario;
+		font-weight: 600;
+		margin-bottom: 2rem;
 	}
 }
 

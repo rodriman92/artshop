@@ -27,19 +27,17 @@
                     margin-top: 2rem;
                     
                 }
-                #botonColecciones{
-                    font-size: 0.7rem;
-                    
+                .h1Custom__text{
+                    font-size: 1.2rem;
                 }
                 #botonCrea{
-                    font-size: 0.7rem;
-                }
-
-                .cardIndex{
-                    display: none;
-                
+                    font-size:1rem;
                 }
             }
+        }
+        .colIndexCarousel{
+            margin: auto;
+            margin-left: 1rem;
         }
         .modalCrea{
             .modal-header{
@@ -75,11 +73,13 @@
     section{
         #tituloColecciones{
             font-size: 2rem;
+            
         }
         .card-container{
             .card{
                 box-sizing: border-box;
                 width: 90vw;
+                height: auto;
                 margin: 1rem;
                 .card-body{
                     .card-title{

@@ -17,7 +17,8 @@ let botonColecciones = document.getElementById("botonColecciones");
 let mensajeExiste = document.getElementById("mensajeExiste");
 let tablaTopColecciones = document.getElementById("tablaTopColecciones")
 let modalBody = document.querySelector(".modalBody");
-let divOrdenar=document.querySelector(".divOrdenar")
+let botonOrdenaPrecioAsc = document.getElementById("botonOrdenaPrecioAsc");
+let botonOrdenaPrecioDesc = document.querySelector(".botonOrdenaPrecioDesc");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let colecciones = [];
 
@@ -175,10 +176,10 @@ const llenarTabla = () =>{
             tablaTopColecciones.appendChild(tbody);
 
             tbody.innerHTML += `
-            <tr class="trTopColecciones">
-                <td class="tdTopColecciones">${coleccion.descripcionImagen}</td>
-                <td class="tdTopColecciones">${coleccion.autorImagen}</td>
-                <td class="tdTopColecciones">${coleccion.precio}    <img src="${imagen}" class="img-top imagenBlockchain" ></img>(U$S<span class="conversionDolar">${coleccion.precio * valorDolar}</span>)</td>
+            <tr class="tr">
+                <td class="td">${coleccion.descripcionImagen}</td>
+                <td class="td">${coleccion.autorImagen}</td>
+                <td class="td">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img>(U$S<span class="conversionDolar">${coleccion.precio * valorDolar}</span>)</td>
             </tr>
                 
             `
@@ -189,30 +190,25 @@ const llenarTabla = () =>{
     mostrarColecciones();
 }
 
-//-------funcion para ordenar lista de colecciones por precio asc
-//-----en construccion
-
-const ordenarPorPrecioAsc = () =>{
-    let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
-
-    coleccionesStorage.sort((coleccion1, coleccion2) => coleccion1.precio - coleccion2.precio);
-    console.log(coleccionesStorage)
-}
-
 //--------funcion para determinar el tipo de orden de los datos
 //------en construccion
+botonOrdenaPrecioAsc.addEventListener('click', () =>{
 
-const escucharBotonesDivOrdenar = () =>{
-    divOrdenar.addEventListener("click", (e) => {
-        if(e.target.classList.contains("botonOrdenaPrecioAsc")){
-            ordenarPorPrecioAsc();
+    let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
+    let valorDolar= ""
+        if(coleccion1.tipoBlockchain === "ethereum" || coleccion2.tipoBlockchain === "ethereum"){
+            valorDolar=2673,91;
         }
-        else if(e.target.classList.contains("botonOrdenaPrecioDesc")){
-            ordenarPorPrecioDesc();
+        else if(coleccion1.tipoBlockchain === "bitcoin" || coleccion2.tipoBlockchain === "bitcoin"){
+            valorDolar=40768,60;
         }
-        
-    })
-}
+        else if(coleccion1.tipoBlockchain === "dogecoin" || coleccion2.tipoBlockchain === "dogecoin"){
+            valorDolar=0.13;
+        }
+    coleccionesStorage.sort((coleccion1, coleccion2) => (coleccion1.precio * valorDolar) - (coleccion2.precio * valorDolar));
+    
+})
+
 
 //----------- implementa dark mode
 
@@ -224,5 +220,4 @@ function darkMode() {
 
  mostrarColecciones();
  llenarTabla();
- escucharBotonesDivOrdenar();
- ordenarPorPrecioAsc();
+

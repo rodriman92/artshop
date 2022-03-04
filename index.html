@@ -24,7 +24,7 @@
     <title>Bienvenidos a Artshop 🎨</title>
 </head>
 <body class="body">
-    <header class="header">
+    <header class="header" id="inicio">
         <nav class="navbar navCustom navbar-light navbar-expand-lg" style="background-color: #ffffff;">
             <div class="container-fluid">
               <a class="navbar-brand" href="./index.html"><img src="./media/logo.svg" alt=""></a>
@@ -32,7 +32,7 @@
                 <i class="fa-solid fa-bars"></i>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto" id="inicio">
+                <div class="navbar-nav ms-auto">
                   <a class="nav-link" href="#"><button class="btn btn-light" id="botonAgregarCarrito" data-bs-toggle="modal" data-bs-target="#modalCarrito" >Carrito 🛒 <span class="spanCantidad" id="spanCantidad">0</span> </button></a>
                   <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                   <a class="nav-link" href="./index.html#sectionTopColecciones">Ranking</a>
@@ -66,13 +66,13 @@
               <div class="col-sm-12 col-md-4 col-lg-4 colIndexCarousel">
                 <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <div class="carousel-item active mx-auto">
                       <img src="https://lh3.googleusercontent.com/XOGGerEYdpDqM1zge_JmRhG8tEQ9JDwLuX3g1luk6VDYw8Er_by_906hR0r0rc4yl8cAL1LSfaHqtvXa0T6j1V-85D0HE-DjJDLK=w600" class="d-block w-100 imgCard" alt="imagen con rombos y circulos de colores">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item mx-auto">
                       <img src="https://lh3.googleusercontent.com/yldcbDSsafygr2DctdPidevwSBNS1BX6w6uoLWgmJFuL14BSuvf0-yVkJV-JXJx4l-4Zh0TpBEz2foHBQ7r_8ZSjImDhgl6v3Tsd=w600" class="d-block w-100 imgCard" alt="Imagen con rombos de color naranja, amarillo y azul">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item mx-auto">
                       <img src="https://lh3.googleusercontent.com/ADnOT9Qdnhcm2Tyj3xmMtqKy51PipPNIiL5kn5vCSbXvumBFRKrqdgQVzSIyJSnOesOYaOBsklnoQDA3kiX9D43gAX5lrHP_VbHBGg=w600" class="d-block w-100 imgCard" alt="Imagen con rombos y de color verde, rojo y beige">
                     </div>
                   </div>
@@ -201,12 +201,12 @@
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioAsc">Precio ⬆️</button>
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioDesc">Precio ⬇️</button>
         </div>
-        <table class="table table-responsive" id="tablaTopColecciones">
-          <thead>
-            <tr>
-              <th>Colección</th>
-              <th>Autor</th>
-              <th>Precio</th>
+        <table class="table table-responsive tableTopColecciones" id="tablaTopColecciones">
+          <thead class="thead">
+            <tr class="tr">
+              <th class="th">Colección</th>
+              <th class="th">Autor</th>
+              <th class="th">Precio</th>
             </tr>
           </thead>
           
