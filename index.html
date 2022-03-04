@@ -32,10 +32,10 @@
                 <i class="fa-solid fa-bars"></i>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
+                <div class="navbar-nav ms-auto" id="inicio">
                   <a class="nav-link" href="#"><button class="btn btn-light" id="botonAgregarCarrito" data-bs-toggle="modal" data-bs-target="#modalCarrito" >Carrito 🛒 <span class="spanCantidad" id="spanCantidad">0</span> </button></a>
                   <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                  <a class="nav-link" href="#">Acerca de</a>
+                  <a class="nav-link" href="./index.html#sectionTopColecciones">Ranking</a>
                   <a class="nav-link" href="./index.html#tituloColecciones">Colecciones</a>
                   <a class="nav-link" href="#">Recursos</a>
                   <a class="nav-link" href="#">Contacto</a>
@@ -59,7 +59,6 @@
                   <h1 class="h1Custom" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
                   <p class="h1Custom__text">Art Shop es la primera tienda de compra y venta de NFTs en español</p>
                   <div class="d-grid gap-2 col-6 mx-auto">
-                    <a href="#" type="button" class="btn btn-light  btnExplore mb-3 flex-fill btn-block" id="botonColecciones">Explora las NFT</a>
                     <a href="#" type="button" class="btn btn-default btnCreate mb-3 flex-fill btn-block" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea tu propia NFT</a>
                   </div>
                   
@@ -167,8 +166,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <table class="table">
+      <div class="modal-body modalBody">
+        <table class="table tableBody">
           <th>
             <td>Imagen</td>
           </th>
@@ -193,16 +192,27 @@
     <!-- #fin modal carrito-->
 
     <!-- Section Top Colecciones-->
-    <section class="sectionTopColecciones">
-      <div class="container-fluid">
+    <section class="sectionTopColecciones" id="sectionTopColecciones">
+      <div class="container-fluid contenedorTable">
         <div class="row">
           <h2 class="h2Custom" id="tituloTop">Top Colecciones</h2>
         </div>
-        <table class="table table-striped" id="tablaTopColecciones">
-          <tr>
-            <th>Colección</th>
-            <th>Precio</th>
-          </tr>
+        <div class="divOrdenar">
+          <button class="btn btn-dark btn-block" id="botonOrdenaPrecioAsc">Precio ⬆️</button>
+          <button class="btn btn-dark btn-block" id="botonOrdenaPrecioDesc">Precio ⬇️</button>
+        </div>
+        <table class="table table-responsive" id="tablaTopColecciones">
+          <thead>
+            <tr>
+              <th>Colección</th>
+              <th>Autor</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          
+          <tbody class="tbody">
+
+          </tbody>
           
         </table>
         
@@ -232,8 +242,8 @@
     <!-- footer-->
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Inicio</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Acerca de</a></li>
+        <li class="nav-item"><a href="./index.html#inicio" class="nav-link px-2 text-muted">Inicio</a></li>
+        <li class="nav-item"><a href="./index.html#sectionTopColecciones" class="nav-link px-2 text-muted">Ranking</a></li>
         <li class="nav-item"><a href="./index.html#tituloColecciones" class="nav-link px-2 text-muted">Colecciones</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Recursos</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contacto</a></li>
