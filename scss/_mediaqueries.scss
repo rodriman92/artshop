@@ -72,14 +72,14 @@
             }
         }
     }
-    .sectionColecciones{
+    section{
         #tituloColecciones{
             font-size: 2rem;
         }
         .card-container{
             .card{
                 box-sizing: border-box;
-                width: 100%;
+                width: 90vw;
                 margin: 1rem;
                 .card-body{
                     .card-title{

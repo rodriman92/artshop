@@ -15,6 +15,7 @@ let botonColeccion = document.getElementById("botonColeccion");
 let divColecciones = document.getElementById("divColecciones");
 let botonColecciones = document.getElementById("botonColecciones");
 let mensajeExiste = document.getElementById("mensajeExiste");
+let tablaTopColecciones = document.getElementById("tablaTopColecciones")
 
 let colecciones = [];
 
@@ -80,23 +81,51 @@ botonColecciones.addEventListener('click', () =>{
         let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
         coleccionesStorage.forEach((coleccion, indice) =>{
             divColecciones.innerHTML += `
-            <div class="card" id="coleccion${indice}" style="width: 18rem;">
-            <img src="./media/fondo_card_index.png" class="card-img-top" alt="...">
+            <div class="card" id="coleccion${indice}">
             <div class="card-body">
+                <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top imgCard" alt="${coleccion.descripcionImagen}">
                 <h5 class="card-title">Autor: ${coleccion.autorImagen}</h5>
                 <p class="card-text">Descripcion: ${coleccion.descripcionImagen}</p>
                 <p class="card-text">Categoría: ${coleccion.categoriaImagen}</p>
                 <p class="card-text">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-                <p class="card-text">Blockchain: ${coleccion.tipoBlockchain}</p>
-                <p class="card-text">Precio: ${coleccion.precio}</p>
+                <p class="card-text">Precio: ${coleccion.precio} ${coleccion.tipoBlockchain}</p>
                 <p class="card-text">Disponibilidad: ${coleccion.cantidadDisponible}</p>
-
+                </br>
+                <button class="btn btn-primary" id="botonAgregarCarrito">Agregar 🛒</button>
+                <button class="btn btn-danger" id="botonEliminarDelCarrito">Eliminar</button>
             </div>
             </div>
             `
         })
-        
 });
+
+//-----------mostrar colecciones
+const mostrarColecciones = () =>{
+    divColecciones.innerHTML = "";
+        let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
+        coleccionesStorage.forEach((coleccion, indice) =>{
+            divColecciones.innerHTML += `
+            <div class="card" id="coleccion${indice}">
+            <div class="card-body">
+                <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top imgCard" alt="${coleccion.descripcionImagen}">
+                <h5 class="card-title">Autor: ${coleccion.autorImagen}</h5>
+                <p class="card-text">Descripcion: ${coleccion.descripcionImagen}</p>
+                <p class="card-text">Categoría: ${coleccion.categoriaImagen}</p>
+                <p class="card-text">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
+                <p class="card-text">Precio: ${coleccion.precio} ${coleccion.tipoBlockchain}</p>
+                <p class="card-text">Disponibilidad: ${coleccion.cantidadDisponible}</p>
+                </br>
+                <button class="btn btn-primary" id="botonAgregarCarrito">Agregar 🛒</button>
+                <button class="btn btn-danger" id="botonEliminarDelCarrito">Eliminar</button>
+            </div>
+            </div>
+            `
+        })
+}
+
+//--------obtener colecciones en la tabla
+
+
 
 //-----------dark mode
 
@@ -105,3 +134,5 @@ function darkMode() {
     element.classList.toggle("dark-mode");
 
  }
+
+ mostrarColecciones();

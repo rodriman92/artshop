@@ -33,7 +33,7 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                  <a class="nav-link" href="#"><i class="gg-shopping-cart"></i></a>
+                  <a class="nav-link" href="#"><button class="btn btn-light" id="botonAgregarCarrito" data-bs-toggle="modal" data-bs-target="#modalCarrito" >Carrito 🛒 <span class="spanCantidad" id="spanCantidad">0</span> </button></a>
                   <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                   <a class="nav-link" href="#">Acerca de</a>
                   <a class="nav-link" href="./index.html#tituloColecciones">Colecciones</a>
@@ -59,8 +59,8 @@
                   <h1 class="h1Custom" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
                   <p class="h1Custom__text">Art Shop es la primera tienda de compra y venta de NFTs en español</p>
                   <div class="d-grid gap-2 col-6 mx-auto">
-                    <a href="#" type="button" class="btn btn-light  btnExplore mb-3 flex-fill btn-block" id="botonColecciones">Explora</a>
-                    <a href="#" type="button" class="btn btn-default btnCreate mb-3 flex-fill btn-block" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea</a>
+                    <a href="#" type="button" class="btn btn-light  btnExplore mb-3 flex-fill btn-block" id="botonColecciones">Explora las NFT</a>
+                    <a href="#" type="button" class="btn btn-default btnCreate mb-3 flex-fill btn-block" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea tu propia NFT</a>
                   </div>
                   
               </div>
@@ -109,7 +109,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="categoria" class="form-label">Categoria</label>
-                    <input type="text" class="form-control" id="categoria" required>
+                    <select name="select" type="form-control" id="categoria" >
+                      <option class="opcionesSelect" value="abstracto" selected >Abstracto</option>
+                      <option class="opcionesSelect" value="naturaleza" >Naturaleza</option>
+                      <option class="opcionesSelect" value="espacio">Espacio</option>
+                      <option class="opcionesSelect" value="cartoon">Cartoon</option>
+                      <option class="opcionesSelect" value="animales">Animales</option>
+                      <option class="opcionesSelect" value="retrato">Retratos</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                   <label for="fecha" class="form-label">Fecha de publicación</label>
@@ -149,6 +156,59 @@
       </div>
 
     </main>
+
+    <!--inicio modal carrito-->
+
+<!-- Modal -->
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <th>
+            <td>Imagen</td>
+          </th>
+          <th>
+            <td>Coleccion</td>
+          </th>
+          <th>
+            <td>Cantidad</td>
+          </th>
+          <th>
+            <td>Precio</td>
+          </th>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- #fin modal carrito-->
+
+    <!-- Section Top Colecciones-->
+    <section class="sectionTopColecciones">
+      <div class="container-fluid">
+        <div class="row">
+          <h2 class="h2Custom" id="tituloTop">Top Colecciones</h2>
+        </div>
+        <table class="table table-striped" id="tablaTopColecciones">
+          <tr>
+            <th>Colección</th>
+            <th>Precio</th>
+          </tr>
+          
+        </table>
+        
+
+      </div>
+    </section>
 
     <!-- Section Colecciones-->
     <section class="sectionColecciones">
