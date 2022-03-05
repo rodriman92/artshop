@@ -8,8 +8,22 @@ class Coleccion{
         this.precio = precio,
         this.cantidadDisponible = cantidadDisponible
     }
-}
 
+    EthADolar(){
+        this.precio * eth;
+    }
+    BtcADolar(){
+        this.precio * btc;
+    }
+    DogeADolar(){
+        this.precio * doge;
+    }
+}
+//----------constate de valor en dolares de las blockchain
+
+const eth = 2673.91;
+const btc = 40768.60;
+const doge = 0.13;
 let formColecciones = document.getElementById("formColecciones");
 let botonColeccion = document.getElementById("botonColeccion");
 let divColecciones = document.getElementById("divColecciones");
@@ -156,18 +170,18 @@ const llenarTabla = () =>{
 
         //---------seteo una imagen dependiendo el tipo de opcion seleccionada
         let imagen = ""
-        let valorDolar= ""
+        
         if(coleccion.tipoBlockchain === "ethereum"){
             imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
-            valorDolar=2673,91;
+            valorDolar = eth;
         }
         else if(coleccion.tipoBlockchain === "bitcoin"){
             imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
-            valorDolar=40768,60;
+            valorDolar = btc;
         }
         else{
             imagen="https://img.icons8.com/fluency/30/000000/doge.png";
-            valorDolar=0.13;
+            valorDolar = doge;
         }
 
         //--------lleno la tabla con los datos obtenidos y los muesro en el DOM
@@ -192,21 +206,26 @@ const llenarTabla = () =>{
 
 //--------funcion para determinar el tipo de orden de los datos
 //------en construccion
-botonOrdenaPrecioAsc.addEventListener('click', () =>{
+botonOrdenaPrecioAsc.addEventListener('click', (e) => {
 
     let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
-    let valorDolar= ""
+    let imagen = ""
+        let valorDolar= ""
         if(coleccion1.tipoBlockchain === "ethereum" || coleccion2.tipoBlockchain === "ethereum"){
-            valorDolar=2673,91;
+            imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
+            valorDolar=eth;
         }
         else if(coleccion1.tipoBlockchain === "bitcoin" || coleccion2.tipoBlockchain === "bitcoin"){
-            valorDolar=40768,60;
+            imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
+            valorDolar=btc;
         }
         else if(coleccion1.tipoBlockchain === "dogecoin" || coleccion2.tipoBlockchain === "dogecoin"){
-            valorDolar=0.13;
+            imagen="https://img.icons8.com/fluency/30/000000/doge.png";
+            valorDolar=doge;
         }
-    coleccionesStorage.sort((coleccion1, coleccion2) => (coleccion1.precio * valorDolar) - (coleccion2.precio * valorDolar));
-    
+       coleccionesStorage.sort((coleccion1, coleccion2) => (coleccion1.precio - coleccion2.precio));
+       console.log(coleccionesStorage);
+
 })
 
 
