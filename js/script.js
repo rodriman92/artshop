@@ -32,7 +32,7 @@ let mensajeExiste = document.getElementById("mensajeExiste");
 let tablaTopColecciones = document.getElementById("tablaTopColecciones")
 let modalBody = document.querySelector(".modalBody");
 let botonOrdenaPrecioAsc = document.getElementById("botonOrdenaPrecioAsc");
-let botonOrdenaPrecioDesc = document.querySelector(".botonOrdenaPrecioDesc");
+let botonOrdenaPrecioDesc = document.querySelector("#botonOrdenaPrecioDesc");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let colecciones = [];
 
@@ -193,7 +193,8 @@ const llenarTabla = () =>{
             <tr class="tr">
                 <td class="td">${coleccion.descripcionImagen}</td>
                 <td class="td">${coleccion.autorImagen}</td>
-                <td class="td">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img>(U$S<span class="conversionDolar">${coleccion.precio * valorDolar}</span>)</td>
+                <td class="td">${coleccion.precio * valorDolar}</td>
+                <td class="td">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img></td>
             </tr>
                 
             `
@@ -204,30 +205,71 @@ const llenarTabla = () =>{
     mostrarColecciones();
 }
 
-//--------funcion para determinar el tipo de orden de los datos
-//------en construccion
+//--------llamo al evento click del boton OrdenaPrecioAsc y realizo la operacion de orden
+
 botonOrdenaPrecioAsc.addEventListener('click', (e) => {
 
-    let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
-    let imagen = ""
-        let valorDolar= ""
-        if(coleccion1.tipoBlockchain === "ethereum" || coleccion2.tipoBlockchain === "ethereum"){
-            imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
-            valorDolar=eth;
+        //----------------calcular el indice de la columna para ordenar y el numero de fila a aplicar el orden
+
+        let table, rows, ordenando, i, a, b, cambiaOrden;
+        table = document.getElementById("tablaTopColecciones");
+        ordenando = true;
+        
+        while (ordenando) {
+            ordenando = false;
+            rows = table.rows;
+            
+            for (i = 1; i < (rows.length - 1); i++) {
+
+            cambiaOrden = false;
+            a = rows[i].getElementsByTagName("TD")[2];
+            b = rows[i + 1].getElementsByTagName("TD")[2];
+           
+            if (Number(a.innerHTML) < Number(b.innerHTML)) {
+                cambiaOrden = true;
+                break;
+            }
+            }
+            if (cambiaOrden) {
+            
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            ordenando = true;
+            }
         }
-        else if(coleccion1.tipoBlockchain === "bitcoin" || coleccion2.tipoBlockchain === "bitcoin"){
-            imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
-            valorDolar=btc;
-        }
-        else if(coleccion1.tipoBlockchain === "dogecoin" || coleccion2.tipoBlockchain === "dogecoin"){
-            imagen="https://img.icons8.com/fluency/30/000000/doge.png";
-            valorDolar=doge;
-        }
-       coleccionesStorage.sort((coleccion1, coleccion2) => (coleccion1.precio - coleccion2.precio));
-       console.log(coleccionesStorage);
 
 })
 
+//--------llamo al evento click del boton OrdenaPrecioDesc y realizo la operacion de orden
+
+botonOrdenaPrecioDesc.addEventListener('click', (e) => {
+    //----------------calcular el indice de la columna para ordenar y el numero de fila a aplicar el orden
+
+    let table, rows, ordenando, i, a, b, cambiaOrden;
+    table = document.getElementById("tablaTopColecciones");
+    ordenando = true;
+    
+    while (ordenando) {
+        ordenando = false;
+        rows = table.rows;
+        
+        for (i = 1; i < (rows.length - 1); i++) {
+
+        cambiaOrden = false;
+        a = rows[i].getElementsByTagName("TD")[2];
+        b = rows[i + 1].getElementsByTagName("TD")[2];
+       
+        if (Number(a.innerHTML) > Number(b.innerHTML)) {
+            cambiaOrden = true;
+            break;
+        }
+        }
+        if (cambiaOrden) {
+        
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        ordenando = true;
+        }
+    }
+})
 
 //----------- implementa dark mode
 

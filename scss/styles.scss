@@ -20,6 +20,7 @@ html {
 	height: auto;
 	width: auto;
 	padding-bottom: 10vh;
+	
 
 	.containerIndex{
 		margin-top: 5rem;
@@ -117,8 +118,13 @@ html {
 	
 }
 .sectionTopColecciones{
+	background-image: url(../media/background_section_top_collection.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position-x: 80%;
+	size: 20%;
 	.h2Custom{
-		font-size: 2rem;
+		font-size: 3rem;
 		text-align: center;
 		color: $color-primario;
 		font-weight: 600;
@@ -143,7 +149,7 @@ html {
 }
 .sectionColecciones{
 	.h2Custom{
-		font-size: 2rem;
+		font-size: 3rem;
 		text-align: center;
 		color: $color-primario;
 		font-weight: 600;

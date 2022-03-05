@@ -253,21 +253,25 @@ html {
         font-weight: 600;
         opacity: 0.8; }
 
-.sectionTopColecciones .h2Custom {
-  font-size: 2rem;
-  text-align: center;
-  color: #0F225E;
-  font-weight: 600;
-  margin-bottom: 2rem; }
-
-.sectionTopColecciones .tableTopColecciones .thead .tr .th {
-  font-size: 1.2rem; }
-
-.sectionTopColecciones .tableTopColecciones .tbody .tr .td {
-  font-size: 0.8rem; }
+.sectionTopColecciones {
+  background-image: url(../media/background_section_top_collection.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: 80%;
+  size: 20%; }
+  .sectionTopColecciones .h2Custom {
+    font-size: 3rem;
+    text-align: center;
+    color: #0F225E;
+    font-weight: 600;
+    margin-bottom: 2rem; }
+  .sectionTopColecciones .tableTopColecciones .thead .tr .th {
+    font-size: 1.2rem; }
+  .sectionTopColecciones .tableTopColecciones .tbody .tr .td {
+    font-size: 0.8rem; }
 
 .sectionColecciones .h2Custom {
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
   color: #0F225E;
   font-weight: 600;
