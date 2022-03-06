@@ -70,23 +70,40 @@
             }
         }
     }
-    section{
-        #tituloColecciones{
-            font-size: 2rem;
-            
+    .sectionTopColecciones{
+
+        background-image: none;
+        .h2Custom{
+            font-size: 3rem;
+            text-align: center;
+            color: $color-primario;
+            font-weight: 600;
+            margin-bottom: 2rem;
         }
-        .card-container{
-            .card{
-                box-sizing: border-box;
-                width: 90vw;
-                height: auto;
-                margin: 1rem;
-                .card-body{
-                    .card-title{
-                        color: red;
+        .tableTopColecciones{
+            .thead{
+                .tr{
+                    .th{
+                        font-size: 1.2rem;
                     }
                 }
             }
+            .tbody{
+                .tr{
+                    .td{
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+    .sectionColecciones{
+        .h2Custom{
+            font-size: 3rem;
+            text-align: center;
+            color: $color-primario;
+            font-weight: 600;
+            margin-bottom: 2rem;
         }
     }
 }

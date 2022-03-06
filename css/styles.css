@@ -30,6 +30,17 @@
     border: #fafafa 0.2em solid;
     width: 18vw;
     height: 80vh; }
+    .card-container .card:hover {
+      transform: translateY(20px);
+      transition: .5s;
+      background: #9bb7ec;
+      color: white; }
+      .card-container .card:hover .card-title {
+        color: #0F225E; }
+      .card-container .card:hover:before {
+        opacity: 1; }
+    .card-container .card::after {
+      opacity: 0.5; }
     .card-container .card .card-img-top {
       width: 100%;
       height: 15vw;
@@ -39,60 +50,11 @@
       height: 40vh; }
     .card-container .card .card-body .card-title {
       margin-top: 2rem;
-      color: red; }
+      color: #0F225E;
+      font-weight: 800; }
     .card-container .card .card-footer {
-      justify-content: flex-end; }
-
-/* Create three columns of equal width */
-/* Style the list */
-/* Add shadows on hover */
-/* Pricing header */
-/* List items */
-/* Grey list item */
-/* The "Sign Up" button */
-/* Change the width of the three columns to 100%
-(to stack horizontally on small screens) */
-* {
-  box-sizing: border-box; }
-
-.columns {
-  float: left;
-  width: 33.3%;
-  padding: 8px; }
-
-.price {
-  list-style-type: none;
-  border: 1px solid #eee;
-  margin: 0;
-  padding: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s; }
-  .price:hover {
-    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); }
-  .price .header {
-    background-color: #111;
-    color: white;
-    font-size: 25px; }
-  .price li {
-    border-bottom: 1px solid #eee;
-    padding: 20px;
-    text-align: center; }
-  .price .grey {
-    background-color: #eee;
-    font-size: 20px; }
-
-.button {
-  background-color: #04AA6D;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 18px; }
-
-@media only screen and (max-width: 600px) {
-  .columns {
-    width: 100%; } }
+      justify-content: flex-end;
+      padding-bottom: 2rem; }
 
 .section_collections .h2Custom {
   font-size: 2rem;
@@ -138,15 +100,24 @@
     font-size: 0.8rem; }
   .mainIndex .modalCrea .modal-footer .btn {
     font-size: 0.7rem; }
-  section #tituloColecciones {
-    font-size: 2rem; }
-  section .card-container .card {
-    box-sizing: border-box;
-    width: 90vw;
-    height: auto;
-    margin: 1rem; }
-    section .card-container .card .card-body .card-title {
-      color: red; } }
+  .sectionTopColecciones {
+    background-image: none; }
+    .sectionTopColecciones .h2Custom {
+      font-size: 3rem;
+      text-align: center;
+      color: #0F225E;
+      font-weight: 600;
+      margin-bottom: 2rem; }
+    .sectionTopColecciones .tableTopColecciones .thead .tr .th {
+      font-size: 1.2rem; }
+    .sectionTopColecciones .tableTopColecciones .tbody .tr .td {
+      font-size: 0.8rem; }
+  .sectionColecciones .h2Custom {
+    font-size: 3rem;
+    text-align: center;
+    color: #0F225E;
+    font-weight: 600;
+    margin-bottom: 2rem; } }
 
 .dark-mode {
   background-color: #03102c;
@@ -193,7 +164,7 @@ html {
     background-color: white;
     border-radius: 35px;
     box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px white;
-    width: 90%;
+    width: 80%;
     height: auto; }
     .mainIndex .containerIndex .row .h1Custom {
       color: #0F225E;
@@ -209,6 +180,7 @@ html {
       color: #0F225E; }
     .mainIndex .containerIndex .row .btnExplore {
       font-size: 2rem;
+      width: auto;
       cursor: pointer;
       background-color: #171717;
       color: #fff;
@@ -239,25 +211,16 @@ html {
         transition: all 0.2s;
         transform: translateY(-5px);
         box-shadow: 0 2px 0 -2px #f85959, 0 8px 0 -4px #39a2db, 0 12px 10px -3px #39a2db; }
-    .mainIndex .containerIndex .colIndexCarousel {
-      padding-top: 2rem;
-      padding-right: 4rem;
-      padding-bottom: 4rem; }
-      .mainIndex .containerIndex .colIndexCarousel .imgCard {
-        width: 100%;
-        height: auto; }
-      .mainIndex .containerIndex .colIndexCarousel .carousel-info {
-        background-color: #0F225E;
-        color: white;
-        padding: 1.5rem;
-        font-weight: 600;
-        opacity: 0.8; }
+    .mainIndex .containerIndex .row .img-top {
+      margin-top: 3rem;
+      margin-right: 2rem; }
 
 .sectionTopColecciones {
   background-image: url(../media/background_section_top_collection.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: 80%;
+  z-index: -1;
   size: 20%; }
   .sectionTopColecciones .h2Custom {
     font-size: 3rem;

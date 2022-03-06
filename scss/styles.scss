@@ -28,7 +28,7 @@ html {
 		background-color: rgba(255, 255, 255, 1); 
 		border-radius: 35px; 
 		box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
-		width: 90%;
+		width: 80%;
 		height: auto;
 		.row{
 			
@@ -50,6 +50,7 @@ html {
 			.btnExplore{
 				
 				font-size: 2rem;
+				width: auto;
 				cursor: pointer;
 				background-color: #171717;
 				color: #fff;
@@ -96,24 +97,13 @@ html {
 					0 12px 10px -3px #39a2db;
 				}
 			}
+			.img-top{
+				margin-top: 3rem;
+				margin-right: 2rem;
+			}
 			
 		}
-		.colIndexCarousel{
-			padding-top: 2rem;
-			padding-right: 4rem;
-			padding-bottom: 4rem;
-			.imgCard{
-				width: 100%;
-				height: auto;
-			}
-			.carousel-info{
-				background-color: $color-primario;
-				color: white;
-				padding: 1.5rem;
-				font-weight: 600;
-				opacity: 0.8;
-			}
-		}
+		
 	}
 	
 }
@@ -122,6 +112,7 @@ html {
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-x: 80%;
+	z-index: -1;
 	size: 20%;
 	.h2Custom{
 		font-size: 3rem;
@@ -148,6 +139,7 @@ html {
 	}
 }
 .sectionColecciones{
+	
 	.h2Custom{
 		font-size: 3rem;
 		text-align: center;
@@ -156,6 +148,7 @@ html {
 		margin-bottom: 2rem;
 	}
 }
+
 
 
 

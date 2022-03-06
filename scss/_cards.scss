@@ -15,6 +15,24 @@
 		border: rgb(250, 250, 250) 0.2em solid;
 		width: 18vw;
 		height: 80vh;
+		&:hover{
+			transform: translateY(20px);
+			transition: .5s;
+			background: rgb(155, 183, 236);
+			color: white;
+			.card-title{
+				color: $color-primario;
+			}
+			&:before{
+				opacity: 1;
+			}
+			
+
+		}
+		&::after{
+
+			opacity: 0.5;
+		}
 		.card-img-top {
 			width: 100%;
 			height: 15vw;
@@ -25,72 +43,16 @@
 			height: 40vh;
 		}
 		.card-body{
-			
 			.card-title{
 				margin-top: 2rem;
-				color: red;
+				color: $color-primario;
+				font-weight: 800;
 			}
 		}
 		.card-footer{
 			justify-content: flex-end;
+			padding-bottom: 2rem;
 		}
 	}
 }
 
-
-/* Create three columns of equal width */
-/* Style the list */
-/* Add shadows on hover */
-/* Pricing header */
-/* List items */
-/* Grey list item */
-/* The "Sign Up" button */
-/* Change the width of the three columns to 100%
-(to stack horizontally on small screens) */
-* {
-	box-sizing: border-box;
-}
-.columns {
-	float: left;
-	width: 33.3%;
-	padding: 8px;
-}
-.price {
-	list-style-type: none;
-	border: 1px solid #eee;
-	margin: 0;
-	padding: 0;
-	-webkit-transition: 0.3s;
-	transition: 0.3s;
-	&:hover {
-		box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
-	}
-	.header {
-		background-color: #111;
-		color: white;
-		font-size: 25px;
-	}
-	li {
-		border-bottom: 1px solid #eee;
-		padding: 20px;
-		text-align: center;
-	}
-	.grey {
-		background-color: #eee;
-		font-size: 20px;
-	}
-}
-.button {
-	background-color: #04AA6D;
-	border: none;
-	color: white;
-	padding: 10px 25px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 18px;
-}
-@media only screen and (max-width: 600px) {
-	.columns {
-		width: 100%;
-	}
-}

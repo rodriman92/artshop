@@ -126,41 +126,6 @@ const mostrarColecciones = () =>{
     })
 }
 
-//------cuando hago click en el boton agregar, llamo al evento click y consulto cual es el padre 
-//-------*En construccion*
-const btnAgregar = document.querySelectorAll(".btn-agregar");
-btnAgregar.forEach((e) =>
-e.addEventListener("click", (e) => {
-    let cardPadre = e.target.parentElement;
-    console.log(cardPadre)
-    agregarAlCarrito(cardPadre);
-})
-);
-//-------funcion para agregar un producto al carrito 
-//-------* En construccion*
-
-const agregarAlCarrito = (cardPadre) => {
-    let coleccion = {
-      imagenColeccion: cardPadre.querySelector("img").src,
-      descripcionImagen: cardPadre.querySelector(".descripcion").textContent,
-      cantidad: 1,
-      precio: Number(cardPadre.querySelector(".precio").textContent),
-      id: Number(cardPadre.querySelector("button").getAttribute("data-id")),
-    };
-  
-    let coleccionEncontrada = carrito.find(
-      (element) => element.id === coleccion.id
-    );
-  
-    if (coleccionEncontrada) {
-      coleccionEncontrada.cantidad++;
-    } else {
-      carrito.push(coleccion);
-    }
-    console.log(carrito);
-    
-  };
-
 //--------obtener colecciones en la tabla a partir del localstorage
 
 const llenarTabla = () =>{
