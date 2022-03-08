@@ -16,10 +16,7 @@
 		width: 18vw;
 		height: 80vh;
 		&:hover{
-			transform: translateY(20px);
-			transition: .5s;
-			background: rgb(155, 183, 236);
-			color: white;
+			
 			.card-title{
 				color: $color-primario;
 			}

@@ -30,15 +30,10 @@
     border: #fafafa 0.2em solid;
     width: 18vw;
     height: 80vh; }
-    .card-container .card:hover {
-      transform: translateY(20px);
-      transition: .5s;
-      background: #9bb7ec;
-      color: white; }
-      .card-container .card:hover .card-title {
-        color: #0F225E; }
-      .card-container .card:hover:before {
-        opacity: 1; }
+    .card-container .card:hover .card-title {
+      color: #0F225E; }
+    .card-container .card:hover:before {
+      opacity: 1; }
     .card-container .card::after {
       opacity: 0.5; }
     .card-container .card .card-img-top {
@@ -154,20 +149,24 @@
 html {
   font-size: 62, 5%; }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
 .mainIndex {
   height: auto;
-  width: auto;
-  padding-bottom: 10vh; }
+  width: auto; }
   .mainIndex .containerIndex {
-    margin-top: 5rem;
-    backdrop-filter: blur(1px);
-    background-color: white;
-    border-radius: 35px;
-    box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px white;
-    width: 80%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     height: auto; }
     .mainIndex .containerIndex .row .h1Custom {
-      color: #0F225E;
+      color: white;
       margin-top: 6rem;
       font-size: 5rem;
       font-weight: 800;
@@ -177,61 +176,54 @@ html {
       font-size: 1.8rem;
       margin-left: 1rem;
       font-weight: 400;
-      color: #0F225E; }
-    .mainIndex .containerIndex .row .btnExplore {
-      font-size: 2rem;
-      width: auto;
-      cursor: pointer;
-      background-color: #171717;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      transition: all .4s; }
-      .mainIndex .containerIndex .row .btnExplore:hover {
-        border-radius: 5px;
-        transform: translateY(-10px);
-        box-shadow: 0 7px 0 -2px #f85959, 0 15px 0 -4px #39a2db, 0 16px 10px -3px #39a2db; }
-      .mainIndex .containerIndex .row .btnExplore:active {
-        transition: all 0.2s;
-        transform: translateY(-5px);
-        box-shadow: 0 2px 0 -2px #f85959, 0 8px 0 -4px #39a2db, 0 12px 10px -3px #39a2db; }
+      color: white; }
     .mainIndex .containerIndex .row .btnCreate {
-      font-size: 2rem;
-      cursor: pointer;
-      background-color: #0F225E;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      transition: all .4s; }
+      padding: 15px 25px;
+      border: unset;
+      border-radius: 15px;
+      color: #212121;
+      z-index: 1;
+      background: #e8e8e8;
+      position: relative;
+      font-weight: 1000;
+      font-size: 2.5rem;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      transition: all 250ms;
+      overflow: hidden; }
+      .mainIndex .containerIndex .row .btnCreate::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        border-radius: 15px;
+        background-color: #212121;
+        z-index: -1;
+        -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+        box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+        transition: all 250ms; }
       .mainIndex .containerIndex .row .btnCreate:hover {
-        border-radius: 5px;
-        transform: translateY(-10px);
-        box-shadow: 0 7px 0 -2px #f85959, 0 15px 0 -4px #39a2db, 0 16px 10px -3px #39a2db; }
-      .mainIndex .containerIndex .row .btnCreate:active {
-        transition: all 0.2s;
-        transform: translateY(-5px);
-        box-shadow: 0 2px 0 -2px #f85959, 0 8px 0 -4px #39a2db, 0 12px 10px -3px #39a2db; }
+        color: #e8e8e8; }
+        .mainIndex .containerIndex .row .btnCreate:hover::before {
+          width: 100%; }
     .mainIndex .containerIndex .row .img-top {
-      margin-top: 3rem;
-      margin-right: 2rem; }
+      margin-top: 3rem; }
 
-.sectionTopColecciones {
-  background-image: url(../media/background_section_top_collection.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-x: 80%;
-  z-index: -1;
-  size: 20%; }
-  .sectionTopColecciones .h2Custom {
-    font-size: 3rem;
-    text-align: center;
-    color: #0F225E;
-    font-weight: 600;
-    margin-bottom: 2rem; }
-  .sectionTopColecciones .tableTopColecciones .thead .tr .th {
-    font-size: 1.2rem; }
-  .sectionTopColecciones .tableTopColecciones .tbody .tr .td {
-    font-size: 0.8rem; }
+.sectionTopColecciones .h2Custom {
+  font-size: 3rem;
+  text-align: center;
+  color: #0F225E;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  margin-top: 4rem; }
+
+.sectionTopColecciones .tableTopColecciones .thead .tr .th {
+  font-size: 1.2rem; }
+
+.sectionTopColecciones .tableTopColecciones .tbody .tr .td {
+  font-size: 0.8rem; }
 
 .sectionColecciones .h2Custom {
   font-size: 3rem;

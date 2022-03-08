@@ -59,16 +59,7 @@ formColecciones.addEventListener('submit', (e) => {
     let tipoBlockchain = document.getElementById('tipoBlockchain').value;
     let precio = document.getElementById('precio').value;
     let cantidadDisponible = document.getElementById('disponibilidad').value;
-    //-----creo una variable de tipo formdata para recorrer cada input del form
-    let datForm = new FormData(e.target);
 
-    console.log(datForm.get('autor'));
-    console.log(datForm.get('descripcion'));
-    console.log(datForm.get('categoria'));
-    console.log(datForm.get('fecha'));
-    console.log(datForm.get('tipoBlockchain'));
-    console.log(datForm.get('precio'));
-    console.log(datForm.get('disponibilidad'));
 
 
     //-------consulto si la coleccion que se va a cargar ya se encuentra en el array de colecciones. Si no se encuentra la agrego
@@ -98,7 +89,7 @@ formColecciones.addEventListener('submit', (e) => {
     mostrarColecciones();
 });
 
-
+//-----------funcion
 
 
 //-----------mostrar colecciones
@@ -108,10 +99,11 @@ const mostrarColecciones = () =>{
     let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
     //------recorro cada item del array y a partir de cada uno, creo una card mostrando los datos
     coleccionesStorage.forEach((coleccion, indice) =>{
+
         divColecciones.innerHTML += `
         <div class="card" id="coleccion${indice}">
         <div class="card-body">
-            <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top imgCard" alt="${coleccion.descripcionImagen}">
+            <img src="https://pbs.twimg.com/profile_images/1484354582582947841/XHOnlBj-_400x400.png" class="card-img-top imgCard" alt="${coleccion.descripcionImagen}">
             <h5 class="card-title autor">Autor: ${coleccion.autorImagen}</h5>
             <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
             <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
@@ -177,7 +169,9 @@ botonOrdenaPrecioAsc.addEventListener('click', (e) => {
         //----------------calcular el indice de la columna para ordenar y el numero de fila a aplicar el orden
 
         let table, rows, ordenando, i, a, b, cambiaOrden;
+        //-------obtengo el id de la tabla creada en el html y la almaceno en la variable table
         table = document.getElementById("tablaTopColecciones");
+        //-------creo un boolean y lo inicio como true
         ordenando = true;
         
         while (ordenando) {
@@ -190,13 +184,14 @@ botonOrdenaPrecioAsc.addEventListener('click', (e) => {
             a = rows[i].getElementsByTagName("TD")[2];
             b = rows[i + 1].getElementsByTagName("TD")[2];
            
+            //-------comparo la info de las filas de la tabla y si es menor la fila a a la fila b, realizo el cambio de orden
             if (Number(a.innerHTML) < Number(b.innerHTML)) {
                 cambiaOrden = true;
                 break;
             }
             }
             if (cambiaOrden) {
-            
+            //-----------si el valor de a es mayor al de b, inserto el resultado de a antes de b y reordeno
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             ordenando = true;
             }
@@ -246,4 +241,3 @@ function darkMode() {
 
  mostrarColecciones();
  llenarTabla();
-

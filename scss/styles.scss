@@ -6,6 +6,8 @@
 @import "darkMode";
 @import "tables";
 
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -15,25 +17,29 @@
 html {
 	font-size: 62, 5%;
 }
-
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 .mainIndex{
 	height: auto;
 	width: auto;
-	padding-bottom: 10vh;
-	
-
 	.containerIndex{
-		margin-top: 5rem;
-		backdrop-filter: blur(1px); 
-		background-color: rgba(255, 255, 255, 1); 
-		border-radius: 35px; 
-		box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5), inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
-		width: 80%;
+		background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+		background-size: 400% 400%;
+		animation: gradient 15s ease infinite;
 		height: auto;
 		.row{
 			
 			.h1Custom{
-				color: $color-primario;
+				color: white;
 				margin-top: 6rem;
 				font-size: 5rem;
 				font-weight: 800;
@@ -45,61 +51,47 @@ html {
 				font-size: 1.8rem;
 				margin-left: 1rem;
 				font-weight: 400;
-				color: $color-primario;
+				color: white;
 			}
-			.btnExplore{
-				
-				font-size: 2rem;
-				width: auto;
-				cursor: pointer;
-				background-color: #171717;
-				color: #fff;
-				border: none;
-				border-radius: 5px;
-				transition: all .4s;
-				&:hover{
-					border-radius: 5px;
-					transform: translateY(-10px);
-					box-shadow: 0 7px 0 -2px #f85959,
-					0 15px 0 -4px #39a2db,
-					0 16px 10px -3px #39a2db;
+			.btnCreate {
+				padding: 15px 25px;
+				border: unset;
+				border-radius: 15px;
+				color: #212121;
+				z-index: 1;
+				background: #e8e8e8;
+				position: relative;
+				font-weight: 1000;
+				font-size: 2.5rem;
+				-webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+				box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+				transition: all 250ms;
+				overflow: hidden;
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 0;
+					border-radius: 15px;
+					background-color: #212121;
+					z-index: -1;
+					-webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+					box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+					transition: all 250ms;
 				}
-				&:active{
-					transition: all 0.2s;
-					transform: translateY(-5px);
-					box-shadow: 0 2px 0 -2px #f85959,
-					0 8px 0 -4px #39a2db,
-					0 12px 10px -3px #39a2db;
-				}
-				
-			}
-			.btnCreate{
-				
-				font-size: 2rem;
-				cursor: pointer;
-				background-color: #0F225E ;
-				color: #fff;
-				border: none;
-				border-radius: 5px;
-				transition: all .4s;
-				&:hover{
-					border-radius: 5px;
-					transform: translateY(-10px);
-					box-shadow: 0 7px 0 -2px #f85959,
-					0 15px 0 -4px #39a2db,
-					0 16px 10px -3px #39a2db;
-				}
-				&:active{
-					transition: all 0.2s;
-					transform: translateY(-5px);
-					box-shadow: 0 2px 0 -2px #f85959,
-					0 8px 0 -4px #39a2db,
-					0 12px 10px -3px #39a2db;
+				&:hover {
+					color: #e8e8e8;
+					&::before {
+						width: 100%;
+					}
 				}
 			}
+			
+			   
 			.img-top{
 				margin-top: 3rem;
-				margin-right: 2rem;
 			}
 			
 		}
@@ -108,18 +100,15 @@ html {
 	
 }
 .sectionTopColecciones{
-	background-image: url(../media/background_section_top_collection.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position-x: 80%;
-	z-index: -1;
-	size: 20%;
+
+
 	.h2Custom{
 		font-size: 3rem;
 		text-align: center;
 		color: $color-primario;
 		font-weight: 600;
 		margin-bottom: 2rem;
+		margin-top: 4rem;
 	}
 	.tableTopColecciones{
 		.thead{

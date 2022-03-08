@@ -18,9 +18,6 @@
     <meta name="description" content="Sitio web para la creacion y compra de NFTs en español">
 
     <meta name="keywords" content="nfts, crypto, shop, store, wallet, bitcoin, blockchain, ethereum, doge coin">
-
-
-
     <title>Bienvenidos a Artshop 🎨</title>
 </head>
 <body class="body">
@@ -52,14 +49,13 @@
           </nav>
     </header>
     <main class="mainIndex">
-      
       <div class="container-fluid containerIndex">
           <div class="row">
               <div class="col-sm-12 col-md-8 col-lg-8">
                   <h1 class="h1Custom" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
                   <p class="h1Custom__text">Art Shop es la primera tienda de compra y venta de NFTs en español</p>
-                  <div class="d-grid gap-2 col-6 mx-auto">
-                    <a href="#" type="button" class="btn btn-default btnCreate mb-3 flex-fill btn-block" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea tu propia NFT</a>
+                  <div class="d-grid gap-2 col-6">
+                    <a href="#" type="button" class="btn btn-success btnCreate" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea tu propia NFT</a>
                   </div>
               </div>
               <div class="col-sm-12 col-md-4 col-lg-4">
@@ -80,7 +76,7 @@
               <form action="" id="formColecciones" class="formColecciones">
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Selecciona la imagen</label>
-                  <input class="form-control" type="file" id="imagenColeccion">
+                  <input class="form-control" type="file" onchange = 'renderFile()' id="imagenColeccion">
                 </div>
                     
                 <div class="mb-3">
@@ -186,12 +182,13 @@
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioDesc">Precio ⬇️</button>
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioAsc">Precio ⬆️</button>
         </div>
-        <table class="table table-responsive tableTopColecciones" id="tablaTopColecciones">
-          <thead class="thead">
+        <table class="table table-striped" id="tablaTopColecciones">
+          <thead>
             <tr class="tr">
               <th class="th">Colección</th>
               <th class="th">Autor</th>
               <th class="th">Precio</th>
+              <th class="th"></th>
             </tr>
           </thead>
           
