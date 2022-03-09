@@ -1,55 +1,44 @@
-.card-container{
-	align-items: center;
-	justify-content: center;
-	
-	.card{
-		box-sizing: border-box;
-		margin-right: 2rem;
+#divColecciones{
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	font-family: $fuente;
+	.card-box {
+		text-align: center;
+		border: 1px solid #ddd;
+		padding: 20px;
+		box-shadow: 0px 0px 10px 0px #c5c5c5;
 		margin-bottom: 2rem;
-		margin-top: 2rem;
-		margin-left: 6rem;
-		background: rgb(255, 255, 255);
-		border-radius: 0.4em;
-		box-shadow: 0.3em 0.3em 0.7em #00000015;
-		transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		border: rgb(250, 250, 250) 0.2em solid;
-		width: 18vw;
-		height: 80vh;
-		&:hover{
-			
-			.card-title{
-				color: $color-primario;
-			}
-			&:before{
-				opacity: 1;
-			}
-			
-
-		}
-		&::after{
-
-			opacity: 0.5;
-		}
-		.card-img-top {
-			width: 100%;
-			height: 15vw;
-			object-fit: cover;
-		}
-		.imgCard{
-			width: 100%;
-			height: 40vh;
-		}
-		.card-body{
-			.card-title{
-				margin-top: 2rem;
-				color: $color-primario;
+		float: left;
+		border-radius: 10px;
+		background-color: #1c0240;
+		color: #66f2ca;
+		width: fit-content;
+		height: auto;
+		h3{
+			margin-bottom: 2rem;
+			a{
+				font-size: 1.5rem;
+				color: #66f2ca;
+				text-decoration: none;
 				font-weight: 800;
 			}
 		}
-		.card-footer{
-			justify-content: flex-end;
-			padding-bottom: 2rem;
+		.card-thumbnail{
+			max-height: 600px;
+			overflow: hidden;
+			border-radius: 10px;
+			transition: 1s;
+			&:hover{
+				transform: scale(1.1);
+			}
+		}
+		.btn-agregar{
+			background-color: #826AD9;
+			color: #1c0240;
+			font-weight: 600;
 		}
 	}
 }
+
 

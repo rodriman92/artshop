@@ -30,10 +30,11 @@ let divColecciones = document.getElementById("divColecciones");
 let botonColecciones = document.getElementById("botonColecciones");
 let mensajeExiste = document.getElementById("mensajeExiste");
 let tablaTopColecciones = document.getElementById("tablaTopColecciones")
-let modalBody = document.querySelector(".modalBody");
+let tableBody = document.querySelector(".tableBody");
 let botonOrdenaPrecioAsc = document.getElementById("botonOrdenaPrecioAsc");
 let botonOrdenaPrecioDesc = document.querySelector("#botonOrdenaPrecioDesc");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let botonAgregarCarrito = document.getElementById("botonAgregarCarrito");
 let colecciones = [];
 
 
@@ -61,6 +62,8 @@ formColecciones.addEventListener('submit', (e) => {
     let cantidadDisponible = document.getElementById('disponibilidad').value;
 
 
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 
     //-------consulto si la coleccion que se va a cargar ya se encuentra en el array de colecciones. Si no se encuentra la agrego
     if (!colecciones.some(coleccionArray => coleccionArray.autorImagen == autorImagen && coleccionArray.descripcionImagen == descripcionImagen)) {
@@ -74,6 +77,8 @@ formColecciones.addEventListener('submit', (e) => {
 
         //---------reseteo el formulario y pongo el foco en el input de Autor
         formColecciones.reset();
+
+        mostrarMensajeSwalToast();
 
         mensajeExiste.innerHTML = "";
 
@@ -101,22 +106,108 @@ const mostrarColecciones = () =>{
     coleccionesStorage.forEach((coleccion, indice) =>{
 
         divColecciones.innerHTML += `
-        <div class="card" id="coleccion${indice}">
-        <div class="card-body">
-            <img src="https://pbs.twimg.com/profile_images/1484354582582947841/XHOnlBj-_400x400.png" class="card-img-top imgCard" alt="${coleccion.descripcionImagen}">
-            <h5 class="card-title autor">Autor: ${coleccion.autorImagen}</h5>
-            <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
-            <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
-            <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-            <p class="card-text precio">Precio: ${coleccion.precio} ${coleccion.tipoBlockchain}</p>
-            <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
-            </br>
-            <button class="btn-agregar btn btn-dark" id="botonAgregarCarrito" data-id="${indice}">Agregar 🛒</button>
-        </div>
+        <div class="col-md-8 col-lg-3">
+            
+            <div class="card-box" id="coleccion${indice}">
+                <div class="card-thumbnail">
+                <img src="https://pbs.twimg.com/profile_images/1484354582582947841/XHOnlBj-_400x400.png" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+                </div>
+                <h3><a href="#" class="mt-2">Autor: ${coleccion.autorImagen}</a></h3>
+                <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
+                <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
+                <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
+                <p class="card-text precio">Precio: ${coleccion.precio} ${coleccion.tipoBlockchain}</p>
+                <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
+                </br>
+            <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar al carrito</button>
+            </div>
         </div>
         `
+    });
+    const btnAgregar = document.querySelectorAll(".btn-agregar");
+    btnAgregar.forEach((e) =>
+    e.addEventListener("click", (e) => {
+      let cardPadre = e.target.parentElement;
+
+      agregarAlCarrito(cardPadre);
+      mostrarMensajeSwalToast();
     })
+  );
+    
 }
+
+//---------------funcion para agregar al carrito
+
+const agregarAlCarrito = (cardPadre) => {
+    let coleccion = {
+        imagenColeccion: cardPadre.parentElement.querySelector("img").src,
+        descripcionImagen: cardPadre.querySelector('.descripcion').textContent,
+        cantidad: 1,
+        precio: Number(cardPadre.querySelector('.precio').textContent),
+        indice: Number(cardPadre.querySelector("button").getAttribute("data-id"))
+    };
+    let coleccionEncontrada = carrito.find(
+        (element) => element.indice === coleccion.indice
+      );
+    
+      if (coleccionEncontrada) {
+        coleccionEncontrada.cantidad++;
+      } else {
+        carrito.push(coleccion);
+      }
+      console.log(carrito);
+      mostrarCarrito();
+}
+
+//-------------mostrar el carrito en el modal
+
+const mostrarCarrito = () =>{
+    tableBody.innerHTML = "";
+    carrito.forEach((element) => {
+        let {imagen, descripcionImagen, cantidad, precio, indice} = element;
+        let tbody = document.createElement("tr");
+            tbody.className = "tableBody";
+            tableBody.appendChild(tbody);
+
+            tbody.innerHTML += `
+
+                <th>
+                    <td class="td"><img src=${imagen} class="img-top"></td>
+                    
+                </th>
+                <th>
+                    <td class="td">${descripcionImagen}</td>
+                </th>
+                <th>
+                    <td class="td">${cantidad}</td>
+                </th>
+                <th>    
+                    <td class="td">${precio} </td>
+                </th>
+
+                <td></td>
+                <td class="td">
+                    <button class="btn-restar btn btn-warning" data-id="${indice}"><i class="gg-remove"></i></button>
+                    <button class="btn-borrar btn btn-danger" data-id="${indice}"><i class="gg-trash"></i></button>
+                </td>
+                <td>
+                    
+                </td>
+
+  
+            `
+    });
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    aumentarNumeroCantidadCarrito();
+
+}
+
+//-----------funcion para aumentar el numero del carrito a medida que agrega productos
+
+const aumentarNumeroCantidadCarrito = () => {
+    let total = carrito.reduce((acc, ite) => acc + ite.cantidad, 0);
+    document.querySelector(".spanCantidad").textContent = total;
+  };
 
 //--------obtener colecciones en la tabla a partir del localstorage
 
@@ -241,3 +332,27 @@ function darkMode() {
 
  mostrarColecciones();
  llenarTabla();
+
+
+ //-------implementacion de libreria sweet alert 2
+
+const mostrarMensajeSwalToast = () =>{
+    Swal.fire({
+        toast: true,
+        text: "Coleccion agregada",
+        showConfirmButton: false,
+        position: "bottom-end",
+        timer: 1400,
+        timerProgressBar: true,
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+    })
+}
+
+botonAgregarCarrito.addEventListener('click', ()=>{
+    mostrarMensajeSwalToast();
+})
