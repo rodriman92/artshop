@@ -2,6 +2,8 @@
 .body .navCustom {
   border-bottom: 10px;
   box-shadow: 2px 2px 10px #000; }
+  .body .navCustom .navbar-toggler {
+    border-color: #66F2CA; }
   .body .navCustom .navbar-nav .nav-link {
     font-size: 1.3rem;
     color: #66F2CA;

@@ -4,6 +4,9 @@
     .navCustom{
         border-bottom: 10px;
         box-shadow: 2px 2px 10px #000;
+        .navbar-toggler{
+            border-color: #66F2CA;
+        }
         .navbar-nav{
             .nav-link{
                 font-size: 1.3rem;
