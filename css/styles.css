@@ -61,56 +61,124 @@
 @media only screen and (max-width: 600px) {
   .body .header .navCustom .navbar-nav .nav-link {
     font-size: 1rem; }
-  .mainIndex .containerIndex {
-    margin-top: 0; }
-    .mainIndex .containerIndex .row {
-      height: auto; }
-      .mainIndex .containerIndex .row #h1 {
-        margin-left: 0;
-        font-size: 1.5rem;
-        text-align: left;
-        text-align: center;
-        margin: auto;
-        margin-bottom: 2rem;
-        margin-top: 2rem; }
-      .mainIndex .containerIndex .row .h1Custom__text {
-        font-size: 1.2rem; }
-      .mainIndex .containerIndex .row #botonCrea {
-        font-size: 1rem; }
-  .mainIndex .colIndexCarousel {
-    margin: auto;
-    margin-left: 1rem; }
-  .mainIndex .modalCrea .modal-header {
-    background-color: #0F225E;
-    color: white; }
-    .mainIndex .modalCrea .modal-header .modal-title {
-      font-size: 0.8rem; }
-    .mainIndex .modalCrea .modal-header .btn-close {
-      background-color: white; }
-  .mainIndex .modalCrea .modal-body .formColecciones .mb-3 .form-label {
-    font-size: 0.9rem; }
-  .mainIndex .modalCrea .modal-body .formColecciones .mb-3 .form-control {
-    font-size: 0.8rem; }
-  .mainIndex .modalCrea .modal-footer .btn {
+  .body .header .navCustom .navbar-nav .btn-carrito {
     font-size: 0.7rem; }
-  .sectionTopColecciones {
-    background-image: none; }
-    .sectionTopColecciones .h2Custom {
-      font-size: 3rem;
-      text-align: center;
-      color: #0F225E;
-      font-weight: 600;
-      margin-bottom: 2rem; }
-    .sectionTopColecciones .tableTopColecciones .thead .tr .th {
-      font-size: 1.2rem; }
-    .sectionTopColecciones .tableTopColecciones .tbody .tr .td {
-      font-size: 0.8rem; }
-  .sectionColecciones .h2Custom {
-    font-size: 3rem;
+  .mainIndex .containerIndex .row #h1 {
+    margin-top: 2rem;
+    font-size: 2.2rem;
+    width: 90%; }
+  .mainIndex .containerIndex .row p {
+    font-size: 0.5rem; }
+  .mainIndex .containerIndex .row #botonCrea {
+    font-size: 1rem;
+    width: 90%;
+    display: flex;
     text-align: center;
-    color: #0F225E;
-    font-weight: 600;
-    margin-bottom: 2rem; } }
+    justify-content: center;
+    margin: auto; }
+  .modalCrea .modal-dialog .modal-content .modal-header .modal-title {
+    font-size: 1.2rem;
+    font-weight: 600; }
+  #modalCarrito {
+    width: 100%;
+    height: 100%; }
+  .sectionTopColecciones .contenedorTable .row .h2Custom {
+    margin-top: 2rem;
+    font-size: 3rem;
+    margin-bottom: 2rem; }
+  .sectionTopColecciones .contenedorTable .table .thead .tr .th {
+    font-size: 0.7rem; }
+  .sectionTopColecciones .contenedorTable .table .tbody .th {
+    font-size: 0.7rem; }
+    .sectionTopColecciones .contenedorTable .table .tbody .th .td {
+      font-size: 0.5rem; }
+  .sectionColecciones #tituloColecciones {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem; }
+  .sectionRecursos #tituloRecursos {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 3rem; }
+  .sectionContacto #tituloContacto {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 3rem; }
+  .footer ul li a {
+    font-size: 0.7rem; }
+  .footer p {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    font-size: 0.8rem; } }
+
+/*media query pantallas > 600px*/
+@media only screen and (min-width: 600px) {
+  .body .header .navCustom .navbar-nav .nav-link {
+    font-size: 1.3rem; }
+  .body .header .navCustom .navbar-nav .btn-carrito {
+    font-size: 1rem; }
+  .mainIndex .containerIndex .row #h1 {
+    margin-top: 2rem;
+    font-size: 3.3rem;
+    width: 100%; }
+  .mainIndex .containerIndex .row p {
+    font-size: 0.5rem; }
+  .mainIndex .containerIndex .row #botonCrea {
+    font-size: 1.7rem;
+    width: 90%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 1rem; }
+  .mainIndex .containerIndex .row .colImagenMain {
+    width: 100%; }
+  .modalCrea .modal-dialog .modal-content .modal-header .modal-title {
+    font-size: 1.8rem;
+    font-weight: 600; }
+  #modalCarrito {
+    width: 100%;
+    height: 100%; }
+  .sectionTopColecciones .contenedorTable .row .h2Custom {
+    margin-top: 2rem;
+    font-size: 5rem;
+    margin-bottom: 2rem; }
+  .sectionTopColecciones .contenedorTable .table .thead .tr .th {
+    font-size: 0.7rem; }
+  .sectionTopColecciones .contenedorTable .table .tbody .th {
+    font-size: 0.7rem; }
+    .sectionTopColecciones .contenedorTable .table .tbody .th .td {
+      font-size: 0.5rem; }
+  .sectionColecciones #tituloColecciones {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 4.5rem; }
+  .sectionColecciones .cardContenedor {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    margin: auto; }
+    .sectionColecciones .cardContenedor .card-box .h3 {
+      margin-top: 1.5rem;
+      font-size: 2.5rem; }
+    .sectionColecciones .cardContenedor .card-box .card-text {
+      font-size: 1.3rem; }
+  .sectionRecursos #tituloRecursos {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 5rem; }
+  .sectionContacto #tituloContacto {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 5rem; }
+  .footer ul li a {
+    font-size: 0.7rem; }
+  .footer p {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    font-size: 0.8rem; } }
 
 .dark-mode {
   background-color: #03102c;

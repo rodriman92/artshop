@@ -106,13 +106,13 @@ const mostrarColecciones = () =>{
     coleccionesStorage.forEach((coleccion, indice) =>{
 
         divColecciones.innerHTML += `
-        <div class="col-md-8 col-lg-3">
+        <div class="col-md-8 col-lg-3 cardContenedor">
             
             <div class="card-box" id="coleccion${indice}">
                 <div class="card-thumbnail">
                 <img src="https://pbs.twimg.com/profile_images/1484354582582947841/XHOnlBj-_400x400.png" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
                 </div>
-                <h3><a href="#" class="mt-2">Autor: ${coleccion.autorImagen}</a></h3>
+                <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
                 <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
                 <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
                 <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
@@ -166,7 +166,7 @@ const mostrarCarrito = () =>{
     carrito.forEach((element) => {
         let {imagen, descripcionImagen, cantidad, precio, indice} = element;
         let tbody = document.createElement("tr");
-            tbody.className = "tableBody";
+            tbody.className = "tbody";
             tableBody.appendChild(tbody);
 
             tbody.innerHTML += `
