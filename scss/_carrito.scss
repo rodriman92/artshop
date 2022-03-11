@@ -1,0 +1,42 @@
+.modalCarrito{
+    .modal-dialog{
+        .modal-content{
+            .modal-header{
+                background-color: #3a0683;
+                color: #826ad9;
+                .modal-title{
+                    font-weight: 600;
+                }
+                .btn-close{
+                    background-color: #826ad9;
+                }
+            }
+            .modalBody{
+                .tableCarrito{
+                    .th{
+                        color: black;
+                        font-weight: 800;
+                        
+                    }
+                    .td{
+                        color: black;
+                        font-weight: 600;
+                        
+                    }
+                    .tableBody{
+                        color: black;
+                        font-weight: 600;
+                    }
+                    .tfoot{
+                        .thTotal{
+                            background-color: #431288;
+                        }
+                    }
+                }
+            }
+            .modal-footer{
+                background-color: #3a0683;
+            }
+        }
+    }
+}

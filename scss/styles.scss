@@ -1,10 +1,9 @@
 @import "navbar";
 @import "variables";
 @import "cards";
-@import "colecciones";
 @import "mediaqueries";
-@import "darkMode";
 @import "tables";
+@import "carrito";
 
 * {
   margin: 0;
@@ -15,17 +14,7 @@
 html {
   font-size: 62, 5%;
 }
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 .mainIndex {
   height: auto;
   width: auto;
@@ -42,13 +31,13 @@ html {
         margin-left: 1rem;
         color: #1c0240;
         background-color: #66f2ca;
-        
+
       }
       .h1Custom__text {
         font-size: 1.8rem;
         margin-left: 1rem;
         font-weight: 800;
-		color: #1c0240;
+		    color: #1c0240;
       }
       .btnCreate {
         padding: 15px 25px;
@@ -116,6 +105,7 @@ html {
       background-color: #1c0240;
       color: #66f2ca;
       font-size: 1.5rem;
+      
     }
   }
 }

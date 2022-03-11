@@ -35,6 +35,8 @@ let botonOrdenaPrecioAsc = document.getElementById("botonOrdenaPrecioAsc");
 let botonOrdenaPrecioDesc = document.querySelector("#botonOrdenaPrecioDesc");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let botonAgregarCarrito = document.getElementById("botonAgregarCarrito");
+let modalCarrito = document.querySelector(".modalCarrito");
+let tfoot = document.querySelector(".cant--carrito");
 let colecciones = [];
 
 
@@ -105,18 +107,32 @@ const mostrarColecciones = () =>{
     //------recorro cada item del array y a partir de cada uno, creo una card mostrando los datos
     coleccionesStorage.forEach((coleccion, indice) =>{
 
+        if(coleccion.tipoBlockchain === "ethereum"){
+            imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
+            valorDolar = eth;
+        }
+        else if(coleccion.tipoBlockchain === "bitcoin"){
+            imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
+            valorDolar = btc;
+        }
+        else{
+            imagen="https://img.icons8.com/fluency/30/000000/doge.png";
+            valorDolar = doge;
+        }
+
         divColecciones.innerHTML += `
         <div class="col-md-8 col-lg-3 cardContenedor">
             
             <div class="card-box" id="coleccion${indice}">
                 <div class="card-thumbnail">
-                <img src="https://pbs.twimg.com/profile_images/1484354582582947841/XHOnlBj-_400x400.png" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+                <img src="../media/metakongz-nft.gif" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
                 </div>
                 <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
                 <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
                 <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
                 <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-                <p class="card-text precio">Precio: ${coleccion.precio} ${coleccion.tipoBlockchain}</p>
+                <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <img src="${imagen}" class="img-top imagenBlockchain" ></img> </p>
+                <p class="card-text precioDolar">US$ ${Math.round(coleccion.precio * valorDolar)} </p>
                 <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
                 </br>
             <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar al carrito</button>
@@ -143,7 +159,7 @@ const agregarAlCarrito = (cardPadre) => {
         imagenColeccion: cardPadre.parentElement.querySelector("img").src,
         descripcionImagen: cardPadre.querySelector('.descripcion').textContent,
         cantidad: 1,
-        precio: Number(cardPadre.querySelector('.precio').textContent),
+        precio: Number(cardPadre.querySelector(".precio span").textContent),
         indice: Number(cardPadre.querySelector("button").getAttribute("data-id"))
     };
     let coleccionEncontrada = carrito.find(
@@ -164,6 +180,7 @@ const agregarAlCarrito = (cardPadre) => {
 const mostrarCarrito = () =>{
     tableBody.innerHTML = "";
     carrito.forEach((element) => {
+
         let {imagen, descripcionImagen, cantidad, precio, indice} = element;
         let tbody = document.createElement("tr");
             tbody.className = "tbody";
@@ -172,8 +189,7 @@ const mostrarCarrito = () =>{
             tbody.innerHTML += `
 
                 <th>
-                    <td class="td"><img src=${imagen} class="img-top"></td>
-                    
+                    <td class="td"><img class="img-fluid carrito-img" src="${imagen}"></td> 
                 </th>
                 <th>
                     <td class="td">${descripcionImagen}</td>
@@ -182,31 +198,70 @@ const mostrarCarrito = () =>{
                     <td class="td">${cantidad}</td>
                 </th>
                 <th>    
-                    <td class="td">${precio} </td>
+                    <td class="td">${Math.round(precio * valorDolar).toFixed(2)} </td>
                 </th>
 
                 <td></td>
                 <td class="td">
-                    <button class="btn-restar btn btn-warning" data-id="${indice}"><i class="gg-remove"></i></button>
-                    <button class="btn-borrar btn btn-danger" data-id="${indice}"><i class="gg-trash"></i></button>
+                    <button class="btn-restar btn btn-light" data-id="${indice}">-</button>
+                    <button class="btn-borrar btn btn-light" data-id="${indice}">X</button>
                 </td>
                 <td>
                     
                 </td>
 
-  
-            `
+            `        
     });
     localStorage.setItem("carrito", JSON.stringify(carrito));
     aumentarNumeroCantidadCarrito();
+    calcularTotal();
 
+};
+
+
+//-----------funcion para calcular el total de la compra
+
+//--------funcion para escuchar el los eventos en los botones del modal
+
+const escucharBotonesModalCarrito = () => {
+    modalCarrito.addEventListener('click', (e) => {
+        if (e.target.classList.contains("btn-restar")) {
+            restarColeccion(e.target.getAttribute("data-id"));
+        }
+        if (e.target.classList.contains("btn-borrar")) {    
+            borrarColeccion(e.target.getAttribute("data-id"));
+        }
+    })
 }
+
+//-----------funcion para restar la coleccion del carrito
+
+const restarColeccion = (coleccionRestar) => {
+    let coleccionEncontrada = carrito.find(
+      (element) => element.indice === Number(coleccionRestar)
+    );
+    if (coleccionEncontrada) {
+        coleccionEncontrada.cantidad--;
+      if (coleccionEncontrada.cantidad === 0) {
+        borrarColeccion(coleccionRestar);
+      }
+    }
+    mostrarCarrito();
+  };
+
+
+ //------------funcion para borrar la coleccion del carrito
+ 
+ const borrarColeccion = (coleccionBorrar) => {
+    carrito = carrito.filter((element) => element.indice !== Number(coleccionBorrar));
+    mostrarCarrito();
+  };
 
 //-----------funcion para aumentar el numero del carrito a medida que agrega productos
 
 const aumentarNumeroCantidadCarrito = () => {
     let total = carrito.reduce((acc, ite) => acc + ite.cantidad, 0);
-    document.querySelector(".spanCantidad").textContent = total;
+    document.querySelector(".spanCantidad").textContent = total || 0;
   };
 
 //--------obtener colecciones en la tabla a partir del localstorage
@@ -239,10 +294,10 @@ const llenarTabla = () =>{
 
             tbody.innerHTML += `
             <tr class="tr">
-                <td class="td">${coleccion.descripcionImagen}</td>
-                <td class="td">${coleccion.autorImagen}</td>
-                <td class="td">${coleccion.precio * valorDolar}</td>
-                <td class="td">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img></td>
+                <td class="td col-xs-2">${coleccion.descripcionImagen}</td>
+                <td class="td col-xs-2">${coleccion.autorImagen}</td>
+                <td class="td col-xs-2">${Math.round(coleccion.precio * valorDolar).toFixed(2)}</td>
+                <td class="td col-xs-2">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img></td>
             </tr>
                 
             `
@@ -340,6 +395,8 @@ const mostrarMensajeSwalToast = () =>{
     Swal.fire({
         toast: true,
         text: "Coleccion agregada",
+        color: "#66f2ca",
+        background: "#260259",
         showConfirmButton: false,
         position: "bottom-end",
         timer: 1400,
@@ -354,5 +411,32 @@ const mostrarMensajeSwalToast = () =>{
 }
 
 botonAgregarCarrito.addEventListener('click', ()=>{
-    mostrarMensajeSwalToast();
+    if (carrito.length === 0) {
+        swal.fire("Carrito vacío", "🛒", "warning")
+    }
+    else{
+        mostrarMensajeSwalToast();
+    }
+    
 })
+
+
+//-------calcular el total del carrito
+
+const calcularTotal = () => {
+    let total = carrito.reduce((acc, ite) => acc + (ite.precio * valorDolar) * ite.cantidad,0);
+
+    let divTotal = document.createElement("tr");
+    divTotal.className = "tr";
+    divTotal.id = "total--compra";
+
+    divTotal.innerHTML = `
+        <th colspan="8" class="text-right thTotal">TOTAL DE LA COMPRA</th>
+        <td colspan="2" class="td tdTotal"><span class="spanTotal">US$${Math.round(total).toFixed(2)}</span></td>
+    `;
+    tableBody.appendChild(divTotal);
+
+}
+
+mostrarCarrito();
+escucharBotonesModalCarrito();

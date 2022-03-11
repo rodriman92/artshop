@@ -140,34 +140,37 @@
     <!--inicio modal carrito-->
 
 <!-- Modal -->
-<div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade modalCarrito" id="modalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:1000px; max-height:1000px;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modalBody">
-        <table class="table">
-          <th>
-            <td>Imagen</td>
+        <table class="table table-responsive tableCarrito" data-show-footer="true">
+          <th class="th">
+            <td class="td">Imagen</td>
           </th>
-          <th>
-            <td>Coleccion</td>
+          <th class="th">
+            <td class="td">Coleccion</td>
           </th>
-          <th>
-            <td>Cantidad</td>
+          <th class="th">
+            <td class="td">Cantidad</td>
           </th>
-          <th>
-            <td>Precio</td>
+          <th class="th">
+            <td class="td">Precio</td>
           </th>
-          <th>
-            <td>Operaciones</td>
+          <th class="th">
+            <td class="td">Operaciones</td>
           </th>
 
           <tbody class="tableBody">
 
           </tbody>
+          <tfoot class="tfoot" style="text-align: right;">
+
+          </tfoot>
         </table>
       </div>
       <div class="modal-footer">
@@ -189,7 +192,7 @@
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioDesc">Precio ⬇️</button>
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioAsc">Precio ⬆️</button>
         </div>
-        <table class="table table-striped" id="tablaTopColecciones">
+        <table class="table table-responsive table-striped" id="tablaTopColecciones">
           <thead class="thead">
             <tr class="tr">
               <th class="th">Colección</th>
@@ -198,10 +201,7 @@
               <th class="th"></th>
             </tr>
           </thead>
-          
-          <tbody class="tbody">
 
-          </tbody>
           
         </table>
         
