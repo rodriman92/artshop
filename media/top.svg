@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="30px"
+   height="30px"
+   viewBox="0 -6 30 30"
+   version="1.1"
+   id="svg17"
+   sodipodi:docname="angle-top-svgrepo-com.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="27.433333"
+     inkscape:cx="15"
+     inkscape:cy="15.018226"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Vivid.JS" />
+  <!-- Uploaded to SVGRepo https://www.svgrepo.com -->
+  <title
+     id="title2">angle-top</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <defs
+     id="defs6" />
+  <g
+     id="Vivid.JS"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <path
+       style="fill:#66f2ca;fill-rule:evenodd;stroke-width:0.0309736"
+       d="M 17.825471,8.6790783 15.000051,5.974586 12.182646,8.6712801 9.3652405,11.367975 8.0744566,10.133793 6.7836726,8.8996107 10.891855,4.9673442 l 4.108182,-3.9322666 4.11566,3.9395116 4.11566,3.9395109 -1.290232,1.2347369 -1.290234,1.234735 z"
+       id="path875" />
+    <path
+       style="fill:#826ad9;fill-opacity:1;fill-rule:evenodd;stroke-width:0.0310209"
+       d="M 17.836787,9.9236257 15.000079,7.2216818 12.171182,9.9160596 9.3422849,12.610436 8.0629785,11.391907 6.7836726,10.173378 10.891855,6.260364 l 4.108182,-3.9130142 4.116224,3.9206761 4.116226,3.9206761 -1.279495,1.218433 -1.279498,1.218432 z"
+       id="path914" />
+  </g>
+  <metadata
+     id="metadata836">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>angle-top</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

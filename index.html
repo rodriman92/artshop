@@ -20,9 +20,12 @@
 
     <meta name="keywords" content="nfts, crypto, shop, store, wallet, bitcoin, blockchain, ethereum, doge coin">
 
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+
   <!--Animate CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <title>Bienvenidos a Artshop 🎨</title>
 </head>
@@ -52,14 +55,14 @@
       <div class="container-fluid containerIndex">
           <div class="row">
               <div class="col-sm-12 col-md-8 col-lg-8">
-                  <h1 class="h1Custom" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
+                  <h1 class="h1Custom animate__animated animate__fadeInLeft" id="h1"> Descubre, colecciona y vende fantasticos NFTs</h1>
                   <p class="h1Custom__text">Art Shop es la primera tienda de compra y venta de NFTs en español</p>
                   <div class="d-grid gap-2 col-6">
                     <a href="#" type="button" class="btn btn-success btnCreate" data-bs-toggle="modal" data-bs-target="#modalCrea" id="botonCrea">Crea tu propia NFT</a>
                   </div>
               </div>
               <div class="col-sm-12 col-md-4 col-lg-4 colImagenMain">
-                <img src="./media/imagen_persona_conuslta_crypto.svg" alt="iamgen de persona consultando precios" class="img-fluid img-top">
+                <img src="./media/imagen_persona_conuslta_crypto.svg" alt="iamgen de persona consultando precios" class="img-fluid img-top animate__animated animate__backInRight animate__delay-1s">
               </div>
           </div>
       </div>
@@ -76,7 +79,7 @@
               <form action="" id="formColecciones" class="formColecciones">
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Selecciona la imagen</label>
-                  <input class="form-control" type="file" onchange = 'renderFile()' id="imagenColeccion">
+                  <input class="form-control" type="file" accept="image/*" onchange="loadFile(event)" id="imagenColeccion">
                 </div>
                     
                 <div class="mb-3">
@@ -107,7 +110,7 @@
                   <select name="select" type="form-control" id="tipoBlockchain" >
                     <option class="opcionesSelect" value="ethereum" selected >ETHEREUM</option>
                     <option class="opcionesSelect" value="bitcoin" >BITCOIN</option>
-                    <option class="opcionesSelect" value="dogecoin">DOGECOIN</option>
+                    <option class="opcionesSelect" value="usdt">USDT</option>
                   </select>
                 </div>
               
@@ -197,7 +200,7 @@
             <tr class="tr">
               <th class="th">Colección</th>
               <th class="th">Autor</th>
-              <th class="th">Precio</th>
+              <th class="th">Precio US$</th>
               <th class="th"></th>
             </tr>
           </thead>
@@ -234,7 +237,7 @@
       </div>
     </section>
 
-    <!--Section recursos-->
+    <!--Section contacto-->
 
     <section class="sectionContacto">
       <div class="container-fluid">
@@ -246,7 +249,6 @@
       </div>
     </section>
 
-
     <!-- footer-->
     <footer class="footer">
       <ul class="nav justify-content-center">
@@ -257,12 +259,25 @@
         <li class="nav-item"><a href="./index.html#tituloContacto" class="nav-link px-2">CONTACTO</a></li>
       </ul>
       <p class="text-center">© 2022 Artshop, Todos los derechos reservados</p>
+
+      <div class="elevator">
+        <a href="./index.html#inicio" type="button" class="btn btn-default">
+          <img src="./media/top.svg" alt="">
+          <p class="pArriba">Arriba</p>
+        </a> 
+      </div>
+
     </footer>
     <script src="./js/script.js"></script>
     <!-- sweet alert 2-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Popper Js-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/e0ddc2a172.js" crossorigin="anonymous"></script>
+     <!--Scroll Reveal-->
+     <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 </html>

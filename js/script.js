@@ -8,24 +8,11 @@ class Coleccion{
         this.precio = precio,
         this.cantidadDisponible = cantidadDisponible
     }
-
-    EthADolar(){
-        this.precio * eth;
-    }
-    BtcADolar(){
-        this.precio * btc;
-    }
-    DogeADolar(){
-        this.precio * doge;
-    }
 }
-//----------constate de valor en dolares de las blockchain
-
-const eth = 2673.91;
-const btc = 40768.60;
-const doge = 0.13;
+//-----------declaracion de variables----------------------------------
 let formColecciones = document.getElementById("formColecciones");
 let botonColeccion = document.getElementById("botonColeccion");
+let inputImage = document.querySelector("#imagenColeccion");
 let divColecciones = document.getElementById("divColecciones");
 let botonColecciones = document.getElementById("botonColecciones");
 let mensajeExiste = document.getElementById("mensajeExiste");
@@ -38,6 +25,9 @@ let botonAgregarCarrito = document.getElementById("botonAgregarCarrito");
 let modalCarrito = document.querySelector(".modalCarrito");
 let tfoot = document.querySelector(".cant--carrito");
 let colecciones = [];
+let valorEnDolares;
+let moneda;
+//----------mostrar imagen subida desde el input
 
 
 //---------consulto si localstorage existe. Si existe traigo el array de colecciones. Si no existe, lo creo
@@ -96,7 +86,8 @@ formColecciones.addEventListener('submit', (e) => {
     mostrarColecciones();
 });
 
-//-----------funcion
+//-----------funcion para obtener precio de cripto actualizado mediante la API de criptoya
+
 
 
 //-----------mostrar colecciones
@@ -107,38 +98,43 @@ const mostrarColecciones = () =>{
     //------recorro cada item del array y a partir de cada uno, creo una card mostrando los datos
     coleccionesStorage.forEach((coleccion, indice) =>{
 
+        
         if(coleccion.tipoBlockchain === "ethereum"){
             imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
-            valorDolar = eth;
+            moneda = "eth";
+            
+            
         }
         else if(coleccion.tipoBlockchain === "bitcoin"){
-            imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
-            valorDolar = btc;
+            imagen="https://img.icons8.com/fluency/30/000000/bitcoin--v1.png";
+            moneda = "btc";
+            
         }
-        else{
-            imagen="https://img.icons8.com/fluency/30/000000/doge.png";
-            valorDolar = doge;
+        else if(coleccion.tipoBlockchain === "usdt"){
+            imagen="https://img.icons8.com/color/30/000000/tether--v2.png";
+            moneda = "usdt"
+            
         }
 
         divColecciones.innerHTML += `
-        <div class="col-md-8 col-lg-3 cardContenedor">
-            
-            <div class="card-box" id="coleccion${indice}">
-                <div class="card-thumbnail">
-                <img src="../media/metakongz-nft.gif" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+            <div class="col-md-8 col-lg-3 cardContenedor">
+                
+                <div class="card-box" id="coleccion${indice}">
+                    <div class="card-thumbnail">
+                    <img src="../media/metakongz-nft.gif" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+                    </div>
+                    <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
+                    <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
+                    <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
+                    <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
+                    <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <img src="${imagen}" class="img-top imagenBlockchain" ></img> </p>
+                    <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
+                    </br>
+                <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar al carrito</button>
                 </div>
-                <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
-                <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
-                <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
-                <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-                <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <img src="${imagen}" class="img-top imagenBlockchain" ></img> </p>
-                <p class="card-text precioDolar">US$ ${Math.round(coleccion.precio * valorDolar)} </p>
-                <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
-                </br>
-            <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar al carrito</button>
             </div>
-        </div>
-        `
+            `
+    
     });
     const btnAgregar = document.querySelectorAll(".btn-agregar");
     btnAgregar.forEach((e) =>
@@ -151,6 +147,7 @@ const mostrarColecciones = () =>{
   );
     
 }
+
 
 //---------------funcion para agregar al carrito
 
@@ -175,6 +172,8 @@ const agregarAlCarrito = (cardPadre) => {
       mostrarCarrito();
 }
 
+
+
 //-------------mostrar el carrito en el modal
 
 const mostrarCarrito = () =>{
@@ -186,10 +185,19 @@ const mostrarCarrito = () =>{
             tbody.className = "tbody";
             tableBody.appendChild(tbody);
 
+            var loadFile = function(event) {
+                var reader = new FileReader();
+                reader.onload = function(){
+                  var output = document.getElementById('output');
+                  output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+              };
+            
             tbody.innerHTML += `
 
                 <th>
-                    <td class="td"><img class="img-fluid carrito-img" src="${imagen}"></td> 
+                    <td class="td"><img class="img-fluid carrito-img" id="output"></td> 
                 </th>
                 <th>
                     <td class="td">${descripcionImagen}</td>
@@ -198,7 +206,7 @@ const mostrarCarrito = () =>{
                     <td class="td">${cantidad}</td>
                 </th>
                 <th>    
-                    <td class="td">${Math.round(precio * valorDolar).toFixed(2)} </td>
+                    <td class="td">${Math.round(precio).toFixed(2)} </td>
                 </th>
 
                 <td></td>
@@ -211,6 +219,7 @@ const mostrarCarrito = () =>{
                 </td>
 
             `        
+
     });
     localStorage.setItem("carrito", JSON.stringify(carrito));
     aumentarNumeroCantidadCarrito();
@@ -267,28 +276,43 @@ const aumentarNumeroCantidadCarrito = () => {
 //--------obtener colecciones en la tabla a partir del localstorage
 
 const llenarTabla = () =>{
-    
+    //------------consulto al localstorage por los datos guardados en las colecciones y las muestro
     let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
     coleccionesStorage.forEach((coleccion) =>{
 
         //---------seteo una imagen dependiendo el tipo de opcion seleccionada
         let imagen = ""
         
+        //---------consulto por los tipos de blockchain para cada moneda y retorna un icono y una variable moneda que sera parametro de fetch
         if(coleccion.tipoBlockchain === "ethereum"){
             imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
-            valorDolar = eth;
+            moneda = "eth";
+            
         }
         else if(coleccion.tipoBlockchain === "bitcoin"){
             imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
-            valorDolar = btc;
+            moneda = "btc";
+            
         }
         else{
-            imagen="https://img.icons8.com/fluency/30/000000/doge.png";
-            valorDolar = doge;
+            imagen="https://img.icons8.com/color/30/000000/tether--v2.png";
+            moneda = "usdt";
+            
         }
 
-        //--------lleno la tabla con los datos obtenidos y los muesro en el DOM
-        let tbody = document.createElement("tr");
+        //obtengo nuevamente los valores de las criptomonedas actualizados desde la API criptoya 
+        //y paso el la variable "moneda" para buscar el precio por tipo de moneda en la API
+
+        fetch("https://criptoya.com/api/bitex/"+ moneda +"/usd/1")
+        .then(response => response.json())
+        .then(data => {
+            //desestructuro el array que obtengo de la API y tomo el valor ASK
+            let {ask} = data;
+            valorEnDolares = ask; //-------almaceno el valor obtenido en la variable ValorEnDolares
+
+            
+            //--------lleno la tabla con los datos obtenidos y los muesro en el DOM
+            let tbody = document.createElement("tr");
             tbody.className = "tbody";
             tablaTopColecciones.appendChild(tbody);
 
@@ -296,11 +320,13 @@ const llenarTabla = () =>{
             <tr class="tr">
                 <td class="td col-xs-2">${coleccion.descripcionImagen}</td>
                 <td class="td col-xs-2">${coleccion.autorImagen}</td>
-                <td class="td col-xs-2">${Math.round(coleccion.precio * valorDolar).toFixed(2)}</td>
+                <td class="td col-xs-2">${Math.round(valorEnDolares * coleccion.precio).toFixed(2)}</td>
                 <td class="td col-xs-2">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img></td>
             </tr>
                 
             `
+        })
+
         
     })
 
@@ -421,11 +447,12 @@ botonAgregarCarrito.addEventListener('click', ()=>{
 })
 
 
-//-------calcular el total del carrito
+//-------calcular el total del carrito mediante reduce
 
 const calcularTotal = () => {
-    let total = carrito.reduce((acc, ite) => acc + (ite.precio * valorDolar) * ite.cantidad,0);
+    let total = carrito.reduce((acc, ite) => acc + (ite.precio) * ite.cantidad,0);
 
+    //-------creo un div y le asigno una clase. Le paso el valor del total y lo agrego al modal de carrito
     let divTotal = document.createElement("tr");
     divTotal.className = "tr";
     divTotal.id = "total--compra";
@@ -438,5 +465,17 @@ const calcularTotal = () => {
 
 }
 
+
+
+//--------implementacion de libreria scroll reveal para que aparezcan los titulos de las secciones a medida que hago scroll en la pagina
+
+ScrollReveal().reveal('.h1Custom');
+ScrollReveal().reveal('#tituloTop', {delay: 300});
+ScrollReveal().reveal('#tituloColecciones', {delay: 500});
+ScrollReveal().reveal('#tituloRecursos', {delay: 500});
+ScrollReveal().reveal('#tituloContacto', {delay: 500});
+
+
+//-------inicio las funciones de mostrarCarrito y escucharBotones para realizar operaciones en el DOM
 mostrarCarrito();
 escucharBotonesModalCarrito();

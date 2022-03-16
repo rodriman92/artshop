@@ -354,6 +354,14 @@ html {
     font-weight: 800;
     height: auto;
     margin-top: 4rem; }
+  .sectionTopColecciones .divOrdenar #botonOrdenaPrecioDesc {
+    background-color: #66f2ca;
+    color: #260259;
+    font-weight: 600; }
+  .sectionTopColecciones .divOrdenar #botonOrdenaPrecioAsc {
+    background-color: #66f2ca;
+    color: #260259;
+    font-weight: 600; }
   .sectionTopColecciones .table {
     padding-bottom: 10rem; }
     .sectionTopColecciones .table .thead .tr .th {
@@ -404,3 +412,8 @@ html {
     color: #1c0240; }
   .footer p {
     color: #1c0240; }
+  .footer .elevator {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; }

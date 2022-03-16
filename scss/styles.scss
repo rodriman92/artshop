@@ -91,6 +91,18 @@ html {
     height: auto;
     margin-top: 4rem;
   }
+  .divOrdenar{
+    #botonOrdenaPrecioDesc{
+      background-color: #66f2ca;
+      color: #260259;
+      font-weight: 600;
+    }
+    #botonOrdenaPrecioAsc{
+      background-color: #66f2ca;
+      color: #260259;
+      font-weight: 600;
+    }
+  }
   .table {
     padding-bottom: 10rem;
     .thead {
@@ -160,4 +172,11 @@ html {
 	p{
 		color: #1c0240;
 	}
+  .elevator{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+  }
 }
