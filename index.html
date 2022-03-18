@@ -78,11 +78,6 @@
             <div class="modal-body">
               <form action="" id="formColecciones" class="formColecciones">
                 <div class="mb-3">
-                  <label for="formFile" class="form-label">Selecciona la imagen</label>
-                  <input class="form-control" type="file" accept="image/*" onchange="loadFile(event)" id="imagenColeccion">
-                </div>
-                    
-                <div class="mb-3">
                     <label for="autor" class="form-label">Autor</label>
                     <input type="text" class="form-control" id="autor" autofocus required>
                 </div>
@@ -151,30 +146,35 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modalBody">
-        <table class="table table-responsive tableCarrito" data-show-footer="true">
-          <th class="th">
-            <td class="td">Imagen</td>
-          </th>
-          <th class="th">
-            <td class="td">Coleccion</td>
-          </th>
-          <th class="th">
-            <td class="td">Cantidad</td>
-          </th>
-          <th class="th">
-            <td class="td">Precio</td>
-          </th>
-          <th class="th">
-            <td class="td">Operaciones</td>
-          </th>
-
-          <tbody class="tableBody">
-
-          </tbody>
-          <tfoot class="tfoot" style="text-align: right;">
-
-          </tfoot>
-        </table>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div id="no-more-tables">
+                <table class="col-md-12 table table-striped cf table-image" data-show-footer="true">
+                  <thead class="cf">
+                    <tr>
+                      <td class="td" data-title="Img" >Imagen</th>
+                      <td class="td" data-title="NFT" >Coleccion</th>
+                      <td class="td" data-title="Cant." >Cantidad</th>
+                      <td class="td" data-title="US$" >Precio</th>
+                      <td class="td" data-title="Subt." >Subtotal</th>
+                      <td class="td" data-title="Acc." >Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody" class="tbody">
+    
+    
+                  </tbody>
+                  <tfoot class="tfoot" style="text-align: center;">
+    
+                  </tfoot>
+                </table>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

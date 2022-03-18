@@ -9,6 +9,9 @@ class Coleccion{
         this.cantidadDisponible = cantidadDisponible
     }
 }
+
+
+
 //-----------declaracion de variables----------------------------------
 let formColecciones = document.getElementById("formColecciones");
 let botonColeccion = document.getElementById("botonColeccion");
@@ -17,7 +20,7 @@ let divColecciones = document.getElementById("divColecciones");
 let botonColecciones = document.getElementById("botonColecciones");
 let mensajeExiste = document.getElementById("mensajeExiste");
 let tablaTopColecciones = document.getElementById("tablaTopColecciones")
-let tableBody = document.querySelector(".tableBody");
+let tableBody = document.getElementById("tbody");
 let botonOrdenaPrecioAsc = document.getElementById("botonOrdenaPrecioAsc");
 let botonOrdenaPrecioDesc = document.querySelector("#botonOrdenaPrecioDesc");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -27,7 +30,15 @@ let tfoot = document.querySelector(".cant--carrito");
 let colecciones = [];
 let valorEnDolares;
 let moneda;
-//----------mostrar imagen subida desde el input
+let imagen;
+
+
+
+//------creo una funcion para obtener como molde de fetch
+async function obtenerColecciones(){
+    const response = await fetch('./json/colecciones.json');
+    return await response.json();
+}
 
 
 //---------consulto si localstorage existe. Si existe traigo el array de colecciones. Si no existe, lo creo
@@ -38,13 +49,24 @@ else{
     localStorage.setItem('colecciones', JSON.stringify(colecciones))
 }
 
+//--------funcion para seleccionar una imagen y asignarla 
+
+
+
+let imgArr = ["alien.jpeg","burro-dientes-dorados.jpg", "gallo.jpg", "mono-3d.jpg", "mono-4d.jpg","mono-capitan.jpg", "mono-psico.jpg", "mono-casco.jpeg","mono-dientes-de-oro.png", "mono-armadura.jpeg", "cool-bird.png", "mono-karate.jpg"];
+function imgRandom(imgArr) {
+    return imgArr[Math.floor(Math.random() * imgArr.length)];
+}
+
+
+
+
 //---------evento para agregar coleccion al array
 
 formColecciones.addEventListener('submit', (e) => {
     e.preventDefault();
 
     //-----defino las variables para almacenar los valores de los inputs
-    let imagenColeccion = document.getElementById('imagenColeccion').value;
     let autorImagen = document.getElementById('autor').value;
     let descripcionImagen = document.getElementById('descripcion').value;
     let categoriaImagen = document.getElementById('categoria').value;
@@ -52,6 +74,8 @@ formColecciones.addEventListener('submit', (e) => {
     let tipoBlockchain = document.getElementById('tipoBlockchain').value;
     let precio = document.getElementById('precio').value;
     let cantidadDisponible = document.getElementById('disponibilidad').value;
+
+
 
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -121,13 +145,14 @@ const mostrarColecciones = () =>{
                 
                 <div class="card-box" id="coleccion${indice}">
                     <div class="card-thumbnail">
-                    <img src="../media/metakongz-nft.gif" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+                    <img src="./media/nfts/${imgRandom(imgArr)}" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
                     </div>
                     <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
                     <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
                     <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
                     <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
                     <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <img src="${imagen}" class="img-top imagenBlockchain" ></img> </p>
+                    <p class="card-text precioDolares">US$: ${coleccion.precio}</p>
                     <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
                     </br>
                 <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar al carrito</button>
@@ -153,7 +178,7 @@ const mostrarColecciones = () =>{
 
 const agregarAlCarrito = (cardPadre) => {
     let coleccion = {
-        imagenColeccion: cardPadre.parentElement.querySelector("img").src,
+        imagenColeccion: cardPadre.querySelector('.imgCard').src,
         descripcionImagen: cardPadre.querySelector('.descripcion').textContent,
         cantidad: 1,
         precio: Number(cardPadre.querySelector(".precio span").textContent),
@@ -180,44 +205,24 @@ const mostrarCarrito = () =>{
     tableBody.innerHTML = "";
     carrito.forEach((element) => {
 
-        let {imagen, descripcionImagen, cantidad, precio, indice} = element;
+        let {imagenColeccion, descripcionImagen, cantidad, precio, indice} = element;
         let tbody = document.createElement("tr");
             tbody.className = "tbody";
             tableBody.appendChild(tbody);
 
-            var loadFile = function(event) {
-                var reader = new FileReader();
-                reader.onload = function(){
-                  var output = document.getElementById('output');
-                  output.src = reader.result;
-                };
-                reader.readAsDataURL(event.target.files[0]);
-              };
             
             tbody.innerHTML += `
-
-                <th>
-                    <td class="td"><img class="img-fluid carrito-img" id="output"></td> 
-                </th>
-                <th>
-                    <td class="td">${descripcionImagen}</td>
-                </th>
-                <th>
-                    <td class="td">${cantidad}</td>
-                </th>
-                <th>    
-                    <td class="td">${Math.round(precio).toFixed(2)} </td>
-                </th>
-
-                <td></td>
-                <td class="td">
-                    <button class="btn-restar btn btn-light" data-id="${indice}">-</button>
-                    <button class="btn-borrar btn btn-light" data-id="${indice}">X</button>
-                </td>
+            <tr>
+                <td class="w-25"><img src="${imagenColeccion}" class="card-img-top img-fluid img-thumbnail" style="vertical-align: middle;"></td>
+                <td> ${descripcionImagen}</td>
+                <td>${cantidad}</td>
+                <td>US$ ${precio}</td>
+                <td>US$ ${precio * cantidad}</td>
                 <td>
-                    
+                <button class="btn-restar btn btn-light" data-id="${indice}">-</button>
+                <button class="btn-borrar btn btn-light" data-id="${indice}">X</button>
                 </td>
-
+            </tr>
             `        
 
     });
@@ -226,6 +231,7 @@ const mostrarCarrito = () =>{
     calcularTotal();
 
 };
+
 
 
 //-----------funcion para calcular el total de la compra
@@ -277,19 +283,19 @@ const aumentarNumeroCantidadCarrito = () => {
 
 const llenarTabla = () =>{
     //------------consulto al localstorage por los datos guardados en las colecciones y las muestro
-    let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
-    coleccionesStorage.forEach((coleccion) =>{
+    obtenerColecciones().then(colecciones => {
+    colecciones.forEach((coleccion) =>{
 
         //---------seteo una imagen dependiendo el tipo de opcion seleccionada
         let imagen = ""
         
         //---------consulto por los tipos de blockchain para cada moneda y retorna un icono y una variable moneda que sera parametro de fetch
-        if(coleccion.tipoBlockchain === "ethereum"){
+        if(coleccion.tipoBlockchain === "Ethereum"){
             imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
             moneda = "eth";
             
         }
-        else if(coleccion.tipoBlockchain === "bitcoin"){
+        else if(coleccion.tipoBlockchain === "Bitcoin"){
             imagen="https://img.icons8.com/color/30/000000/bitcoin--v1.png";
             moneda = "btc";
             
@@ -300,7 +306,7 @@ const llenarTabla = () =>{
             
         }
 
-        //obtengo nuevamente los valores de las criptomonedas actualizados desde la API criptoya 
+        //obtengo  los valores de las criptomonedas actualizados desde la API criptoya 
         //y paso el la variable "moneda" para buscar el precio por tipo de moneda en la API
 
         fetch("https://criptoya.com/api/bitex/"+ moneda +"/usd/1")
@@ -326,9 +332,10 @@ const llenarTabla = () =>{
                 
             `
         })
+    })
 
         
-    })
+})
 
     //----llamo a la funcion mostrarColecciones para mostrar las cards actualizadas
     mostrarColecciones();

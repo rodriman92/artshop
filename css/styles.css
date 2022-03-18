@@ -76,6 +76,10 @@
   #modalCarrito {
     width: 100%;
     height: 100%; }
+    #modalCarrito .modalBody .container {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle; }
   .sectionTopColecciones .contenedorTable .row .h2Custom {
     margin-top: 2rem;
     font-size: 3rem;

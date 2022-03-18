@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1,
+        "img": "alien.jpeg",
+        "autorImagen": "Alex",
+        "descripcionImagen": "Alien",
+        "categoriaImagen": "Espacial",
+        "fechaPublicacion": "17-01-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 4,
+        "cantidadDisponible": 10
+    }
+    ,
+    {
+        "id": 2,
+        "img": "burro-dientes-dorados.jpg",
+        "autorImagen": "Roger",
+        "descripcionImagen": "Donkey Gold 2",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "18-01-2022",
+        "tipoBlockchain": "Bitcoin",
+        "precio": 3,
+        "cantidadDisponible": 5
+    }
+    ,
+    {
+        "id": 3,
+        "img": "gallo.jpg",
+        "autorImagen": "Juan X",
+        "descripcionImagen": "Chicken",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "15-02-2022",
+        "tipoBlockchain": "Bitcoin",
+        "precio": 4,
+        "cantidadDisponible": 8
+    }
+    ,
+    {
+        "id": 4,
+        "img": "mono-3d.jpg",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "3D Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "15-02-2022",
+        "tipoBlockchain": "USDT",
+        "precio": 50,
+        "cantidadDisponible": 3 
+    }
+    ,
+    {
+        "id": 5,
+        "img": "mono-4d.jpg",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "4D Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "16-02-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 6 ,
+        "cantidadDisponible": 5
+    }
+    ,
+    {
+        "id": 6,
+        "img": "mono-armadura.jpeg",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "Medieval Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "17-02-2022",
+        "tipoBlockchain": "Bitcoin",
+        "precio": 3 ,
+        "cantidadDisponible": 5
+    }
+    ,
+    {
+        "id": 7,
+        "img": "mono-capitan.jpg",
+        "autorImagen": "Alex",
+        "descripcionImagen": "Captain Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "19-02-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 6,
+        "cantidadDisponible": 2
+    }
+    ,
+    {
+        "id": 8,
+        "img": "mono-casco.jpeg",
+        "autorImagen": "Roger",
+        "descripcionImagen": "Helmet Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "22-02-2022",
+        "tipoBlockchain": "USDT",
+        "precio": 45,
+        "cantidadDisponible": 15
+    }
+    ,
+    {
+        "id": 9,
+        "img": "mono-dientes-de-oro.png",
+        "autorImagen": "Sahid",
+        "descripcionImagen": "Golden ticket",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "01-03-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 8 ,
+        "cantidadDisponible": 2
+    }
+    ,
+    {
+        "id": 10,
+        "img": "mono-psico.jpg",
+        "autorImagen": "Walter T",
+        "descripcionImagen": "PsicoMonkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "05-03-2022",
+        "tipoBlockchain": "Bitcoin",
+        "precio": 8 ,
+        "cantidadDisponible": 3
+    }
+    ,
+    {
+        "id": 11,
+        "img": "mono-karate.jpg",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "Karate Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "07-03-2022",
+        "tipoBlockchain": "USDT",
+        "precio": 60 ,
+        "cantidadDisponible": 5
+    }
+    ,
+    {
+        "id": 12,
+        "img": "cool-bird.png",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "Cool Bird",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "15-03-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 9,
+        "cantidadDisponible": 3
+    }
+    
+]
