@@ -71,7 +71,7 @@
                     margin-bottom: 2rem;
                 }
             }
-            .table{
+            #tablaTopColecciones{
                 .thead{
                     .tr{
                         .th{
@@ -79,16 +79,14 @@
                         }
                     }
                 }
-                .tbody{
-                    .th{
-                        font-size: 0.7rem;
-                        .td{
-                            font-size: 0.5rem;
-                        }
+                .tr{
+                    .td{
+                        font-size: 0.6rem;
                     }
-
                 }
+    
             }
+            
         }
     }
 
@@ -132,11 +130,6 @@
             font-size: 0.8rem;
         }
     }
-
-
-
-
-
 }
 
 

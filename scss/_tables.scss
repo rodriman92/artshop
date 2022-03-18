@@ -9,11 +9,18 @@
             
         }
         #tablaTopColecciones{
-            width: 90%;
+            width: 95%;
             justify-content: center;
             margin: auto;
-            thead{
-                font-size: 1.5rem;
+            th{
+                text-align: center;
+                font-size: 1.2rem;
+            }
+            tr{
+                td{
+                    font-size: 1rem;
+                    text-align: center;
+                }
             }
             .conversionDolar{
                 font-weight: 600;

@@ -141,7 +141,8 @@ const mostrarColecciones = () =>{
         }
 
         divColecciones.innerHTML += `
-            <div class="col-md-8 col-lg-3 cardContenedor">
+
+            <div class="col-md-8 col-lg-2 cardContenedor">
                 
                 <div class="card-box" id="coleccion${indice}">
                     <div class="card-thumbnail">
@@ -324,10 +325,11 @@ const llenarTabla = () =>{
 
             tbody.innerHTML += `
             <tr class="tr">
-                <td class="td col-xs-2">${coleccion.descripcionImagen}</td>
-                <td class="td col-xs-2">${coleccion.autorImagen}</td>
-                <td class="td col-xs-2">${Math.round(valorEnDolares * coleccion.precio).toFixed(2)}</td>
-                <td class="td col-xs-2">${coleccion.precio} <img src="${imagen}" class="img-top imagenBlockchain" ></img></td>
+                <td class="td col-xs-2" style="width: 20%">${coleccion.descripcionImagen}</td>
+                <td class="td col-xs-2" style="width: 25%">${coleccion.autorImagen}</td>
+                <td class="td col-xs-2" style="width: 20%">${Math.round(valorEnDolares * coleccion.precio).toFixed(2)}</td>
+                <td class="td col-xs-2" style="width: 15%">${coleccion.precio} </td>
+                <td class="td col-xs-2" style="width: 10%"><img src="${imagen}" class="img-top imagenBlockchain"></img></td>
             </tr>
                 
             `
@@ -482,6 +484,25 @@ ScrollReveal().reveal('#tituloColecciones', {delay: 500});
 ScrollReveal().reveal('#tituloRecursos', {delay: 500});
 ScrollReveal().reveal('#tituloContacto', {delay: 500});
 
+
+//-----------scroll hasta el top de la pagina
+
+mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
 
 //-------inicio las funciones de mostrarCarrito y escucharBotones para realizar operaciones en el DOM
 mostrarCarrito();

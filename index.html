@@ -195,13 +195,14 @@
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioDesc">Precio ⬇️</button>
           <button class="btn btn-dark btn-block" id="botonOrdenaPrecioAsc">Precio ⬆️</button>
         </div>
-        <table class="table table-responsive table-striped" id="tablaTopColecciones">
+        <table class="table table-responsive table-striped table-striped tableTop" id="tablaTopColecciones">
           <thead class="thead">
             <tr class="tr">
               <th class="th">Colección</th>
               <th class="th">Autor</th>
               <th class="th">Precio US$</th>
-              <th class="th"></th>
+              <th class="th">Precio Crypto</th>
+              <th class="th">Coin</th>
             </tr>
           </thead>
 
@@ -221,7 +222,7 @@
           </div>
         </div>
 
-        <div id="divColecciones" class="row"></div>
+        <div id="divColecciones" class="row d-flex align-items-stretch"></div>
       </div>
     </section>
 
@@ -258,14 +259,10 @@
         <li class="nav-item"><a href="./index.html#tituloRecursos" class="nav-link px-2">RECURSOS</a></li>
         <li class="nav-item"><a href="./index.html#tituloContacto" class="nav-link px-2">CONTACTO</a></li>
       </ul>
-      <p class="text-center">© 2022 Artshop, Todos los derechos reservados</p>
+      <p class="text-center">© 2022 Artshop. Todos los derechos reservados</p>
 
-      <div class="elevator">
-        <a href="./index.html#inicio" type="button" class="btn btn-default">
-          <img src="./media/top.svg" alt="">
-          <p class="pArriba">Arriba</p>
-        </a> 
-      </div>
+      <button onclick="topFunction()" id="myBtn" title="Ir arriba"><img src="./media/arrow-top.svg" alt=""></button>
+
 
     </footer>
     <script src="./js/script.js"></script>
