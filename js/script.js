@@ -141,12 +141,11 @@ const mostrarColecciones = () =>{
         }
 
         divColecciones.innerHTML += `
-
             <div class="col-md-8 col-lg-2 cardContenedor">
-                
+
                 <div class="card-box" id="coleccion${indice}">
                     <div class="card-thumbnail">
-                    <img src="./media/nfts/${imgRandom(imgArr)}" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+                        <img src="./media/nfts/${imgRandom(imgArr)}" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
                     </div>
                     <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
                     <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
@@ -155,8 +154,7 @@ const mostrarColecciones = () =>{
                     <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <img src="${imagen}" class="img-top imagenBlockchain" ></img> </p>
                     <p class="card-text precioDolares">US$: ${coleccion.precio}</p>
                     <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
-                    </br>
-                <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar al carrito</button>
+                    <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar </button>
                 </div>
             </div>
             `

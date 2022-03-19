@@ -33,11 +33,55 @@
 				transform: scale(1.1);
 			}
 		}
-		.btn-agregar{
-			background-color: #826AD9;
-			color: #1c0240;
-			font-weight: 600;
+		h3{
+			margin-top: 2rem;
+			text-align: left;
 		}
+		.card-text{
+			font-size: 1rem;
+			text-align: left;
+		}
+		.btn-agregar {
+			position: relative;
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			text-decoration: none;
+			padding: 1em 2.5em;
+			display: inline-block;
+			border-radius: 6em;
+			transition: all .2s;
+			border: none;
+			font-family: inherit;
+			font-weight: 500;
+			color: black;
+			background-color: white;
+			&:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+				&::after {
+					transform: scaleX(1.4) scaleY(1.6);
+					opacity: 0;
+				}
+			}
+			&:active {
+				transform: translateY(-1px);
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			}
+			&::after {
+				content: "";
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				border-radius: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				transition: all .4s;
+				background-color: #fff;
+			}
+		}
+
 	}
 }
 
