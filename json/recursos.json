@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "imagen": "./media/recursos/start.svg",
+        "titulo": "Comenzar",
+        "subtitulo": "Aprende los primeros pasos para iniciar en el mundo de las NFTs"
+    }
+    ,
+    {
+        "id": 2,
+        "imagen": "./media/recursos/buy.svg",
+        "titulo": "Comprar",
+        "subtitulo": "Aprende como comprar colecciones de NFTs "
+    }
+    ,
+    {
+        "id": 3,
+        "imagen": "./media/recursos/sell.svg",
+        "titulo": "Vender",
+        "subtitulo": "Aprende como vender tus propias NFTs"
+    }
+    ,
+    {
+        "id": 4,
+        "imagen": "./media/recursos/create.svg",
+        "titulo": "Crear",
+        "subtitulo": "Aprende como crear tus propias NFTs"
+
+    }
+    ,
+    {
+        "id": 5,
+        "imagen": "./media/recursos/faq.svg",
+        "titulo": "FAQ",
+        "subtitulo": "Preguntas y respuestas frecuentes en los usuarios"
+
+    }
+
+]

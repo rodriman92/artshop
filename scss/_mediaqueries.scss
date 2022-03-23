@@ -97,6 +97,21 @@
             margin-bottom: 2rem;
             font-size: 2.5rem;
         }
+        .cardContenedor{
+            display: flex;
+            justify-items: center;
+            justify-content: center;
+            margin: auto;
+            .card-box{
+                .h3{
+                    margin-top: 1.5rem;
+                    font-size: 2.5rem;
+                }
+                .card-text{
+                    font-size: 1.3rem;
+                }
+            }
+        }
     }
 
     .sectionRecursos{
@@ -105,6 +120,29 @@
             margin-bottom: 2rem;
             font-size: 3rem;
         }
+        
+        #cardContenedor{
+            .cardRecurso{
+                width: 80%;
+                margin-left: 2.2rem;
+                .imgCardRecursos{
+                    width: 25%;
+                }
+                .h2CardRecurso{
+                    font-family: $fuente;
+                    font-size: 1.5rem;
+                }
+                .pCardRecurso{
+                    font-size: 1rem;
+    
+                }
+                .btnCardRecurso{
+                    font-size: 1rem;
+                    
+                }
+              }
+        }
+        
     }
 
     .sectionContacto{
@@ -284,9 +322,7 @@
 
 }
 
-@media only screen and (min-width: 992px){
 
-}
 
 @media only screen and (min-width: 1200px){
     .body{

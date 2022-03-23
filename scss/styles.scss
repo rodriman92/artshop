@@ -4,6 +4,7 @@
 @import "mediaqueries";
 @import "tables";
 @import "carrito";
+@import "recursos";
 
 * {
   margin: 0;
@@ -132,19 +133,10 @@ html {
     margin-top: 4rem;
   }
 }
-.sectionRecursos {
-	background-color: #826AD9;
-  .h2Custom {
-    font-size: 6rem;
-    text-align: center;
-    color: #260259;
-    font-weight: 800;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
-  }
-}
+
 .sectionContacto {
 	background-color: #260259;
+  padding-bottom: 3rem;
   .h2Custom {
     font-size: 6rem;
     text-align: center;
@@ -152,6 +144,16 @@ html {
     font-weight: 800;
     margin-bottom: 4rem;
     margin-top: 4rem;
+  }
+  .h3Custom{
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 3rem;
+    color: #66F2CA;
+  }
+  .cardRecursos{
+    margin-left: 2rem;
+    margin-bottom: 2rem;
   }
 }
 

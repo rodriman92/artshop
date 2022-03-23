@@ -1,22 +1,8 @@
-class Coleccion{
-    constructor(autorImagen, descripcionImagen, categoriaImagen, fechaPublicacion, tipoBlockchain, precio, cantidadDisponible){
-        this.autorImagen = autorImagen,
-        this.descripcionImagen = descripcionImagen,
-        this.categoriaImagen = categoriaImagen,
-        this.fechaPublicacion = fechaPublicacion,
-        this.tipoBlockchain = tipoBlockchain,
-        this.precio = precio,
-        this.cantidadDisponible = cantidadDisponible
-    }
-}
-
-
 
 //-----------declaracion de variables----------------------------------
-let formColecciones = document.getElementById("formColecciones");
-let botonColeccion = document.getElementById("botonColeccion");
-let inputImage = document.querySelector("#imagenColeccion");
 let divColecciones = document.getElementById("divColecciones");
+let cardRecursos = document.getElementById("cardContenedor");
+let formContainer = document.getElementById("formContainer");
 let botonColecciones = document.getElementById("botonColecciones");
 let mensajeExiste = document.getElementById("mensajeExiste");
 let tablaTopColecciones = document.getElementById("tablaTopColecciones")
@@ -34,12 +20,26 @@ let imagen;
 
 
 
-//------creo una funcion para obtener como molde de fetch
+//------creo una funcion para obtener el json con las colecciones
 async function obtenerColecciones(){
     const response = await fetch('./json/colecciones.json');
     return await response.json();
 }
 
+
+//-------funcion asincrona para obtener el json con los recursos
+
+async function obtenerRecursos(){
+    const response = await fetch('./json/recursos.json');
+    return await response.json();
+}
+
+
+//-------funcion asincrona para obtener los valores de las criptomonedas desde la API
+async function obtenerValorEnDolares(){
+    const response = await fetch("https://criptoya.com/api/bitex/"+ moneda +"/usd/1")
+    return await response.json();
+}
 
 //---------consulto si localstorage existe. Si existe traigo el array de colecciones. Si no existe, lo creo
 if(localStorage.getItem('colecciones')){
@@ -52,113 +52,52 @@ else{
 //--------funcion para seleccionar una imagen y asignarla 
 
 
-
 let imgArr = ["alien.jpeg","burro-dientes-dorados.jpg", "gallo.jpg", "mono-3d.jpg", "mono-4d.jpg","mono-capitan.jpg", "mono-psico.jpg", "mono-casco.jpeg","mono-dientes-de-oro.png", "mono-armadura.jpeg", "cool-bird.png", "mono-karate.jpg"];
 function imgRandom(imgArr) {
     return imgArr[Math.floor(Math.random() * imgArr.length)];
 }
 
+//-----------obtenego las colecciones desde el json colecciones
 
-
-
-//---------evento para agregar coleccion al array
-
-formColecciones.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    //-----defino las variables para almacenar los valores de los inputs
-    let autorImagen = document.getElementById('autor').value;
-    let descripcionImagen = document.getElementById('descripcion').value;
-    let categoriaImagen = document.getElementById('categoria').value;
-    let fechaPublicacion = document.getElementById('fecha').value;
-    let tipoBlockchain = document.getElementById('tipoBlockchain').value;
-    let precio = document.getElementById('precio').value;
-    let cantidadDisponible = document.getElementById('disponibilidad').value;
-
-
-
-
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-
-    //-------consulto si la coleccion que se va a cargar ya se encuentra en el array de colecciones. Si no se encuentra la agrego
-    if (!colecciones.some(coleccionArray => coleccionArray.autorImagen == autorImagen && coleccionArray.descripcionImagen == descripcionImagen)) {
-        const coleccion = new Coleccion(autorImagen, descripcionImagen, categoriaImagen, fechaPublicacion, tipoBlockchain, precio, cantidadDisponible);
-
-        //-------agrego el item al array de colecciones
-        colecciones.push(coleccion);
-
-        //----------actualizo el localstorage
-        localStorage.setItem('colecciones', JSON.stringify(colecciones));
-
-        //---------reseteo el formulario y pongo el foco en el input de Autor
-        formColecciones.reset();
-
-        mostrarMensajeSwalToast();
-
-        mensajeExiste.innerHTML = "";
-
-        document.getElementById('autor').focus();
-    }
-    //--------si el autor o la coleccion ya existen, muestro un alert con un mensaje de que ya existe.
-    else{
-        mensajeExiste.innerHTML += `
-        <div class="alert alert-warning" role="alert">
-            La colección ya existe. Reintente
-        </div>`;
-    }
-    mostrarColecciones();
-});
-
-//-----------funcion para obtener precio de cripto actualizado mediante la API de criptoya
-
-
-
-//-----------mostrar colecciones
-const mostrarColecciones = () =>{
+obtenerColecciones().then(colecciones => {
     divColecciones.innerHTML = "";
-    //------defino una variable para buscar en el localstorage la informacion guardada
-    let coleccionesStorage = JSON.parse(localStorage.getItem('colecciones'));
-    //------recorro cada item del array y a partir de cada uno, creo una card mostrando los datos
-    coleccionesStorage.forEach((coleccion, indice) =>{
+    colecciones.forEach((coleccion) =>{
 
-        
-        if(coleccion.tipoBlockchain === "ethereum"){
+        //-----------consulto el tipo de blockchain de la colecciones y le asigno un valor a la variable moneda para buscar el precio desde la API y un icono
+        if(colecciones.tipoBlockchain === "ethereum"){
             imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
             moneda = "eth";
             
             
         }
-        else if(coleccion.tipoBlockchain === "bitcoin"){
+        else if(colecciones.tipoBlockchain === "bitcoin"){
             imagen="https://img.icons8.com/fluency/30/000000/bitcoin--v1.png";
             moneda = "btc";
             
         }
-        else if(coleccion.tipoBlockchain === "usdt"){
+        else if(colecciones.tipoBlockchain === "usdt"){
             imagen="https://img.icons8.com/color/30/000000/tether--v2.png";
             moneda = "usdt"
             
         }
 
-        divColecciones.innerHTML += `
-            <div class="col-md-8 col-lg-2 cardContenedor">
-
-                <div class="card-box" id="coleccion${indice}">
+            divColecciones.innerHTML += `
+            <div class="col-md-8 col-lg-2 cardContenedor" style="width: 20rem;">
+                <div class="card-box" id="coleccion${coleccion.id}">
                     <div class="card-thumbnail">
-                        <img src="./media/nfts/${imgRandom(imgArr)}" class="img-fluid imgCard" alt="${coleccion.descripcionImagen}">
+                        <img src="./media/nfts/${coleccion.img}" class="img-fluid imgCard" alt="${colecciones.descripcionImagen}">
                     </div>
                     <h3><a href="#" class="mt-2 h3">Autor: ${coleccion.autorImagen}</a></h3>
                     <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
                     <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
                     <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-                    <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <img src="${imagen}" class="img-top imagenBlockchain" ></img> </p>
+                    <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <span>${coleccion.tipoBlockchain}</span></img> </p>
                     <p class="card-text precioDolares">US$: ${coleccion.precio}</p>
                     <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
-                    <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${indice}">Agregar </button>
+                    <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${coleccion.id}">Agregar </button>
                 </div>
             </div>
             `
-    
     });
     const btnAgregar = document.querySelectorAll(".btn-agregar");
     btnAgregar.forEach((e) =>
@@ -169,8 +108,8 @@ const mostrarColecciones = () =>{
       mostrarMensajeSwalToast();
     })
   );
-    
-}
+
+})
 
 
 //---------------funcion para agregar al carrito
@@ -204,25 +143,41 @@ const mostrarCarrito = () =>{
     tableBody.innerHTML = "";
     carrito.forEach((element) => {
 
-        let {imagenColeccion, descripcionImagen, cantidad, precio, indice} = element;
-        let tbody = document.createElement("tr");
-            tbody.className = "tbody";
-            tableBody.appendChild(tbody);
+            let {imagenColeccion, descripcionImagen, cantidad, precio, indice} = element;
+            let tbody = document.createElement("tr");
+                tbody.className = "tbody";
+                tableBody.appendChild(tbody);
+
+                tbody.innerHTML += `
+
+
+                <ul class="list-group mb-2 sticky-top">
+                
+
+                <li class="list-group-item d-flex justify-content-center">
+                    <div>
+                    <img src="${imagenColeccion}" class="card-img-top img-fluid img-thumbnail" style="vertical-align: middle; width: 15rem;">
+                        <h6 class="my-0">${descripcionImagen}</h6>
+                        <small class="text-muted">Cantidad: ${cantidad}</small>
+                        <small class="text-muted">Precio: US$ ${precio}</small>
+                    </div>
+                </li>
+                
+                <li class="list-group-item d-flex">
+                    <span>Total US$ ${precio * cantidad} </span>
+                </li>
+                <li class="list-group-item d-flex">
+                    <div>Acciones
+                        <button class="btn-restar btn btn-light" data-id="${indice}">-</button>
+                        <button class="btn-borrar btn btn-light" data-id="${indice}">X</button>
+                    </div>
+                </li>
+
+            </ul>
+                `   
 
             
-            tbody.innerHTML += `
-            <tr>
-                <td class="w-25"><img src="${imagenColeccion}" class="card-img-top img-fluid img-thumbnail" style="vertical-align: middle;"></td>
-                <td> ${descripcionImagen}</td>
-                <td>${cantidad}</td>
-                <td>US$ ${precio}</td>
-                <td>US$ ${precio * cantidad}</td>
-                <td>
-                <button class="btn-restar btn btn-light" data-id="${indice}">-</button>
-                <button class="btn-borrar btn btn-light" data-id="${indice}">X</button>
-                </td>
-            </tr>
-            `        
+                 
 
     });
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -333,12 +288,7 @@ const llenarTabla = () =>{
             `
         })
     })
-
-        
 })
-
-    //----llamo a la funcion mostrarColecciones para mostrar las cards actualizadas
-    mostrarColecciones();
 }
 
 //--------llamo al evento click del boton OrdenaPrecioAsc y realizo la operacion de orden
@@ -410,19 +360,11 @@ botonOrdenaPrecioDesc.addEventListener('click', (e) => {
     }
 })
 
-//----------- implementa dark mode
 
-function darkMode() {
-    let element = document.body;
-    element.classList.toggle("dark-mode");
-
- }
-
- mostrarColecciones();
  llenarTabla();
 
 
- //-------implementacion de libreria sweet alert 2
+ //-------muestra mensaje cuando se hace click en el boton agregar de la card de colecciones
 
 const mostrarMensajeSwalToast = () =>{
     Swal.fire({
@@ -443,12 +385,19 @@ const mostrarMensajeSwalToast = () =>{
     })
 }
 
+//-----------muestra mensaje de simulacion para indicar que se envio el mensaje
+
+const mostrarMensajeEnviado = () =>{
+    Swal.fire({
+        icon: 'success',
+        title: 'Mensaje Enviado'
+    })
+}
+
+//-----------muestra mensaje cuando se hace click en el carrito y este esta vacio
 botonAgregarCarrito.addEventListener('click', ()=>{
     if (carrito.length === 0) {
         swal.fire("Carrito vacío", "🛒", "warning")
-    }
-    else{
-        mostrarMensajeSwalToast();
     }
     
 })
@@ -471,7 +420,6 @@ const calcularTotal = () => {
     tableBody.appendChild(divTotal);
 
 }
-
 
 
 //--------implementacion de libreria scroll reveal para que aparezcan los titulos de las secciones a medida que hago scroll en la pagina
@@ -502,6 +450,86 @@ function topFunction() {
   document.documentElement.scrollTop = 0; 
 }
 
+//------funcion para obtener las cards de recursos 
+
+const obtenerCards = () =>{
+    obtenerRecursos().then(recursos => {
+        recursos.forEach(recurso => {
+            cardRecursos.innerHTML += `
+
+                    <div class="col-md-4 cardRecurso">
+                    <img src=${recurso.imagen} class="img-fluid imgCardRecursos"></img>
+                        <h2 class="h2CardRecurso">${recurso.titulo.toUpperCase()}</h2>
+                        <p class="pCardRecurso">${recurso.subtitulo}</p>
+                        <button class="btn btn-light btnCardRecurso align-self-end">Ver más</button>
+
+                    </div>
+
+            `
+        })
+    })
+}
+
+
+//-----funcion para crear el formulario de contacto
+
+const creaFormulario = () =>{
+
+    formContainer.innerHTML = "";
+
+    formContainer.innerHTML = `
+
+    <div class="container min-vh-200 d-flex flex-column">
+    <div class="card shadow rounded-3 my-auto">
+        <div class="card-body p-6">
+            <form role="form" class="row">
+                <div class="form-group col-lg-4">
+                    <label class="form-control-label" for="form-group-input">Nombre</label>
+                    <input type="text" class="form-control" id="form-group-input" name="nombre">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label class="form-control-label" for="form-group-input">Email</label>
+                    <input type="email" class="form-control" id="form-group-input" name="email">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label class="form-control-label" for="form-group-input">Motivo de la consulta</label>
+                    <select size="0" class="form-control" name="motivo">
+                        <option>Compra</option>
+                        <option>Venta</option>
+                        <option>Inversion</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-12">
+                    <label class="form-control-label" for="form-group-input">Mensaje</label>
+                    <textarea class="form-control" id="form-group-input" name="mensaje" rows="6"></textarea>
+                </div>
+                <div class="form-group col-lg-12">
+                    <button class="btnEnviar btn float-end mt-2">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    `
+    const btnEnviar = document.querySelectorAll(".btnEnviar");
+    btnEnviar.forEach((e) =>
+    e.addEventListener("click", (e) => {
+      mostrarMensajeEnviado();
+    })
+  );
+}
+
+
+
+
+
 //-------inicio las funciones de mostrarCarrito y escucharBotones para realizar operaciones en el DOM
 mostrarCarrito();
 escucharBotonesModalCarrito();
+obtenerCards();
+obtenerColecciones();
+creaFormulario();
+
+

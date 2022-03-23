@@ -1,0 +1,46 @@
+.sectionRecursos {
+	background-color: #826AD9;
+    height: auto;
+    padding-bottom: 2rem;
+  .h2Custom {
+    font-size: 6rem;
+    text-align: center;
+    color: #260259;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+  }
+  .cardRecurso{
+    background-color: #66f2ca;
+    width: 20rem;
+    margin: 1rem;
+    border-radius: 20px;
+    .imgCardRecursos{
+        width: 25%;
+        padding-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .h2CardRecurso{
+        font-family: $fuente;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #260259;
+    }
+    .pCardRecurso{
+        margin-top: 2rem;
+        font-family: $fuente;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #260259;
+    }
+    .btnCardRecurso{
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        background-color: #260259;
+        color: #66f2ca;
+        font-size: 1.2rem;
+        
+        
+    }
+  }
+}

@@ -129,10 +129,32 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 2.5rem; }
+  .sectionColecciones .cardContenedor {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    margin: auto; }
+    .sectionColecciones .cardContenedor .card-box .h3 {
+      margin-top: 1.5rem;
+      font-size: 2.5rem; }
+    .sectionColecciones .cardContenedor .card-box .card-text {
+      font-size: 1.3rem; }
   .sectionRecursos #tituloRecursos {
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 3rem; }
+  .sectionRecursos #cardContenedor .cardRecurso {
+    width: 80%;
+    margin-left: 2.2rem; }
+    .sectionRecursos #cardContenedor .cardRecurso .imgCardRecursos {
+      width: 25%; }
+    .sectionRecursos #cardContenedor .cardRecurso .h2CardRecurso {
+      font-family: "Rubik", sans-serif;
+      font-size: 1.5rem; }
+    .sectionRecursos #cardContenedor .cardRecurso .pCardRecurso {
+      font-size: 1rem; }
+    .sectionRecursos #cardContenedor .cardRecurso .btnCardRecurso {
+      font-size: 1rem; }
   .sectionContacto #tituloContacto {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -325,6 +347,44 @@
 .modalCarrito .modal-dialog .modal-content .modal-footer {
   background-color: #3a0683; }
 
+.sectionRecursos {
+  background-color: #826AD9;
+  height: auto;
+  padding-bottom: 2rem; }
+  .sectionRecursos .h2Custom {
+    font-size: 6rem;
+    text-align: center;
+    color: #260259;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    margin-top: 4rem; }
+  .sectionRecursos .cardRecurso {
+    background-color: #66f2ca;
+    width: 20rem;
+    margin: 1rem;
+    border-radius: 20px; }
+    .sectionRecursos .cardRecurso .imgCardRecursos {
+      width: 25%;
+      padding-top: 2rem;
+      margin-bottom: 2rem; }
+    .sectionRecursos .cardRecurso .h2CardRecurso {
+      font-family: "Rubik", sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #260259; }
+    .sectionRecursos .cardRecurso .pCardRecurso {
+      margin-top: 2rem;
+      font-family: "Rubik", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #260259; }
+    .sectionRecursos .cardRecurso .btnCardRecurso {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      background-color: #260259;
+      color: #66f2ca;
+      font-size: 1.2rem; }
+
 * {
   margin: 0;
   padding: 0;
@@ -425,18 +485,9 @@ html {
     margin-bottom: 4rem;
     margin-top: 4rem; }
 
-.sectionRecursos {
-  background-color: #826AD9; }
-  .sectionRecursos .h2Custom {
-    font-size: 6rem;
-    text-align: center;
-    color: #260259;
-    font-weight: 800;
-    margin-bottom: 4rem;
-    margin-top: 4rem; }
-
 .sectionContacto {
-  background-color: #260259; }
+  background-color: #260259;
+  padding-bottom: 3rem; }
   .sectionContacto .h2Custom {
     font-size: 6rem;
     text-align: center;
@@ -444,6 +495,14 @@ html {
     font-weight: 800;
     margin-bottom: 4rem;
     margin-top: 4rem; }
+  .sectionContacto .h3Custom {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 3rem;
+    color: #66F2CA; }
+  .sectionContacto .cardRecursos {
+    margin-left: 2rem;
+    margin-bottom: 2rem; }
 
 .footer {
   background-color: #66f2ca;

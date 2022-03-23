@@ -142,5 +142,40 @@
         "precio": 9,
         "cantidadDisponible": 3
     }
-    
+    ,
+    {
+        "id": 13,
+        "img": "mono-karate.jpg",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "Karate Monkey",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "07-03-2022",
+        "tipoBlockchain": "USDT",
+        "precio": 60 ,
+        "cantidadDisponible": 5
+    }
+    ,
+    {
+        "id": 14,
+        "img": "cool-bird.png",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "Cool Bird",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "15-03-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 9,
+        "cantidadDisponible": 3
+    }
+    ,
+    {
+        "id": 15,
+        "img": "cool-bird.png",
+        "autorImagen": "Rodriman",
+        "descripcionImagen": "Cool Bird",
+        "categoriaImagen": "Animales",
+        "fechaPublicacion": "15-03-2022",
+        "tipoBlockchain": "Ethereum",
+        "precio": 9,
+        "cantidadDisponible": 3
+    }
 ]
