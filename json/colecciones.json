@@ -157,25 +157,25 @@
     ,
     {
         "id": 14,
-        "img": "cool-bird.png",
-        "autorImagen": "Rodriman",
-        "descripcionImagen": "Cool Bird",
+        "img": "evolution.jpg",
+        "autorImagen": "Charles D",
+        "descripcionImagen": "Evolution",
         "categoriaImagen": "Animales",
-        "fechaPublicacion": "15-03-2022",
-        "tipoBlockchain": "Ethereum",
-        "precio": 9,
-        "cantidadDisponible": 3
+        "fechaPublicacion": "23-03-2022",
+        "tipoBlockchain": "Bitcoin",
+        "precio": 15,
+        "cantidadDisponible": 5
     }
     ,
     {
         "id": 15,
-        "img": "cool-bird.png",
+        "img": "cool-bull.jpeg",
         "autorImagen": "Rodriman",
-        "descripcionImagen": "Cool Bird",
+        "descripcionImagen": "Cool Bull",
         "categoriaImagen": "Animales",
-        "fechaPublicacion": "15-03-2022",
+        "fechaPublicacion": "23-03-2022",
         "tipoBlockchain": "Ethereum",
-        "precio": 9,
-        "cantidadDisponible": 3
+        "precio": 5,
+        "cantidadDisponible": 10
     }
 ]

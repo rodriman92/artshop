@@ -146,15 +146,59 @@ html {
     margin-top: 4rem;
   }
   .h3Custom{
-    font-size: 2rem;
+    font-size: 1.2rem;
     text-align: center;
     padding-bottom: 3rem;
     color: #66F2CA;
   }
-  .cardRecursos{
-    margin-left: 2rem;
-    margin-bottom: 2rem;
+  form {
+    max-width: 420px;
+    margin: 50px auto;
+
   }
+  .feedback-input {
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border: 2px solid #66f2ca;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+    &:focus {
+      border: 2px solid #66f2ca;
+    }
+  }
+  textarea {
+    height: 150px;
+    line-height: 150%;
+    resize: vertical;
+  }
+  [type="button"] {
+    font-family: $fuente;
+    width: 100%;
+    background: #66f2ca;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+    &:hover {
+      background: #66F2CA;
+    }
+  }
+  
 }
 
 .footer{
@@ -179,16 +223,16 @@ html {
     display: none; 
     position: fixed; 
     bottom: 20px; 
-    right: 30px; 
+    right: 10px; 
     z-index: 99; 
     border: none; 
     outline: none; 
     background-color: #260259; 
     color: #66F2CA; 
     cursor: pointer; 
-    padding: 15px; 
+    padding: 10px; 
     border-radius: 10px; 
-    font-size: 18px; 
+    font-size: 20px; 
     &:hover{
       background-color: #826ad9;
     }

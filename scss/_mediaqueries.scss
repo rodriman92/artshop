@@ -151,6 +151,13 @@
             margin-bottom: 2rem;
             font-size: 3rem;
         }
+        .h3Custom{
+            font-size: 1.2rem;
+        }
+        .rowFormContainer{
+            padding-right: 0;
+            margin-left: 0;
+        }
     }
 
     .footer{
@@ -426,6 +433,7 @@
             justify-items: center;
             justify-content: center;
             margin: auto;
+            width: 100%;
             .card-box{
                 .h3{
                     margin-top: 1.5rem;

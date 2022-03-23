@@ -457,7 +457,7 @@ const obtenerCards = () =>{
         recursos.forEach(recurso => {
             cardRecursos.innerHTML += `
 
-                    <div class="col-md-4 cardRecurso">
+                    <div class="col-md-2 cardRecurso">
                     <img src=${recurso.imagen} class="img-fluid imgCardRecursos"></img>
                         <h2 class="h2CardRecurso">${recurso.titulo.toUpperCase()}</h2>
                         <p class="pCardRecurso">${recurso.subtitulo}</p>
@@ -473,44 +473,18 @@ const obtenerCards = () =>{
 
 //-----funcion para crear el formulario de contacto
 
-const creaFormulario = () =>{
+const creaFormulario = (e) =>{
 
     formContainer.innerHTML = "";
 
     formContainer.innerHTML = `
 
-    <div class="container min-vh-200 d-flex flex-column">
-    <div class="card shadow rounded-3 my-auto">
-        <div class="card-body p-6">
-            <form role="form" class="row">
-                <div class="form-group col-lg-4">
-                    <label class="form-control-label" for="form-group-input">Nombre</label>
-                    <input type="text" class="form-control" id="form-group-input" name="nombre">
-                </div>
-                <div class="form-group col-lg-4">
-                    <label class="form-control-label" for="form-group-input">Email</label>
-                    <input type="email" class="form-control" id="form-group-input" name="email">
-                </div>
-                <div class="form-group col-lg-4">
-                    <label class="form-control-label" for="form-group-input">Motivo de la consulta</label>
-                    <select size="0" class="form-control" name="motivo">
-                        <option>Compra</option>
-                        <option>Venta</option>
-                        <option>Inversion</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-                <div class="form-group col-lg-12">
-                    <label class="form-control-label" for="form-group-input">Mensaje</label>
-                    <textarea class="form-control" id="form-group-input" name="mensaje" rows="6"></textarea>
-                </div>
-                <div class="form-group col-lg-12">
-                    <button class="btnEnviar btn float-end mt-2">Enviar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+    <form>      
+        <input name="name" type="text" class="feedback-input" placeholder="Nombre" />   
+        <input name="email" type="email" class="feedback-input" placeholder="Email" />
+        <textarea name="text" class="feedback-input" placeholder="Mensaje"></textarea>
+        <input type="button" class="btn btn-primary btnEnviar" value="Enviar"/>
+    </form>
 
     `
     const btnEnviar = document.querySelectorAll(".btnEnviar");
