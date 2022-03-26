@@ -6,7 +6,7 @@
         "descripcionImagen": "Alien",
         "categoriaImagen": "Espacial",
         "fechaPublicacion": "17-01-2022",
-        "tipoBlockchain": "Ethereum",
+        "tipoBlockchain": "USDT",
         "precio": 4,
         "cantidadDisponible": 10
     }
@@ -18,7 +18,7 @@
         "descripcionImagen": "Donkey Gold 2",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "18-01-2022",
-        "tipoBlockchain": "Bitcoin",
+        "tipoBlockchain": "USDT",
         "precio": 3,
         "cantidadDisponible": 5
     }
@@ -30,7 +30,7 @@
         "descripcionImagen": "Chicken",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "15-02-2022",
-        "tipoBlockchain": "Bitcoin",
+        "tipoBlockchain": "USDT",
         "precio": 4,
         "cantidadDisponible": 8
     }
@@ -54,7 +54,7 @@
         "descripcionImagen": "4D Monkey",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "16-02-2022",
-        "tipoBlockchain": "Ethereum",
+        "tipoBlockchain": "USDT",
         "precio": 6 ,
         "cantidadDisponible": 5
     }
@@ -66,7 +66,7 @@
         "descripcionImagen": "Medieval Monkey",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "17-02-2022",
-        "tipoBlockchain": "Bitcoin",
+        "tipoBlockchain": "USDT",
         "precio": 3 ,
         "cantidadDisponible": 5
     }
@@ -78,7 +78,7 @@
         "descripcionImagen": "Captain Monkey",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "19-02-2022",
-        "tipoBlockchain": "Ethereum",
+        "tipoBlockchain": "USDT",
         "precio": 6,
         "cantidadDisponible": 2
     }
@@ -102,7 +102,7 @@
         "descripcionImagen": "Golden ticket",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "01-03-2022",
-        "tipoBlockchain": "Ethereum",
+        "tipoBlockchain": "USDT",
         "precio": 8 ,
         "cantidadDisponible": 2
     }
@@ -114,7 +114,7 @@
         "descripcionImagen": "PsicoMonkey",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "05-03-2022",
-        "tipoBlockchain": "Bitcoin",
+        "tipoBlockchain": "USDT",
         "precio": 8 ,
         "cantidadDisponible": 3
     }
@@ -138,21 +138,21 @@
         "descripcionImagen": "Cool Bird",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "15-03-2022",
-        "tipoBlockchain": "Ethereum",
+        "tipoBlockchain": "USDT",
         "precio": 9,
         "cantidadDisponible": 3
     }
     ,
     {
         "id": 13,
-        "img": "mono-karate.jpg",
-        "autorImagen": "Rodriman",
-        "descripcionImagen": "Karate Monkey",
+        "img": "leopard-ape.png",
+        "autorImagen": "Trunks",
+        "descripcionImagen": "Leopard Monkey",
         "categoriaImagen": "Animales",
-        "fechaPublicacion": "07-03-2022",
+        "fechaPublicacion": "26-03-2022",
         "tipoBlockchain": "USDT",
-        "precio": 60 ,
-        "cantidadDisponible": 5
+        "precio": 6 ,
+        "cantidadDisponible": 10
     }
     ,
     {
@@ -162,7 +162,7 @@
         "descripcionImagen": "Evolution",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "23-03-2022",
-        "tipoBlockchain": "Bitcoin",
+        "tipoBlockchain": "USDT",
         "precio": 15,
         "cantidadDisponible": 5
     }
@@ -174,7 +174,7 @@
         "descripcionImagen": "Cool Bull",
         "categoriaImagen": "Animales",
         "fechaPublicacion": "23-03-2022",
-        "tipoBlockchain": "Ethereum",
+        "tipoBlockchain": "USDT",
         "precio": 5,
         "cantidadDisponible": 10
     }

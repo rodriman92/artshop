@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+    
 
     <title>Bienvenidos a Artshop 🎨</title>
 </head>
@@ -82,7 +83,7 @@
               <div id="no-more-tables">
                 <table class="col-md-12 table table-image" data-show-footer="true">
 
-                  <tbody id="tbody" class="tbody" style="max-height: 300px; overflow-y: auto;">
+                  <tbody id="tbody" class="tbody" style="max-height: 100%; overflow-y: auto;">
     
     
                   </tbody>
@@ -99,12 +100,30 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Comprar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCheckout" data-bs-dismiss="modal">Comprar</button>
       </div>
     </div>
   </div>
 </div>
     <!-- #fin modal carrito-->
+
+    <!-- Modal checkout-->
+    <div class="modal fade modalCheckout" id="modalCheckout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body modalBody" id="modalBodyCheckout">
+            <div id="divCheckout">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #fin modal checkout-->
 
     <!-- Section Top Colecciones-->
     <section class="sectionTopColecciones" id="sectionTopColecciones">

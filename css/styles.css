@@ -335,20 +335,19 @@
   .modalCarrito .modal-dialog .modal-content .modal-header .btn-close {
     background-color: #826ad9; }
 
-.modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .th {
-  color: black;
-  font-weight: 800; }
-
-.modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .td {
-  color: black;
-  font-weight: 600; }
-
-.modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .tableBody {
-  color: black;
-  font-weight: 600; }
-
-.modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .tfoot .thTotal {
-  background-color: #431288; }
+.modalCarrito .modal-dialog .modal-content .modalBody {
+  width: 100%; }
+  .modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .th {
+    color: black;
+    font-weight: 800; }
+  .modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .td {
+    color: black;
+    font-weight: 600; }
+  .modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .tableBody {
+    color: black;
+    font-weight: 600; }
+  .modalCarrito .modal-dialog .modal-content .modalBody .tableCarrito .tfoot .thTotal {
+    background-color: #431288; }
 
 .modalCarrito .modal-dialog .modal-content .modal-footer {
   background-color: #3a0683; }
@@ -356,7 +355,8 @@
 .sectionRecursos {
   background-color: #826AD9;
   height: auto;
-  padding-bottom: 2rem; }
+  padding-bottom: 2rem;
+  padding-left: 1.5rem; }
   .sectionRecursos .h2Custom {
     font-size: 6rem;
     text-align: center;

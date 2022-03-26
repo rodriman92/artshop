@@ -12,6 +12,7 @@ let botonOrdenaPrecioDesc = document.querySelector("#botonOrdenaPrecioDesc");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let botonAgregarCarrito = document.getElementById("botonAgregarCarrito");
 let modalCarrito = document.querySelector(".modalCarrito");
+let divCheckout = document.getElementById("divCheckout");
 let tfoot = document.querySelector(".cant--carrito");
 let colecciones = [];
 let valorEnDolares;
@@ -35,12 +36,6 @@ async function obtenerRecursos(){
 }
 
 
-//-------funcion asincrona para obtener los valores de las criptomonedas desde la API
-async function obtenerValorEnDolares(){
-    const response = await fetch("https://criptoya.com/api/bitex/"+ moneda +"/usd/1")
-    return await response.json();
-}
-
 //---------consulto si localstorage existe. Si existe traigo el array de colecciones. Si no existe, lo creo
 if(localStorage.getItem('colecciones')){
     colecciones = JSON.parse(localStorage.getItem('colecciones'))
@@ -57,6 +52,26 @@ function imgRandom(imgArr) {
     return imgArr[Math.floor(Math.random() * imgArr.length)];
 }
 
+//----------obtengo los precios actulizados de la cadena de blockchain
+
+const fetchUSDT = () => {
+    return new Promise((resolve, reject) => (
+        fetch("https://criptoya.com/api/bitex/usdt/usd/1")
+          .then(res => res.json())
+          .then(data => resolve(data.ask))
+          .catch(err => reject(err))
+        ))
+  }
+//--------------funcion asincrona que obtiene los datos de fetchUSDT
+async function getDataUSDT() {
+    const data = await fetchUSDT()
+    valorEnDolares = await data;
+    console.log(valorEnDolares)
+    
+}
+
+getDataUSDT();
+
 //-----------obtenego las colecciones desde el json colecciones
 
 obtenerColecciones().then(colecciones => {
@@ -66,19 +81,17 @@ obtenerColecciones().then(colecciones => {
         //-----------consulto el tipo de blockchain de la colecciones y le asigno un valor a la variable moneda para buscar el precio desde la API y un icono
         if(colecciones.tipoBlockchain === "ethereum"){
             imagen="https://img.icons8.com/cotton/30/000000/ethereum--v1.png";
-            moneda = "eth";
-            
+            valorEnDolares = getDataETH()
             
         }
         else if(colecciones.tipoBlockchain === "bitcoin"){
             imagen="https://img.icons8.com/fluency/30/000000/bitcoin--v1.png";
-            moneda = "btc";
+            
             
         }
-        else if(colecciones.tipoBlockchain === "usdt"){
+        else if(colecciones.tipoBlockchain === "USDT"){
             imagen="https://img.icons8.com/color/30/000000/tether--v2.png";
-            moneda = "usdt"
-            
+            valorEnDolares = getDataUSDT()
         }
 
             divColecciones.innerHTML += `
@@ -91,14 +104,14 @@ obtenerColecciones().then(colecciones => {
                     <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
                     <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
                     <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-                    <p class="card-text precio">Valor: <span>${coleccion.precio}</span> <span>${coleccion.tipoBlockchain}</span></img> </p>
-                    <p class="card-text precioDolares">US$: ${coleccion.precio}</p>
+                    <p class="card-text precio">Valor: <span>${coleccion.precio * valorEnDolares}</span> <span>${coleccion.tipoBlockchain}</span></img> </p>
                     <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
                     <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${coleccion.id}">Agregar </button>
                 </div>
             </div>
             `
     });
+    //------------------creo una variable y se la asigno al boton btn-agregar para escuchar cuando se hace click y agregar la coleccion al array de colecciones y mostrar el carrito
     const btnAgregar = document.querySelectorAll(".btn-agregar");
     btnAgregar.forEach((e) =>
     e.addEventListener("click", (e) => {
@@ -122,6 +135,7 @@ const agregarAlCarrito = (cardPadre) => {
         precio: Number(cardPadre.querySelector(".precio span").textContent),
         indice: Number(cardPadre.querySelector("button").getAttribute("data-id"))
     };
+    //---------consulto si el indice del elemento es igual al que tengo en carrito, si lo es aumento la cantidad
     let coleccionEncontrada = carrito.find(
         (element) => element.indice === coleccion.indice
       );
@@ -180,17 +194,19 @@ const mostrarCarrito = () =>{
                  
 
     });
+    //---------actualizo el localstorage con la nueva informacion del array de colecciones
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    //--------funcion para aumentar la cantidad de la imagen seleccionada en el carrito
     aumentarNumeroCantidadCarrito();
+    //----------funcion para calcular el total del carrito
     calcularTotal();
 
 };
 
 
 
-//-----------funcion para calcular el total de la compra
 
-//--------funcion para escuchar el los eventos en los botones del modal
+//--------funcion para escuchar los eventos en los botones del modal
 
 const escucharBotonesModalCarrito = () => {
     modalCarrito.addEventListener('click', (e) => {
@@ -261,7 +277,6 @@ const llenarTabla = () =>{
         }
 
         //obtengo  los valores de las criptomonedas actualizados desde la API criptoya 
-        //y paso el la variable "moneda" para buscar el precio por tipo de moneda en la API
 
         fetch("https://criptoya.com/api/bitex/"+ moneda +"/usd/1")
         .then(response => response.json())
@@ -361,7 +376,7 @@ botonOrdenaPrecioDesc.addEventListener('click', (e) => {
 })
 
 
- llenarTabla();
+
 
 
  //-------muestra mensaje cuando se hace click en el boton agregar de la card de colecciones
@@ -403,7 +418,7 @@ botonAgregarCarrito.addEventListener('click', ()=>{
 })
 
 
-//-------calcular el total del carrito mediante reduce
+//-------calcula el total del carrito mediante reduce. Luego el valor de total lo adhiero al pie de la tabla. 
 
 const calcularTotal = () => {
     let total = carrito.reduce((acc, ite) => acc + (ite.precio) * ite.cantidad,0);
@@ -415,9 +430,82 @@ const calcularTotal = () => {
 
     divTotal.innerHTML = `
         <th colspan="8" class="text-right thTotal">TOTAL DE LA COMPRA</th>
-        <td colspan="2" class="td tdTotal"><span class="spanTotal">US$${Math.round(total).toFixed(2)}</span></td>
+        <td colspan="2" class="td tdTotal"><span class="spanTotal">US$${Math.round(total).toFixed(3)}</span></td>
     `;
+    //--------escribo en el divCheckout la card que contiene los elementos para ingresar los datos para el pago
+    divCheckout.innerHTML = `
+
+        <div class="row d-flex justify-content-center" >
+            <div class="col-sm-12 col-md-2 col-lg-12">
+            <div class="card rounded-3">
+                <div class="card-body">
+                <div class="text-center ">
+                    <h2 style="font-weight: 800">TOTAL A PAGAR</h2>
+                    <h3><span style="font-weight: 600; color: #1c0240">US$${total}</span></h3>
+                </div>
+                <form action="">
+                    <div class="col-12">
+                    <div class="form-outline">
+                    <label class="form-label" for="formApeNombre">Nombre y Apellido</label>
+                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco"/>
+                    </div>
+                    </div>
+
+                    <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="form-outline">
+                        <label class="form-label" for="formCardNumber">Card Number</label>
+                        <input type="text" id="formCardNumber" class="form-control form-control-md" placeholder="1234 5678 1234 5678" required/>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-outline">
+                        <label class="form-label" for="formControlLgExpk">Fecha expiración</label>
+                        <input
+                            type="text"
+                            id="formControlLgExpk"
+                            class="form-control form-control-md"
+                            placeholder="MM/YYYY"
+                        />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-outline">
+                        <label class="form-label" for="formControlLgcvv">CVV</label>
+                        <input
+                            type="password"
+                            id="formControlLgcvv"
+                            class="form-control form-control-md"
+                            placeholder="CVV"
+                        />
+                        
+                        </div>
+                    </div>
+                    </div>
+
+                    <button class="btn btn-success btn-lg btn-block btnPagar" style="background-color: #66F2CA";color:"red" data-bs-dismiss="modal">Pagar</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    `
+
+    //---------adhiero el div que contiene el total a la tabla
     tableBody.appendChild(divTotal);
+
+    //----------creo una variable  a la que le asigno el boton con la clase btnPagar para que muestre un toast una vez confirmado el pago
+    const btnPagar = document.querySelectorAll(".btnPagar");
+    btnPagar.forEach((e) =>
+    e.addEventListener("click", (e) => {
+      mostrarToastPagado();
+      //----------actualizo el carrito a 0 y el localstorage
+
+      carrito = [];
+      aumentarNumeroCantidadCarrito();
+      localStorage.setItem("carrito", JSON.stringify(carrito))
+    })
+  );
 
 }
 
@@ -479,31 +567,57 @@ const creaFormulario = (e) =>{
 
     formContainer.innerHTML = `
 
-    <form>      
+    <form id="formContacto">      
         <input name="name" type="text" class="feedback-input" placeholder="Nombre" />   
         <input name="email" type="email" class="feedback-input" placeholder="Email" />
         <textarea name="text" class="feedback-input" placeholder="Mensaje"></textarea>
         <input type="button" class="btn btn-primary btnEnviar" value="Enviar"/>
     </form>
 
+    
+
     `
     const btnEnviar = document.querySelectorAll(".btnEnviar");
     btnEnviar.forEach((e) =>
     e.addEventListener("click", (e) => {
-      mostrarMensajeEnviado();
+        e.preventDefault();
+        mostrarMensajeEnviado();
+        document.getElementById('formContacto').reset();
+
     })
   );
 }
 
 
 
+//---------mostrar toast cuando el carrito fue pagado
+
+mostrarToastPagado = () =>{
+    Swal.fire({
+        toast: true,
+        text: "Pago exitoso",
+        color: "#260259",
+        background: "#66f2ca",
+        showConfirmButton: false,
+        position: "bottom-end",
+        timer: 1400,
+        timerProgressBar: true,
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+    })
+}
 
 
-//-------inicio las funciones de mostrarCarrito y escucharBotones para realizar operaciones en el DOM
+
+//-------inicio las funciones para realizar operaciones en el DOM
 mostrarCarrito();
 escucharBotonesModalCarrito();
+llenarTabla();
 obtenerCards();
 obtenerColecciones();
+getDataUSDT();
 creaFormulario();
-
-
