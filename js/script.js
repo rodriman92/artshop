@@ -447,7 +447,7 @@ const calcularTotal = () => {
                     <div class="col-12">
                     <div class="form-outline">
                     <label class="form-label" for="formApeNombre">Nombre y Apellido</label>
-                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco"/>
+                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco" required/>
                     </div>
                     </div>
 
@@ -483,7 +483,7 @@ const calcularTotal = () => {
                     </div>
                     </div>
 
-                    <button class="btn btn-success btn-lg btn-block btnPagar" style="background-color: #66F2CA";color:"red" data-bs-dismiss="modal">Pagar</button>
+                    <button class="btn btn-success btn-lg btn-block btnPagar" type="submit" style="background-color: #66F2CA" data-bs-dismiss="modal">Pagar</button>
                 </form>
                 </div>
             </div>
@@ -498,16 +498,23 @@ const calcularTotal = () => {
     const btnPagar = document.querySelectorAll(".btnPagar");
     btnPagar.forEach((e) =>
     e.addEventListener("click", (e) => {
-      mostrarToastPagado();
-      //----------actualizo el carrito a 0 y el localstorage
+    mostrarToastPagado();
+    //----------actualizo el carrito a 0 y el localstorage
 
-      carrito = [];
-      aumentarNumeroCantidadCarrito();
-      localStorage.setItem("carrito", JSON.stringify(carrito))
+    carrito = [];
+    aumentarNumeroCantidadCarrito();
+    localStorage.clear("carrito");
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    //-------funcion para actualizar el localstorage a los 2 seg y la pagina.
+    function timedRefresh(timeoutPeriod) {
+
+    setTimeout("location.reload(true);",timeoutPeriod);
+    }
+        window.onload = timedRefresh(2000);
     })
   );
-
 }
+
 
 
 //--------implementacion de libreria scroll reveal para que aparezcan los titulos de las secciones a medida que hago scroll en la pagina
