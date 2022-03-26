@@ -511,6 +511,7 @@ const calcularTotal = () => {
     setTimeout("location.reload(true);",timeoutPeriod);
     }
         window.onload = timedRefresh(2000);
+        getDataUSDT();
     })
   );
 }
