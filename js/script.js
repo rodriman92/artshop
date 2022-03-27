@@ -91,7 +91,10 @@ obtenerColecciones().then(colecciones => {
         }
         else if(colecciones.tipoBlockchain === "USDT"){
             imagen="https://img.icons8.com/color/30/000000/tether--v2.png";
-            valorEnDolares = getDataUSDT()
+            setTimeout(function(){
+                valorEnDolares = getDataUSDT();
+            }, 2000);
+            
         }
 
             divColecciones.innerHTML += `
@@ -104,7 +107,7 @@ obtenerColecciones().then(colecciones => {
                     <p class="card-text descripcion">Descripcion: ${coleccion.descripcionImagen}</p>
                     <p class="card-text categoria">Categoría: ${coleccion.categoriaImagen}</p>
                     <p class="card-text fecha">Fecha publicacion: ${coleccion.fechaPublicacion}</p>
-                    <p class="card-text precio">Valor: <span>${coleccion.precio * valorEnDolares}</span> <span>${coleccion.tipoBlockchain}</span></img> </p>
+                    <p class="card-text precio">Valor: <span>${(coleccion.precio * valorEnDolares) || coleccion.precio}</span> <span>${coleccion.tipoBlockchain}</span></img> </p>
                     <p class="card-text disponibilidad">Disponibilidad: ${coleccion.cantidadDisponible}</p>
                     <button class="btn-agregar btn btn-light" id="botonAgregarCarrito" data-id="${coleccion.id}">Agregar </button>
                 </div>
@@ -447,7 +450,7 @@ const calcularTotal = () => {
                     <div class="col-12">
                     <div class="form-outline">
                     <label class="form-label" for="formApeNombre">Nombre y Apellido</label>
-                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco" required/>
+                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco" required minlength="1"/>
                     </div>
                     </div>
 
@@ -455,7 +458,7 @@ const calcularTotal = () => {
                     <div class="col-12">
                         <div class="form-outline">
                         <label class="form-label" for="formCardNumber">Card Number</label>
-                        <input type="text" id="formCardNumber" class="form-control form-control-md" placeholder="1234 5678 1234 5678" required/>
+                        <input type="text" id="formCardNumber" class="form-control form-control-md" placeholder="1234 5678 1234 5678" required maxlength="16"/>
                         </div>
                     </div>
                     <div class="col-12">
@@ -463,9 +466,9 @@ const calcularTotal = () => {
                         <label class="form-label" for="formControlLgExpk">Fecha expiración</label>
                         <input
                             type="text"
-                            id="formControlLgExpk"
+                            id="formFecha"
                             class="form-control form-control-md"
-                            placeholder="MM/YYYY"
+                            placeholder="MM/YYYY" maxlength="6"
                         />
                         </div>
                     </div>
@@ -474,16 +477,16 @@ const calcularTotal = () => {
                         <label class="form-label" for="formControlLgcvv">CVV</label>
                         <input
                             type="password"
-                            id="formControlLgcvv"
+                            id="formCVV"
                             class="form-control form-control-md"
-                            placeholder="CVV"
+                            placeholder="CVV" maxlength="3"
                         />
                         
                         </div>
                     </div>
                     </div>
 
-                    <button class="btn btn-success btn-lg btn-block btnPagar" type="submit" style="background-color: #66F2CA" data-bs-dismiss="modal">Pagar</button>
+                    <button class="btn btn-success btn-lg btn-block btnPagar" type="submit" style="background-color: #66F2CA">Pagar</button>
                 </form>
                 </div>
             </div>
@@ -493,38 +496,34 @@ const calcularTotal = () => {
 
     //---------adhiero el div que contiene el total a la tabla
     tableBody.appendChild(divTotal);
-
     //----------creo una variable  a la que le asigno el boton con la clase btnPagar para que muestre un toast una vez confirmado el pago
     const btnPagar = document.querySelectorAll(".btnPagar");
     btnPagar.forEach((e) =>
     e.addEventListener("click", (e) => {
-    mostrarToastPagado();
+        setTimeout(() => {
+            mostrarToastPagado();
+            
+        }, 1000);
+        
+    
     //----------actualizo el carrito a 0 y el localstorage
 
     carrito = [];
     aumentarNumeroCantidadCarrito();
     localStorage.clear("carrito");
-    localStorage.setItem("carrito", JSON.stringify(carrito))
     //-------funcion para actualizar el localstorage a los 2 seg y la pagina.
-    function timedRefresh(timeoutPeriod) {
-
-    setTimeout("location.reload(true);",timeoutPeriod);
-    }
-        window.onload = timedRefresh(2000);
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    setTimeout(() => {
+        location.reload();
         getDataUSDT();
+    }, 3000);
+    
     })
+    
+    
   );
+  
 }
-
-
-
-//--------implementacion de libreria scroll reveal para que aparezcan los titulos de las secciones a medida que hago scroll en la pagina
-
-ScrollReveal().reveal('.h1Custom');
-ScrollReveal().reveal('#tituloTop', {delay: 300});
-ScrollReveal().reveal('#tituloColecciones', {delay: 500});
-ScrollReveal().reveal('#tituloRecursos', {delay: 500});
-ScrollReveal().reveal('#tituloContacto', {delay: 500});
 
 
 //-----------scroll hasta el top de la pagina
@@ -557,8 +556,6 @@ const obtenerCards = () =>{
                     <img src=${recurso.imagen} class="img-fluid imgCardRecursos"></img>
                         <h2 class="h2CardRecurso">${recurso.titulo.toUpperCase()}</h2>
                         <p class="pCardRecurso">${recurso.subtitulo}</p>
-                        <button class="btn btn-light btnCardRecurso align-self-end">Ver más</button>
-
                     </div>
 
             `
@@ -576,10 +573,13 @@ const creaFormulario = (e) =>{
     formContainer.innerHTML = `
 
     <form id="formContacto">      
-        <input name="name" type="text" class="feedback-input" placeholder="Nombre" />   
-        <input name="email" type="email" class="feedback-input" placeholder="Email" />
-        <textarea name="text" class="feedback-input" placeholder="Mensaje"></textarea>
-        <input type="button" class="btn btn-primary btnEnviar" value="Enviar"/>
+        <input name="name" type="text" class="feedback-input" placeholder="Nombre" required />   
+        <input name="email" type="email" class="feedback-input" placeholder="Email" required />
+        <textarea name="message" id="message" class="feedback-input" placeholder="Mensaje"></textarea>
+        <input type="submit" class="btn btn-light btnEnviar d-block" value="Enviar"/>
+
+        <a href="mailto:contacto@artshop.com" id="superFormOculto"></a>
+
     </form>
 
     
@@ -588,9 +588,25 @@ const creaFormulario = (e) =>{
     const btnEnviar = document.querySelectorAll(".btnEnviar");
     btnEnviar.forEach((e) =>
     e.addEventListener("click", (e) => {
-        e.preventDefault();
-        mostrarMensajeEnviado();
-        document.getElementById('formContacto').reset();
+
+        const $form = document.querySelector('#formContacto')
+        const $buttonMailto = document.querySelector('#superFormOculto')
+        $form.addEventListener('submit', handleSubmit)
+
+        function handleSubmit(event) {
+            event.preventDefault()
+            const form = new FormData(this)
+            console.log(form.get('name'))
+            $buttonMailto.setAttribute('href',
+                `mailto:contacto@artshop.com?subject=Consulta NFTs&body=Mensaje nuevo de ${form.get('name')}. Consulta: ${form.get('message')}`
+                )
+            $buttonMailto.click()
+            setTimeout(function(){
+                mostrarMensajeEnviado();
+                document.getElementById('formContacto').reset();
+            }, 3000);
+            
+        }
 
     })
   );

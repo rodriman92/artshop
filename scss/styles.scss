@@ -30,8 +30,9 @@ html {
         font-weight: 800;
         margin-right: 10rem;
         margin-left: 1rem;
-        color: #1c0240;
+        color: #260259;
         background-color: #66f2ca;
+        text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206,89,55,0);
 
       }
       .h1Custom__text {
@@ -91,6 +92,7 @@ html {
     font-weight: 800;
     height: auto;
     margin-top: 4rem;
+    text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206,89,55,0);
   }
   .divOrdenar{
     #botonOrdenaPrecioDesc{
@@ -131,6 +133,7 @@ html {
     font-weight: 800;
     margin-bottom: 4rem;
     margin-top: 4rem;
+    text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206,89,55,0);
   }
 }
 
@@ -144,6 +147,7 @@ html {
     font-weight: 800;
     margin-bottom: 4rem;
     margin-top: 4rem;
+    text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206,89,55,0);
   }
   .h3Custom{
     font-size: 1.2rem;
@@ -180,7 +184,7 @@ html {
     line-height: 150%;
     resize: vertical;
   }
-  [type="button"] {
+  [type="submit"] {
     font-family: $fuente;
     width: 100%;
     background: #66f2ca;
