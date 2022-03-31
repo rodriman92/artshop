@@ -424,25 +424,25 @@ const calcularTotal = () => {
                     <div class="col-12">
                     <div class="form-outline">
                     <label class="form-label" for="formApeNombre">Nombre y Apellido</label>
-                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco" required minlength="1"/>
+                    <input type="text" id="formApeNombre" class="form-control form-control-md" placeholder="Juana de Arco" required minlength="1" />
                     </div>
                     </div>
 
                     <div class="row mb-4">
                     <div class="col-12">
                         <div class="form-outline">
-                        <label class="form-label" for="formCardNumber">Card Number</label>
-                        <input type="text" id="formCardNumber" class="form-control form-control-md" placeholder="1234 5678 1234 5678" required maxlength="16"/>
+                        <label class="form-label" for="formCardNumber">Nº de tarjeta</label>
+                        <input type="number" id="formCardNumber" class="form-control form-control-md" placeholder="1234 5678 1234 5678" required pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==16) return false;"/>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-outline">
                         <label class="form-label" for="formControlLgExpk">Fecha expiración</label>
                         <input
-                            type="text"
+                            type="number"
                             id="formFecha"
                             class="form-control form-control-md"
-                            placeholder="MM/YYYY" maxlength="6"/>
+                            placeholder="MM/YYYY" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==6) return false;"/>
                         </div>
                     </div>
                     <div class="col-12">
@@ -472,7 +472,7 @@ const calcularTotal = () => {
     e.addEventListener("click", (e) => {
       setTimeout(() => {
         mostrarToastPagado();
-      }, 1000);
+      }, 3000);
 
       //----------actualizo el carrito a 0 y el localstorage
 
@@ -484,7 +484,7 @@ const calcularTotal = () => {
       setTimeout(() => {
         location.reload();
         getDataUSDT();
-      }, 3000);
+      }, 5000);
     })
   );
 };
@@ -585,7 +585,7 @@ mostrarToastPagado = () => {
     background: "#66f2ca",
     showConfirmButton: false,
     position: "bottom-end",
-    timer: 1400,
+    timer: 3000,
     timerProgressBar: true,
     showClass: {
       popup: "animate__animated animate__fadeInDown",

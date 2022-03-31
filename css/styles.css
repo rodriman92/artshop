@@ -416,7 +416,7 @@ html {
       margin-left: 1rem;
       color: #260259;
       background-color: #66f2ca;
-      text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206, 89, 55, 0); }
+      text-shadow: -3px 3px 0px #826ad9, 1px 1px 1px rgba(206, 89, 55, 0); }
     .mainIndex .containerIndex .row .h1Custom__text {
       font-size: 1.8rem;
       margin-left: 1rem;
@@ -465,7 +465,7 @@ html {
     font-weight: 800;
     height: auto;
     margin-top: 4rem;
-    text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206, 89, 55, 0); }
+    text-shadow: -3px 3px 0px #826ad9, 1px 1px 1px rgba(206, 89, 55, 0); }
   .sectionTopColecciones .divOrdenar #botonOrdenaPrecioDesc {
     background-color: #66f2ca;
     color: #260259;
@@ -493,7 +493,7 @@ html {
     font-weight: 800;
     margin-bottom: 4rem;
     margin-top: 4rem;
-    text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206, 89, 55, 0); }
+    text-shadow: -3px 3px 0px #826ad9, 1px 1px 1px rgba(206, 89, 55, 0); }
 
 .sectionContacto {
   background-color: #260259;
@@ -505,7 +505,7 @@ html {
     font-weight: 800;
     margin-bottom: 4rem;
     margin-top: 4rem;
-    text-shadow: -5px 5px 0px #826ad9, 2px 2px 2px rgba(206, 89, 55, 0); }
+    text-shadow: -3px 3px 0px #826ad9, 1px 1px 1px rgba(206, 89, 55, 0); }
   .sectionContacto .h3Custom {
     font-size: 1.2rem;
     text-align: center;
